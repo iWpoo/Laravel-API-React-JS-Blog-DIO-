@@ -1,0 +1,59 @@
+body {
+  margin: auto;
+}
+
+.head {
+  background: white;
+  margin-bottom: -5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.header {
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.DIO {
+  font-family: cursive;
+  font-size: 35px;
+  font-weight: bolder;
+}
+
+.schInput {
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: #EFEFEF;
+  border-radius: 5px;
+  width: 250px;
+}
+
+.icons {
+  width: 32px;
+  height: 32px;
+  color: black;
+  margin-left: 15px;
+}
+
+.hr {
+  border: 1px solid #DBDBDB;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* MAIN */
+.main {
+
+}
+
+.imgicon {
+  border: 1px solid black;
+  border-radius: 100%;
+}

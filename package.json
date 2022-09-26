@@ -1,0 +1,52 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.13.13",
+    "@popperjs/core": "^2.10.2",
+    "axios": "^0.25",
+    "bootstrap": "^5.1.3",
+    "laravel-mix": "^6.0.49",
+    "lodash": "^4.17.19",
+    "postcss": "^8.1.14",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.32.11",
+    "sass-loader": "^11.0.1"
+  },
+  "dependencies": {
+    "@ueaweb/laravel-react-csrf-input": "^0.1.5",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
+    "js": "^0.1.0",
+    "moment": "^2.29.1",
+    "params": "^0.1.1",
+    "pusher-js": "^7.0.6",
+    "react": "^17.0.2",
+    "react-router-dom": "^6.2.2",
+    "sweetalert2": "^11.4.6",
+    "ui": "^0.2.4",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.13",
+    "yarn": "^1.22.18"
+  },
+  "name": "dio",
+  "description": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\"></a></p>",
+  "version": "1.0.0",
+  "main": "webpack.mix.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
