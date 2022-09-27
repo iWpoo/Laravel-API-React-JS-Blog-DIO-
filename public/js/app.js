@@ -60887,7 +60887,6 @@ var EditProfile = function EditProfile() {
         localStorage.setItem('auth_name', res.data.username);
         localStorage.setItem('auth_image', res.data.image);
         localStorage.setItem('auth_id', res.data.id);
-        history('/profile/' + localStorage.getItem('auth_id'));
       } else if (res.data.status === 422) {
         setErrors(res.data.validate_err);
       }
@@ -60943,76 +60942,131 @@ var EditProfile = function EditProfile() {
 
   if (localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "block-edit-profile",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         children: errors
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         method: "post",
         encType: "multipart/form-data",
-        children: [isImg == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-          src: '/uploads/profiles/' + image,
-          width: "128",
-          height: "128"
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-          src: '/uploads/default/' + image,
-          width: "128",
-          height: "128"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "file",
-          name: "image",
-          onChange: function onChange(e) {
-            return setPicture({
-              image: e.target.files[0]
-            });
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "form-edit-profile",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "block-texts-username",
+          children: [isImg == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            src: '/uploads/profiles/' + image,
+            className: "image-edit-profile"
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            src: '/uploads/default/' + image,
+            className: "image-edit-profile"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "block-username",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "username-text",
+              children: username
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "file",
+              "class": "input input__file",
+              id: "input__file",
+              name: "image",
+              onChange: function onChange(e) {
+                return setPicture({
+                  image: e.target.files[0]
+                });
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              "class": "input__wrapper",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                "for": "input__file",
+                "class": "input__file-button",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                  "class": "input__file-button-text",
+                  children: "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0444\u043E\u0442\u043E \u043F\u0440\u043E\u0444\u0438\u043B\u044F"
+                })
+              })
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
           onClick: delImg,
           type: "submit",
           children: "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text",
-          onChange: function onChange(e) {
-            return setUsername(e.target.value);
-          },
-          value: username,
-          placeholder: "Username"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text",
-          onChange: function onChange(e) {
-            return setName(e.target.value);
-          },
-          value: name,
-          placeholder: "Name"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "email",
-          onChange: function onChange(e) {
-            return setEmail(e.target.value);
-          },
-          value: email,
-          placeholder: "Email"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text",
-          onChange: function onChange(e) {
-            return setSite(e.target.value);
-          },
-          value: site,
-          placeholder: "Site"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text",
-          onChange: function onChange(e) {
-            return setPhone(e.target.value);
-          },
-          value: phone,
-          placeholder: "Phone"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
-          onChange: function onChange(e) {
-            return setBio(e.target.value);
-          },
-          placeholder: "Bio",
-          value: bio
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          onClick: handleSubmit,
-          type: "submit",
-          children: "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "block-form",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "label-profile",
+            children: "\u0418\u043C\u044F"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            className: "input-edit",
+            type: "text",
+            onChange: function onChange(e) {
+              return setName(e.target.value);
+            },
+            value: name,
+            placeholder: "Name"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "label-profile",
+            children: "\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            className: "input-edit",
+            type: "text",
+            onChange: function onChange(e) {
+              return setUsername(e.target.value);
+            },
+            value: username,
+            placeholder: "Username"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "label-profile",
+            children: "\u0421\u0430\u0439\u0442"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            className: "input-edit",
+            type: "text",
+            onChange: function onChange(e) {
+              return setSite(e.target.value);
+            },
+            value: site,
+            placeholder: "Site"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "label-profile",
+            children: "\u041E \u0441\u0435\u0431\u0435"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+            className: "bio",
+            onChange: function onChange(e) {
+              return setBio(e.target.value);
+            },
+            placeholder: "Bio",
+            value: bio
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "personal-info-text",
+            children: "\u041B\u0438\u0447\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "personal-info-text-mini",
+            children: "\u042D\u0442\u0438 \u0441\u0432\u0435\u0434\u0435\u043D\u0438\u044F \u043D\u0435 \u0431\u0443\u0434\u0443\u0442 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C\u0441\u044F \u0432 \u0432\u0430\u0448\u0435\u043C \u043E\u0431\u0449\u0435\u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E\u043C \u043F\u0440\u043E\u0444\u0438\u043B\u0435."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "label-profile",
+            children: "\u042D\u043B. \u0430\u0434\u0440\u0435\u0441"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            className: "input-edit",
+            type: "email",
+            onChange: function onChange(e) {
+              return setEmail(e.target.value);
+            },
+            value: email,
+            placeholder: "Email"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "label-profile",
+            children: "\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            className: "input-edit",
+            type: "text",
+            onChange: function onChange(e) {
+              return setPhone(e.target.value);
+            },
+            value: phone,
+            placeholder: "Phone"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "btnEdit",
+            onClick: handleSubmit,
+            type: "submit",
+            children: "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
+          })]
         })]
       })]
     });
@@ -66860,7 +66914,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Auth {\n  background: white;\n  border: 1px solid #DBDBDB;\n  padding: 50px;\n  width: 260px;\n}\n\n.blockAuth {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n\n.toReg {\n  margin-top: 10px;\n  background: white;\n  border: 1px solid #DBDBDB;\n  padding: 13px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  width: 335px;\n  text-align: center;\n}\n\n.dio {\n  text-align: center;\n  font-size: 40px;\n  font-family: cursive;\n  font-weight: bold;\n  margin-bottom: 50px;\n}\n\n.username {\n  background: #FAFAFA;\n  width: 245px;\n  height: 30px;\n  outline: none;\n  border: none;\n  padding-left: 5px;\n  margin-bottom: 10px;\n  border: 1px solid #DBDBDB;\n}\n\n.password {\n  background: #FAFAFA;\n  width: 170px;\n  height: 30px;\n  outline: none;\n  border: none;\n  padding-left: 5px;\n  margin-bottom: 10px;\n  border: 1px solid #DBDBDB;\n  border-right: none;\n}\n\n.showBtn {\n  width: 75px;\n  height: 34px;\n  outline: none;\n  border: none;\n  border: 1px solid #DBDBDB;\n  background: #FAFAFA;\n  color: black;\n  font-weight: bold;\n  cursor: pointer;\n  border-left: none;\n}\n\n.btn {\n  color: white;\n  background-color: #0095F6;\n  width: 250px;\n  height: 30px;\n  font-size: 16px;\n  font-family: Arial;\n  font-weight: bold;\n  outline: none;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn:disabled {\n  background-color: #B2DFFC;\n}\n\n.forgotPass {\n  font-size: 14px;\n  color: #385185;\n}\n\n.textNoAcc {\n  font-family: Arial;\n  font-size: 15px;\n}\n\n.toRegText {\n  font-family: Arial;\n  font-size: 15px;\n  font-weight: bold;\n  color: #0095F6;\n}\n\n.error {\n  color: red;\n}\n\n\n/* Profile */\n.profile {\n  margin-top: 25px;\n  margin-bottom: 25px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 70%;\n  margin-left: 15%;\n}\n\n.blockInfo {\n  margin-left: 100px;\n}\n\n.avatarka {\n  border: 1px solid black;\n  border-radius: 100%;\n}\n\n.profile-username {\n  font-size: 26px;\n  font-family: Arial;\n  float: left;\n}\n\n.profile-name {\n  font-family: Arial;\n  font-size: 18px;\n  font-weight: bold;\n  margin-bottom: 3px;\n}\n\n.profile-bio {\n  font-family: Arial;\n  width: 95%;\n}\n\n.to-edit-profile {\n  border: 1px solid gray;\n  border-radius: 4px;\n  background-color: white;\n  color: black;\n  font-size: 15px;\n  font-family: Arial;\n  font-weight: bold;\n  cursor: pointer;\n  outline: none;\n  padding: 5px;\n  margin-left: 20px;\n}\n\n.hr {\n  border: 1px solid #DBDBDB;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Auth {\n  background: white;\n  border: 1px solid #DBDBDB;\n  padding: 50px;\n  width: 260px;\n}\n\n.blockAuth {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n\n.toReg {\n  margin-top: 10px;\n  background: white;\n  border: 1px solid #DBDBDB;\n  padding: 13px;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  width: 335px;\n  text-align: center;\n}\n\n.dio {\n  text-align: center;\n  font-size: 40px;\n  font-family: cursive;\n  font-weight: bold;\n  margin-bottom: 50px;\n}\n\n.username {\n  background: #FAFAFA;\n  width: 245px;\n  height: 30px;\n  outline: none;\n  border: none;\n  padding-left: 5px;\n  margin-bottom: 10px;\n  border: 1px solid #DBDBDB;\n}\n\n.password {\n  background: #FAFAFA;\n  width: 170px;\n  height: 30px;\n  outline: none;\n  border: none;\n  padding-left: 5px;\n  margin-bottom: 10px;\n  border: 1px solid #DBDBDB;\n  border-right: none;\n}\n\n.showBtn {\n  width: 75px;\n  height: 34px;\n  outline: none;\n  border: none;\n  border: 1px solid #DBDBDB;\n  background: #FAFAFA;\n  color: black;\n  font-weight: bold;\n  cursor: pointer;\n  border-left: none;\n}\n\n.btn {\n  color: white;\n  background-color: #0095F6;\n  width: 250px;\n  height: 30px;\n  font-size: 16px;\n  font-family: Arial;\n  font-weight: bold;\n  outline: none;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn:disabled {\n  background-color: #B2DFFC;\n}\n\n.forgotPass {\n  font-size: 14px;\n  color: #385185;\n}\n\n.textNoAcc {\n  font-family: Arial;\n  font-size: 15px;\n}\n\n.toRegText {\n  font-family: Arial;\n  font-size: 15px;\n  font-weight: bold;\n  color: #0095F6;\n}\n\n.error {\n  color: red;\n}\n\n\n/* Profile */\n.profile {\n  margin-top: 25px;\n  margin-bottom: 25px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 70%;\n  margin-left: 15%;\n}\n\n.blockInfo {\n  margin-left: 100px;\n}\n\n.avatarka {\n  border: 1px solid black;\n  border-radius: 100%;\n}\n\n.profile-username {\n  font-size: 26px;\n  font-family: Arial;\n  float: left;\n}\n\n.profile-name {\n  font-family: Arial;\n  font-size: 18px;\n  font-weight: bold;\n  margin-bottom: 3px;\n}\n\n.profile-bio {\n  font-family: Arial;\n  width: 95%;\n}\n\n.to-edit-profile {\n  border: 1px solid gray;\n  border-radius: 4px;\n  background-color: white;\n  color: black;\n  font-size: 15px;\n  font-family: Arial;\n  font-weight: bold;\n  cursor: pointer;\n  outline: none;\n  padding: 5px;\n  margin-left: 20px;\n}\n\n.hr {\n  border: 1px solid #DBDBDB;\n}\n\n\n/* Edit Profile */\n.block-edit-profile {\n  display: flex;\n  justify-content: center;\n}\n\n.form-edit-profile {\n  border: 1px solid #DBDBDB;\n  border-radius: 4px;\n  background-color: white;\n  margin-top: 25px;\n  padding: 100px;\n}\n\n.image-edit-profile {\n  width: 48px;\n  height: 48px;\n  border: 1px solid #DBDBDB;\n  border-radius: 100%;\n}\n\n.input__file {\n   display: none;\n}\n\n.input__file-button-text {\n  font-family: Arial;\n  font-weight: bold;\n  color: #0d6efd;\n  font-size: 14px;\n  cursor: pointer;\n  white-space: normal;\n}\n\n.username-text {\n  font-family: Arial;\n  font-size: 20px;\n}\n\n.block-texts-username {\n  display: flex;\n  align-items: center;\n}\n\n.block-form {\n  display: flex;\n  flex-direction: column;\n}\n\n.block-username {\n  margin-left: 30px;\n}\n\n.label-profile {\n  font-family: Arial;\n  font-weight: bold;\n  color: #212529;\n  margin-bottom: 5px;\n}\n\n.input-edit {\n  margin-bottom: 25px;\n  width: 340px;\n  height: 30px;\n  border: 1px solid #DBDBDB;\n  border-radius: 4px;\n  padding-left: 10px;\n  font-family: Arial;\n  font-size: 16px;\n}\n\n.bio {\n  margin-bottom: 25px;\n  width: 340px;\n  height: 50px;\n  border: 1px solid #DBDBDB;\n  border-radius: 4px;\n  padding-left: 10px;\n  font-family: Arial;\n  font-size: 16px;\n  resize: vertical;\n}\n\n.personal-info-text {\n  font-family: Arial;\n  font-weight: bold;\n  color: #6c757d;\n}\n\n.personal-info-text-mini {\n  color: #6c757d;\n  font-size: 14px;\n  font-family: Arial;\n  width: 340px;\n  margin-bottom: 10px;\n}\n\n.btnEdit {\n  font-weight: bold;\n  font-family: Arial;\n  font-size: 16px;\n  background: #0d6efd;\n  color: white;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n  width: 150px;\n  height: 40px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -66884,7 +66938,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: auto;\n}\n\n.head {\n  background: white;\n  margin-bottom: -5px;\n  padding-top: 5px;\n  padding-bottom: 5px;\n}\n\n.header {\n  \n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n}\n\n.DIO {\n  font-family: cursive;\n  font-size: 35px;\n  font-weight: bolder;\n}\n\n.schInput {\n  font-size: 16px;\n  padding: 10px;\n  border: none;\n  outline: none;\n  background: #EFEFEF;\n  border-radius: 5px;\n  width: 250px;\n}\n\n.icons {\n  width: 32px;\n  height: 32px;\n  color: black;\n  margin-left: 15px;\n}\n\n.hr {\n  border: 1px solid #DBDBDB;\n}\n\na {\n  text-decoration: none;\n  color: black;\n}\n\n/* MAIN */\n.main {\n\n}\n\n.imgicon {\n  border: 1px solid black;\n  border-radius: 100%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: auto;\n}\n\n.head {\n  background: white;\n  margin-bottom: -5px;\n  padding-top: 5px;\n  padding-bottom: 5px;\n}\n \n.header {\n\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n}\n\n.DIO {\n  font-family: cursive;\n  font-size: 35px;\n  font-weight: bolder;\n}\n\n.schInput {\n  font-size: 16px;\n  padding: 10px;\n  border: none;\n  outline: none;\n  background: #EFEFEF;\n  border-radius: 5px;\n  width: 250px;\n}\n\n.icons {\n  width: 32px;\n  height: 32px;\n  color: black;\n  margin-left: 15px;\n}\n\n.hr {\n  border: 1px solid #DBDBDB;\n}\n\na {\n  text-decoration: none;\n  color: black;\n}\n\n/* MAIN */\n.main {\n\n}\n\n.imgicon {\n  border: 1px solid black;\n  border-radius: 100%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

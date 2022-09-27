@@ -72,7 +72,7 @@ const EditProfile = () => {
               localStorage.setItem('auth_name', res.data.username);
               localStorage.setItem('auth_image', res.data.image);
               localStorage.setItem('auth_id', res.data.id);
-              history('/profile/'+localStorage.getItem('auth_id'));
+              
           }
           else if(res.data.status === 422) {
               setErrors(res.data.validate_err);
@@ -120,20 +120,41 @@ const EditProfile = () => {
 
 if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
   return (
-    <div>
+    <div className="block-edit-profile">
     <div>{errors}</div>
-    <form method="post" encType="multipart/form-data">
-    {isImg == true ? <img src={'/uploads/profiles/'+image} width="128" height="128" /> :
-    <img src={'/uploads/default/'+image} width="128" height="128" />}<br/>
-    <input type="file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
+    <form method="post" encType="multipart/form-data" className="form-edit-profile">
+    <div className="block-texts-username">
+        {isImg == true ? <img src={'/uploads/profiles/'+image} className="image-edit-profile" /> :
+        <img src={'/uploads/default/'+image} className="image-edit-profile" />}
+        <div className="block-username">
+        <span className="username-text">{username}</span>
+        <input type="file" class="input input__file" id="input__file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
+
+        <div class="input__wrapper">
+        <label for="input__file" class="input__file-button">
+            <span class="input__file-button-text">Изменить фото профиля</span>
+        </label>
+        </div>
+        </div>
+     </div>
     <button onClick={delImg} type="submit">Удалить изображение</button><br/>
-        <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Username" /><br/>
-        <input type="text" onChange={(e) => setName(e.target.value)}  value={name} placeholder="Name" /><br/>
-        <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Email" /><br/>
-        <input type="text" onChange={(e) => setSite(e.target.value)}  value={site} placeholder="Site" /><br/>
-        <input type="text" onChange={(e) => setPhone(e.target.value)} value={phone} placeholder="Phone" /><br/>
-        <textarea onChange={(e) => setBio(e.target.value)} placeholder="Bio" value={bio}></textarea><br/>
-        <button onClick={handleSubmit} type="submit">Редактировать</button>
+    <div className="block-form">
+        <label className="label-profile">Имя</label>
+        <input className="input-edit" type="text" onChange={(e) => setName(e.target.value)}  value={name} placeholder="Name" /><br/>
+        <label className="label-profile">Имя пользователя</label>
+        <input className="input-edit" type="text" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Username" /><br/>
+        <label className="label-profile">Сайт</label>
+        <input className="input-edit" type="text" onChange={(e) => setSite(e.target.value)}  value={site} placeholder="Site" /><br/>
+        <label className="label-profile">О себе</label>
+        <textarea className="bio" onChange={(e) => setBio(e.target.value)} placeholder="Bio" value={bio}></textarea><br/>
+        <div className="personal-info-text">Личная информация</div>
+        <div className="personal-info-text-mini">Эти сведения не будут показываться в вашем общедоступном профиле.</div>
+        <label className="label-profile">Эл. адрес</label>
+        <input className="input-edit" type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Email" /><br/>
+        <label className="label-profile">Номер телефона</label>
+        <input className="input-edit" type="text" onChange={(e) => setPhone(e.target.value)} value={phone} placeholder="Phone" /><br/>
+        <button className="btnEdit" onClick={handleSubmit} type="submit">Редактировать</button>
+    </div>
     </form>
     </div>
   );
