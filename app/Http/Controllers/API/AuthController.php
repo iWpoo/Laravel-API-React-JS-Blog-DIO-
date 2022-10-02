@@ -44,11 +44,49 @@ class AuthController extends Controller
 
     }
 
+    public function editImage(Request $request, $id) {
+        $validator = Validator::make($request->all(),[
+            'image'=>'',
+        ]);
+
+        if($validator->fails())
+        {
+            return response()->json([
+                'status'=> 422,
+                'validate_err'=> $validator->messages(),
+            ]);
+        }
+        else
+        {
+            $user = User::find($id);
+
+            if($request->hasFile('image')) {
+                $path = 'uploads/profiles/'.$user->image;
+                if(File::exists($path)) {
+                    File::delete($path);
+                }
+                $file = $request->file('image');
+                $extension = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $extension;
+                $file->move('uploads/profiles/', $filename);
+                $user->image = $filename;
+            }
+
+            $user->update();
+
+            return response()->json([
+                'status'=> 200,
+                'image'=>$user->image,
+                'message'=>'Данные обновлены.',
+            ]);
+        }
+    } 
+
     public function editUser(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
-            'username'=>'required|max:191',
-            'name'=>'required|max:191',
+            'username'=>'',
+            'name'=>'',
             'email'=>'email',
             'site'=>'',
             'phone'=>'',
@@ -72,25 +110,12 @@ class AuthController extends Controller
             $user->phone = $request->input('phone');
             $user->bio = $request->input('bio');
 
-            if($request->hasFile('image')) {
-                $path = 'uploads/profiles/'.$user->image;
-                if(File::exists($path)) {
-                    File::delete($path);
-                }
-                $file = $request->file('image');
-                $extension = $file->getClientOriginalExtension();
-                $filename = time() . '.' . $extension;
-                $file->move('uploads/profiles/', $filename);
-                $user->image = $filename;
-            }
-
             $user->update();
 
             return response()->json([
                 'status'=> 200,
                 'username'=>$user->username,
                 'id'=>$user->id,
-                'image'=>$user->image,
                 'message'=>'Данные обновлены.',
             ]);
         }

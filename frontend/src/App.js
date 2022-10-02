@@ -16,7 +16,12 @@ const App = () => {
   if(!localStorage.getItem('auth_token')) {
     AuthToken = (
       <div>
-          <Login />
+          <Routes>
+             <Route path="/" element={<Login />} />
+          </Routes>
+          <Routes>
+             <Route path="/register" element={<Register />} />
+          </Routes>
       </div>
     )
   } else {
@@ -37,10 +42,6 @@ const App = () => {
     <div className="App">
        <Router>
           {AuthToken}
-
-          <Routes>
-          <Route path="/register" element={<Register />} />
-          </Routes>
        </Router>
     </div>
   );

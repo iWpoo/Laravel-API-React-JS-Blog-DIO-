@@ -19,6 +19,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/profile/{id}', [AuthController::class, 'getUser']);
 Route::post('/edit-profile/{id}', [AuthController::class, 'editUser']);
 Route::post('/delete-profile-img/{id}', [AuthController::class, 'deleteUserImage']);
+Route::post('/edit-image/{id}', [AuthController::class, 'editImage']);
 
 Route::post('password/{id}', [AuthController::class, 'changePassword']);
 

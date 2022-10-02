@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone')->unique()->nullable();
             $table->string('image')->default('default.jpg');
             $table->string('bio')->nullable();
+            $table->string('token');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

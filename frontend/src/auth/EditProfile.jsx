@@ -59,7 +59,6 @@ const EditProfile = () => {
       e.preventDefault();
 
       const formData = new FormData();
-      formData.append('image', picture.image);
       formData.append('username', username);
       formData.append('name', name);
       formData.append('email', email);
@@ -70,15 +69,42 @@ const EditProfile = () => {
       axios.post(`/api/edit-profile/${localStorage.getItem('auth_id')}`, formData).then(res => {
           if(res.data.status === 200) {
               localStorage.setItem('auth_name', res.data.username);
-              localStorage.setItem('auth_image', res.data.image);
               localStorage.setItem('auth_id', res.data.id);
-              
+              window.location.reload();
           }
           else if(res.data.status === 422) {
               setErrors(res.data.validate_err);
           }
       });
   }
+
+  const [flip, setFlip] = useState(false);
+
+  const handleChangeImage = () => {
+    setFlip(true);
+  }
+
+  useEffect(() => {
+    if(flip == true) {
+      const formData = new FormData();
+      formData.append('image', picture.image);
+
+      axios.post(`http://localhost:8000/api/edit-image/${localStorage.getItem('auth_id')}`, formData).then(res => {
+          if(res.data.status === 200) {
+              localStorage.setItem('auth_image', res.data.image);
+              setFlip(false);
+              window.location.reload();
+          }
+          else if(res.data.status === 422) {
+              alert(res.data.validate_err);
+              setFlip(false);
+          }else {
+            alert('Problem');
+            setFlip(false);
+          }
+      });
+    }
+  });
 
   const [img, setImg] = useState('default.jpg');
 
@@ -100,9 +126,10 @@ const EditProfile = () => {
   }
 
   useEffect(() => {
-    if(site === 'null' || phone === 'null') {
+    if(site === 'null' || phone === 'null' || bio === 'null') {
       setSite('');
       setPhone('');
+      setBio('');
     }
   });
 
@@ -121,23 +148,32 @@ const EditProfile = () => {
 if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
   return (
     <div className="block-edit-profile">
-    <div>{errors}</div>
+    <div className="block-switch-elements">
+      <div className="li-list"><br/>
+        <div className="li-text active">Редактировать профиль</div><br/><br/>
+        <div className="li-text">Сменить пароль</div><br/><br/>
+        <div className="li-text">Конфиденциальность и безопасность</div><br/><br/>
+      </div>
+    </div>
+
     <form method="post" encType="multipart/form-data" className="form-edit-profile">
+    <div>{errors}</div>
     <div className="block-texts-username">
+        <label for="input__file">
         {isImg == true ? <img src={'/uploads/profiles/'+image} className="image-edit-profile" /> :
         <img src={'/uploads/default/'+image} className="image-edit-profile" />}
+        </label>
         <div className="block-username">
         <span className="username-text">{username}</span>
-        <input type="file" class="input input__file" id="input__file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
-
+        <input type="file" onInput={handleChangeImage} className="input input__file" id="input__file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
         <div class="input__wrapper">
-        <label for="input__file" class="input__file-button">
-            <span class="input__file-button-text">Изменить фото профиля</span>
+        <label for="input__file" className="input__file-button">
+          <span className="input__file-button-text">Изменить фото профиля</span>
         </label>
         </div>
         </div>
-     </div>
-    <button onClick={delImg} type="submit">Удалить изображение</button><br/>
+    </div><br/>
+    <div onClick={delImg} className="del-img-btn">Удалить изображение</div><br/>
     <div className="block-form">
         <label className="label-profile">Имя</label>
         <input className="input-edit" type="text" onChange={(e) => setName(e.target.value)}  value={name} placeholder="Name" /><br/>
@@ -153,6 +189,7 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
         <input className="input-edit" type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="Email" /><br/>
         <label className="label-profile">Номер телефона</label>
         <input className="input-edit" type="text" onChange={(e) => setPhone(e.target.value)} value={phone} placeholder="Phone" /><br/>
+        
         <button className="btnEdit" onClick={handleSubmit} type="submit">Редактировать</button>
     </div>
     </form>

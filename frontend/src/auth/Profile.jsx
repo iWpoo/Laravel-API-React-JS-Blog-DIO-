@@ -11,9 +11,9 @@ const Profile = () => {
       bio: '',
       image: '',
       token: '',
+      site: '',
+      phone: '',
   });
-
-  const [picture, setPicture] = useState([]);
 
   const {id} = useParams();
 
@@ -31,6 +31,38 @@ const Profile = () => {
 
   }, []);
 
+  const [image, setImage] = useState('');
+  const [bio, setBio] = useState('');
+  const [picture, setPicture] = useState([]);
+  const [errors, setErrors] = useState('');
+  const [flip, setFlip] = useState(false);
+
+  const handleChangeImage = () => {
+    setFlip(true);
+  }
+
+  useEffect(() => {
+    if(flip == true) {
+      const formData = new FormData();
+      formData.append('image', picture.image);
+
+      axios.post(`http://localhost:8000/api/edit-image/${localStorage.getItem('auth_id')}`, formData).then(res => {
+          if(res.data.status === 200) {
+              localStorage.setItem('auth_image', res.data.image);
+              setFlip(false);
+              window.location.reload();
+          }
+          else if(res.data.status === 422) {
+              alert(res.data.validate_err);
+              setFlip(false);
+          }else {
+            alert('Problem');
+            setFlip(false);
+          }
+      });
+    }
+  });
+
   const [isImg, setIsImg] = useState(true);
 
   useEffect(() => {
@@ -47,8 +79,11 @@ const Profile = () => {
   return (
     <div>
     <div className="profile">
+      <input type="file" onInput={handleChangeImage} className="input input__file" id="input__file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
+      <label for="input__file">
       {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
       <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
+      </label>
       <div className="blockInfo">
         <div className="profile-username">{userProfile.username}</div>
         <Link to={"/accounts/edit/"}><button className="to-edit-profile">Редактировать профиль</button></Link><br/><br/>

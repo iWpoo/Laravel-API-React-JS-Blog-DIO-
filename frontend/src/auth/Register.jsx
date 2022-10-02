@@ -9,8 +9,11 @@ const Register = () => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
   const [errors, setError] = useState([]);
+
+  let maxNumber = 999999999999999999;
+  let randomNumber = Math.floor((Math.random() * maxNumber) + 100000000000000000);
+  const [token, setToken] = useState(randomNumber);
   let CryptoJS = require("crypto-js");
   const tk = CryptoJS.AES.encrypt(token, 'my-secret-token').toString();
 
@@ -73,7 +76,6 @@ const Register = () => {
           <input type="text" name="username" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Имя пользователя" className="username" /><br/>
           <input type={type} name="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Пароль" className="password" />
           <button type="button" onClick={showPassword} className="showBtn">Показать</button><br/>
-          <input type="text" name="token" onChange={(e) => setToken(e.target.value)} value={token} className="username" />
           <button type="submit" className="btn" disabled={isDisabled}>Регистрация</button>
       </form><br/>
       </div>
