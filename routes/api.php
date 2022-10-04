@@ -21,7 +21,7 @@ Route::post('/edit-profile/{id}', [AuthController::class, 'editUser']);
 Route::post('/delete-profile-img/{id}', [AuthController::class, 'deleteUserImage']);
 Route::post('/edit-image/{id}', [AuthController::class, 'editImage']);
 
-Route::post('password/{id}', [AuthController::class, 'changePassword']);
+Route::post('/password/{id}', [AuthController::class, 'changePassword']);
 
 
 Route::middleware(['auth:sanctum'])->group(function () {

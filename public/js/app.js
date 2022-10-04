@@ -58416,8 +58416,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./frontend/node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.css */ "./frontend/src/App.css");
 /* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./css/style.css */ "./frontend/src/css/style.css");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "./frontend/node_modules/react-dom/index.js");
@@ -58427,7 +58427,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_Register__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./auth/Register */ "./frontend/src/auth/Register.jsx");
 /* harmony import */ var _auth_Profile__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./auth/Profile */ "./frontend/src/auth/Profile.jsx");
 /* harmony import */ var _auth_EditProfile__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./auth/EditProfile */ "./frontend/src/auth/EditProfile.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
+/* harmony import */ var _auth_ChangePassword__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./auth/ChangePassword */ "./frontend/src/auth/ChangePassword.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -58446,38 +58448,41 @@ var App = function App() {
   var AuthToken = '';
 
   if (!localStorage.getItem('auth_token')) {
-    AuthToken = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Routes, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+    AuthToken = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_auth_Login__WEBPACK_IMPORTED_MODULE_6__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Routes, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_auth_Register__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_auth_Register__WEBPACK_IMPORTED_MODULE_7__["default"], {})
         })
       })]
     });
   } else {
-    AuthToken = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("hr", {
+    AuthToken = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("hr", {
         className: "hr"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/profile/:id",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_auth_Profile__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_auth_Profile__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "/accounts/edit",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_auth_EditProfile__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_auth_EditProfile__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+          path: "/accounts/password/change/",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_auth_ChangePassword__WEBPACK_IMPORTED_MODULE_10__["default"], {})
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Main__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Main__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
     });
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
     className: "App",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.BrowserRouter, {
       children: AuthToken
     })
   });
@@ -58486,8 +58491,244 @@ var App = function App() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_3__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(App, {}), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_3__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(App, {}), document.getElementById('app'));
 }
+
+/***/ }),
+
+/***/ "./frontend/src/auth/ChangePassword.jsx":
+/*!**********************************************!*\
+  !*** ./frontend/src/auth/ChangePassword.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./frontend/node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var _css_auth_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/auth.css */ "./frontend/src/css/auth.css");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./frontend/node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+var ChangePassword = function ChangePassword() {
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      token = _useState2[0],
+      setToken = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(localStorage.getItem('auth_image')),
+      _useState4 = _slicedToArray(_useState3, 2),
+      image = _useState4[0],
+      setImage = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(localStorage.getItem('auth_name')),
+      _useState6 = _slicedToArray(_useState5, 2),
+      username = _useState6[0],
+      setUsername = _useState6[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://localhost:8000/api/profile/" + localStorage.getItem('auth_id')).then(function (res) {
+      if (res.data.status === 200) {
+        setToken(res.data.user.token);
+      } else if (res.data.status === 404) {
+        history('/');
+      }
+    });
+  }, []);
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      oldPass = _useState8[0],
+      setOldPass = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      newPass = _useState10[0],
+      setNewPass = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState12 = _slicedToArray(_useState11, 2),
+      confirmPass = _useState12[0],
+      setConfirmPass = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState14 = _slicedToArray(_useState13, 2),
+      isDisabled = _useState14[0],
+      setDisabled = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState16 = _slicedToArray(_useState15, 2),
+      error = _useState16[0],
+      setError = _useState16[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (oldPass.length >= 8 && newPass.length >= 8 && confirmPass.length >= 8) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  });
+
+  var handleChangePassword = function handleChangePassword(e) {
+    e.preventDefault();
+    var formData = new FormData();
+    formData.append('password', newPass);
+    var dpass = CryptoJS.AES.decrypt(localStorage.getItem('auth_info'), 'my-secret-personal-password');
+
+    if (oldPass != dpass.toString(CryptoJS.enc.Utf8)) {
+      setError('Неверный пароль.');
+    } else if (newPass === dpass.toString(CryptoJS.enc.Utf8)) {
+      setError('Новый пароль не должен соответствовать старому.');
+    } else if (newPass !== confirmPass) {
+      setError('Пароли не совпадают.');
+    } else {
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/password/".concat(localStorage.getItem('auth_id')), formData).then(function (res) {
+        if (res.data.status === 200) {
+          window.location.reload();
+        } else {
+          console.log('Не удалось изменить пароль.');
+        }
+      });
+    }
+  };
+
+  var CryptoJS = __webpack_require__(/*! crypto-js */ "./frontend/node_modules/crypto-js/index.js");
+
+  var tk = token;
+  var dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState18 = _slicedToArray(_useState17, 2),
+      isImg = _useState18[0],
+      setIsImg = _useState18[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (image == 'default.jpg') {
+      setIsImg(false);
+    }
+  });
+
+  if (localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "block-edit-profile",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "block-switch-elements",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "li-list",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+            to: "/accounts/edit/",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "li-text",
+              children: "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043F\u0440\u043E\u0444\u0438\u043B\u044C"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+            to: "/accounts/password/change/",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "li-text active",
+              children: "\u0421\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+            to: "/accounts/privacy_and_security/",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "li-text",
+              children: "\u041A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u0438 \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {})]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        method: "post",
+        className: "form-edit-profile",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "block-texts-username",
+          children: [isImg == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            src: '/uploads/profiles/' + image,
+            className: "image-edit-profile"
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            src: '/uploads/default/' + image,
+            className: "image-edit-profile"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "block-username",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "username-text",
+              children: username
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: error
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "block-form",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "label-profile",
+            children: "\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            className: "input-edit",
+            type: "text",
+            value: oldPass,
+            onChange: function onChange(e) {
+              return setOldPass(e.target.value);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "label-profile",
+            children: "\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            className: "input-edit",
+            type: "text",
+            value: newPass,
+            onChange: function onChange(e) {
+              return setNewPass(e.target.value);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "label-profile",
+            children: "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C \u043D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            className: "input-edit",
+            type: "text",
+            value: confirmPass,
+            onChange: function onChange(e) {
+              return setConfirmPass(e.target.value);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "btnEdit",
+            onClick: handleChangePassword,
+            disabled: isDisabled,
+            type: "submit",
+            children: "\u0421\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"
+          })]
+        })]
+      })]
+    });
+  } else {
+    history('/');
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ChangePassword);
 
 /***/ }),
 
@@ -58505,6 +58746,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./frontend/node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _css_auth_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/auth.css */ "./frontend/src/css/auth.css");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./frontend/node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
@@ -58688,20 +58930,33 @@ var EditProfile = function EditProfile() {
     }
   });
 
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState28 = _slicedToArray(_useState27, 2),
+      isDisabled = _useState28[0],
+      setDisabled = _useState28[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (username.length >= 3 && name.length >= 3) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  });
+
   var CryptoJS = __webpack_require__(/*! crypto-js */ "./frontend/node_modules/crypto-js/index.js");
 
   var tk = token;
   var dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
 
-  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-      _useState28 = _slicedToArray(_useState27, 2),
-      isImg = _useState28[0],
-      setIsImg = _useState28[1];
-
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(token),
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState30 = _slicedToArray(_useState29, 2),
-      text = _useState30[0],
-      setText = _useState30[1];
+      isImg = _useState30[0],
+      setIsImg = _useState30[1];
+
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(token),
+      _useState32 = _slicedToArray(_useState31, 2),
+      text = _useState32[0],
+      setText = _useState32[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (image == 'default.jpg') {
@@ -58716,15 +58971,24 @@ var EditProfile = function EditProfile() {
         className: "block-switch-elements",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "li-list",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "li-text active",
-            children: "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043F\u0440\u043E\u0444\u0438\u043B\u044C"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "li-text",
-            children: "\u0421\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "li-text",
-            children: "\u041A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u0438 \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C"
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+            to: "/accounts/edit/",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "li-text active",
+              children: "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043F\u0440\u043E\u0444\u0438\u043B\u044C"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+            to: "/accounts/password/change/",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "li-text",
+              children: "\u0421\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+            to: "/accounts/privacy_and_security/",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "li-text",
+              children: "\u041A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u0438 \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C"
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {})]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
@@ -58748,7 +59012,7 @@ var EditProfile = function EditProfile() {
             className: "block-username",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "username-text",
-              children: username
+              children: localStorage.getItem('auth_name')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
               type: "file",
               onInput: handleChangeImage,
@@ -58851,6 +59115,7 @@ var EditProfile = function EditProfile() {
             placeholder: "Phone"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             className: "btnEdit",
+            disabled: isDisabled,
             onClick: handleSubmit,
             type: "submit",
             children: "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
@@ -58953,7 +59218,7 @@ var Login = function Login(props) {
       setDisabled = _useState12[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (username.length >= 5 && password.length >= 8) {
+    if (username.length >= 3 && password.length >= 8) {
       setDisabled(false);
     } else {
       setDisabled(true);
@@ -58975,6 +59240,8 @@ var Login = function Login(props) {
           localStorage.setItem('auth_name', res.data.username);
           localStorage.setItem('auth_image', res.data.image);
           localStorage.setItem('auth_id', res.data.id);
+          var pass = CryptoJS.AES.encrypt(password, 'my-secret-personal-password').toString();
+          localStorage.setItem('auth_info', pass);
           window.location.reload();
         } else if (res.data.status === 401) {
           setError('Такого пользователя нету.');
@@ -66718,7 +66985,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Auth {\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 50px;\r\n  width: 260px;\r\n}\r\n\r\n.blockAuth {\r\n  display: flex;\r\n  justify-content: center;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.toReg {\r\n  margin-top: 10px;\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 13px;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\r\n  width: 335px;\r\n  text-align: center;\r\n}\r\n\r\n.dio {\r\n  text-align: center;\r\n  font-size: 40px;\r\n  font-family: cursive;\r\n  font-weight: bold;\r\n  margin-bottom: 50px;\r\n}\r\n\r\n.username {\r\n  background: #FAFAFA;\r\n  width: 245px;\r\n  height: 30px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n.password {\r\n  background: #FAFAFA;\r\n  width: 170px;\r\n  height: 30px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n  border-right: none;\r\n}\r\n\r\n.showBtn {\r\n  width: 75px;\r\n  height: 34px;\r\n  outline: none;\r\n  border: none;\r\n  border: 1px solid #DBDBDB;\r\n  background: #FAFAFA;\r\n  color: black;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  border-left: none;\r\n}\r\n\r\n.btn {\r\n  color: white;\r\n  background-color: #0095F6;\r\n  width: 250px;\r\n  height: 30px;\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btn:disabled {\r\n  background-color: #B2DFFC;\r\n}\r\n\r\n.forgotPass {\r\n  font-size: 14px;\r\n  color: #385185;\r\n}\r\n\r\n.textNoAcc {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n}\r\n\r\n.toRegText {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n  color: #0095F6;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n}\r\n\r\n\r\n/* Profile */\r\n.profile {\r\n  margin-top: 25px;\r\n  margin-bottom: 25px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 70%;\r\n  margin-left: 15%;\r\n}\r\n\r\n.blockInfo {\r\n  margin-left: 100px;\r\n}\r\n\r\n.avatarka {\r\n  border: 1px solid black;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.profile-username {\r\n  font-size: 26px;\r\n  font-family: Arial;\r\n  float: left;\r\n}\r\n\r\n.profile-name {\r\n  font-family: Arial;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  margin-bottom: 3px;\r\n}\r\n\r\n.profile-bio {\r\n  font-family: Arial;\r\n  width: 95%;\r\n}\r\n\r\n.to-edit-profile {\r\n  border: 1px solid gray;\r\n  border-radius: 4px;\r\n  background-color: white;\r\n  color: black;\r\n  font-size: 15px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  outline: none;\r\n  padding: 5px;\r\n  margin-left: 20px;\r\n}\r\n\r\n.hr {\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n/* Edit Profile */\r\n.block-edit-profile {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.form-edit-profile {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-top-left-radius: 0px;\r\n  border-bottom-left-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  padding: 30px 120px 30px 120px;\r\n}\r\n\r\n.block-switch-elements {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-right: none;\r\n  border-top-right-radius: 0px;\r\n  border-bottom-right-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  width: 235px;\r\n  padding-top: 5px;\r\n}\r\n\r\n.image-edit-profile {\r\n  width: 48px;\r\n  height: 48px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.input__file {\r\n   display: none;\r\n}\r\n\r\n.input__file-button-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #0d6efd;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.del-img-btn {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #DC3545;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.username-text {\r\n  font-family: Arial;\r\n  font-size: 20px;\r\n}\r\n\r\n.block-texts-username {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.block-form {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.block-username {\r\n  margin-left: 30px;\r\n}\r\n\r\n.label-profile {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #212529;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.input-edit {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 30px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n}\r\n\r\n.bio {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 50px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  padding-top: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  resize: vertical;\r\n}\r\n\r\n.personal-info-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #6c757d;\r\n}\r\n\r\n.personal-info-text-mini {\r\n  color: #6c757d;\r\n  font-size: 14px;\r\n  font-family: Arial;\r\n  width: 340px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.btnEdit {\r\n  font-weight: bold;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #0d6efd;\r\n  color: white;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 5px;\r\n  width: 150px;\r\n  height: 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.li-list {\r\n  margin-left: 25px;\r\n  padding: 0px 10px 10px 10px;\r\n}\r\n\r\n.li-text {\r\n  font-family: Arial;\r\n  color: #262626;\r\n  font-size: 15px;\r\n  cursor: pointer;\r\n}\r\n\r\n.active {\r\n  font-weight: bold;\r\n  text-decoration: underline;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Auth {\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 50px;\r\n  width: 260px;\r\n}\r\n\r\n.blockAuth {\r\n  display: flex;\r\n  justify-content: center;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.toReg {\r\n  margin-top: 10px;\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 13px;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\r\n  width: 335px;\r\n  text-align: center;\r\n}\r\n\r\n.dio {\r\n  text-align: center;\r\n  font-size: 40px;\r\n  font-family: cursive;\r\n  font-weight: bold;\r\n  margin-bottom: 50px;\r\n}\r\n\r\n.username {\r\n  background: #FAFAFA;\r\n  width: 245px;\r\n  height: 30px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n.password {\r\n  background: #FAFAFA;\r\n  width: 170px;\r\n  height: 30px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n  border-right: none;\r\n}\r\n\r\n.showBtn {\r\n  width: 75px;\r\n  height: 34px;\r\n  outline: none;\r\n  border: none;\r\n  border: 1px solid #DBDBDB;\r\n  background: #FAFAFA;\r\n  color: black;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  border-left: none;\r\n}\r\n\r\n.btn {\r\n  color: white;\r\n  background-color: #0095F6;\r\n  width: 250px;\r\n  height: 30px;\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btn:disabled {\r\n  background-color: #B2DFFC;\r\n}\r\n\r\n.forgotPass {\r\n  font-size: 14px;\r\n  color: #385185;\r\n}\r\n\r\n.textNoAcc {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n}\r\n\r\n.toRegText {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n  color: #0095F6;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n}\r\n\r\n\r\n/* Profile */\r\n.profile {\r\n  margin-top: 25px;\r\n  margin-bottom: 25px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 70%;\r\n  margin-left: 15%;\r\n}\r\n\r\n.blockInfo {\r\n  margin-left: 100px;\r\n}\r\n\r\n.avatarka {\r\n  border: 1px solid black;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.profile-username {\r\n  font-size: 26px;\r\n  font-family: Arial;\r\n  float: left;\r\n}\r\n\r\n.profile-name {\r\n  font-family: Arial;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  margin-bottom: 3px;\r\n}\r\n\r\n.profile-bio {\r\n  font-family: Arial;\r\n  width: 95%;\r\n}\r\n\r\n.to-edit-profile {\r\n  border: 1px solid gray;\r\n  border-radius: 4px;\r\n  background-color: white;\r\n  color: black;\r\n  font-size: 15px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  outline: none;\r\n  padding: 5px;\r\n  margin-left: 20px;\r\n}\r\n\r\n.hr {\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n/* Edit Profile */\r\n.block-edit-profile {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.form-edit-profile {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-top-left-radius: 0px;\r\n  border-bottom-left-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  padding: 30px 120px 30px 120px;\r\n}\r\n\r\n.block-switch-elements {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-right: none;\r\n  border-top-right-radius: 0px;\r\n  border-bottom-right-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  width: 235px;\r\n  padding-top: 5px;\r\n}\r\n\r\n.image-edit-profile {\r\n  width: 48px;\r\n  height: 48px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.input__file {\r\n   display: none;\r\n}\r\n\r\n.input__file-button-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #0d6efd;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.del-img-btn {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #DC3545;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.username-text {\r\n  font-family: Arial;\r\n  font-size: 20px;\r\n}\r\n\r\n.block-texts-username {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.block-form {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.block-username {\r\n  margin-left: 30px;\r\n}\r\n\r\n.label-profile {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #212529;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.input-edit {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 30px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.bio {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 50px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  padding-top: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  resize: vertical;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.personal-info-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #6c757d;\r\n}\r\n\r\n.personal-info-text-mini {\r\n  color: #6c757d;\r\n  font-size: 14px;\r\n  font-family: Arial;\r\n  width: 340px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.btnEdit {\r\n  font-weight: bold;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #0d6efd;\r\n  color: white;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 5px;\r\n  width: 150px;\r\n  height: 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btnEdit:disabled {\r\n  background-color: #B2DFFC;\r\n  cursor: default;\r\n}\r\n\r\n.li-list {\r\n  margin-left: 25px;\r\n  padding: 0px 10px 10px 10px;\r\n}\r\n\r\n.li-text {\r\n  font-family: Arial;\r\n  color: #262626;\r\n  font-size: 15px;\r\n  cursor: pointer;\r\n}\r\n\r\n.active {\r\n  font-weight: bold;\r\n  text-decoration: underline;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

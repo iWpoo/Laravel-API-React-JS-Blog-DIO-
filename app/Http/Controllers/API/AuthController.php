@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         return response()->json([
             'status'=> 200,
-            'message'=>'Пароль успешно был обновлен.',
+            'message'=>'Пароль успешно изменен.',
         ]);
     }
 

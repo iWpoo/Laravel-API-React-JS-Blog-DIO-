@@ -28,14 +28,12 @@ const Login = (props) => {
   const [isDisabled, setDisabled] = useState(true);
 
   useEffect(() => {
-    if(username.length >= 5 && password.length >= 8) {
+    if(username.length >= 3 && password.length >= 8) {
       setDisabled(false);
     }else {
       setDisabled(true);
     }
   });
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,6 +51,8 @@ const Login = (props) => {
             localStorage.setItem('auth_name', res.data.username);
             localStorage.setItem('auth_image', res.data.image);
             localStorage.setItem('auth_id', res.data.id);
+            const pass = CryptoJS.AES.encrypt(password, 'my-secret-personal-password').toString();
+            localStorage.setItem('auth_info', pass);
             window.location.reload();
         }
         else if(res.data.status === 401) {

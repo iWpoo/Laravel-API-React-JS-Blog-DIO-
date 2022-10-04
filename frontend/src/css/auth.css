@@ -260,6 +260,7 @@
   padding-left: 10px;
   font-family: Arial;
   font-size: 16px;
+  background: #FAFAFA;
 }
 
 .bio {
@@ -273,6 +274,7 @@
   font-family: Arial;
   font-size: 16px;
   resize: vertical;
+  background: #FAFAFA;
 }
 
 .personal-info-text {
@@ -301,6 +303,11 @@
   width: 150px;
   height: 40px;
   cursor: pointer;
+}
+
+.btnEdit:disabled {
+  background-color: #B2DFFC;
+  cursor: default;
 }
 
 .li-list {

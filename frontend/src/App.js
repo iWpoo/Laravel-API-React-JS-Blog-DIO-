@@ -9,6 +9,7 @@ import Login from './auth/Login';
 import Register from './auth/Register';
 import Profile from './auth/Profile';
 import EditProfile from './auth/EditProfile';
+import ChangePassword from './auth/ChangePassword';
 
 const App = () => {
   let AuthToken = '';
@@ -32,6 +33,7 @@ const App = () => {
         <Routes>
           <Route path="/profile/:id" element={<Profile/>} />
           <Route path="/accounts/edit" element={<EditProfile/>} />
+          <Route path="/accounts/password/change/" element={<ChangePassword/>} />
         </Routes>
         <Main />
     </div>

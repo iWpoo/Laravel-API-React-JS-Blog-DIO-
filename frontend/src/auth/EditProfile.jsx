@@ -133,6 +133,16 @@ const EditProfile = () => {
     }
   });
 
+  const [isDisabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    if(username.length >= 3 && name.length >= 3) {
+      setDisabled(false);
+    }else {
+      setDisabled(true);
+    }
+  });
+
   let CryptoJS = require("crypto-js");
   const tk = token;
   let dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
@@ -150,9 +160,9 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
     <div className="block-edit-profile">
     <div className="block-switch-elements">
       <div className="li-list"><br/>
-        <div className="li-text active">Редактировать профиль</div><br/><br/>
-        <div className="li-text">Сменить пароль</div><br/><br/>
-        <div className="li-text">Конфиденциальность и безопасность</div><br/><br/>
+        <Link to="/accounts/edit/"><div className="li-text active">Редактировать профиль</div></Link><br/><br/>
+        <Link to="/accounts/password/change/"><div className="li-text">Сменить пароль</div></Link><br/><br/>
+        <Link to="/accounts/privacy_and_security/"><div className="li-text">Конфиденциальность и безопасность</div></Link><br/><br/>
       </div>
     </div>
 
@@ -164,7 +174,7 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
         <img src={'/uploads/default/'+image} className="image-edit-profile" />}
         </label>
         <div className="block-username">
-        <span className="username-text">{username}</span>
+        <span className="username-text">{localStorage.getItem('auth_name')}</span>
         <input type="file" onInput={handleChangeImage} className="input input__file" id="input__file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
         <div class="input__wrapper">
         <label for="input__file" className="input__file-button">
@@ -190,7 +200,7 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
         <label className="label-profile">Номер телефона</label>
         <input className="input-edit" type="text" onChange={(e) => setPhone(e.target.value)} value={phone} placeholder="Phone" /><br/>
         
-        <button className="btnEdit" onClick={handleSubmit} type="submit">Редактировать</button>
+        <button className="btnEdit" disabled={isDisabled} onClick={handleSubmit} type="submit">Редактировать</button>
     </div>
     </form>
     </div>
