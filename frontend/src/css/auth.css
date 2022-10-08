@@ -326,3 +326,7 @@
   font-weight: bold;
   text-decoration: underline;
 }
+
+.btnReset {
+  width: 250px;
+}

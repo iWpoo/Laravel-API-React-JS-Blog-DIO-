@@ -2,6 +2,7 @@ import react, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 import '../css/auth.css';
 import axios from 'axios';
+import CryptoJS from 'crypto-js';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -10,12 +11,12 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setError] = useState([]);
-
+  
   let maxNumber = 999999999999999999;
   let randomNumber = Math.floor((Math.random() * maxNumber) + 100000000000000000);
-  const [token, setToken] = useState(randomNumber);
+  const [token, setToken] = useState(`${randomNumber}`);
   let CryptoJS = require("crypto-js");
-  const tk = CryptoJS.AES.encrypt(token, 'my-secret-token').toString();
+  let tk = CryptoJS.AES.encrypt(token, 'my-secret-token').toString();
 
   const [type, setType] = useState('');
   const [flip, setFlip] = useState(true);

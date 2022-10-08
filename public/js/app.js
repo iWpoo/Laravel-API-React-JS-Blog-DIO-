@@ -58688,7 +58688,7 @@ var ChangePassword = function ChangePassword() {
             children: "\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             className: "input-edit",
-            type: "text",
+            type: "password",
             value: oldPass,
             onChange: function onChange(e) {
               return setOldPass(e.target.value);
@@ -58698,7 +58698,7 @@ var ChangePassword = function ChangePassword() {
             children: "\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             className: "input-edit",
-            type: "text",
+            type: "password",
             value: newPass,
             onChange: function onChange(e) {
               return setNewPass(e.target.value);
@@ -58708,7 +58708,7 @@ var ChangePassword = function ChangePassword() {
             children: "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C \u043D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             className: "input-edit",
-            type: "text",
+            type: "password",
             value: confirmPass,
             onChange: function onChange(e) {
               return setConfirmPass(e.target.value);
@@ -59551,12 +59551,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./frontend/node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _css_auth_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/auth.css */ "./frontend/src/css/auth.css");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./frontend/node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! crypto-js */ "./frontend/node_modules/crypto-js/index.js");
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -59576,8 +59578,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Register = function Register() {
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
@@ -59607,7 +59610,7 @@ var Register = function Register() {
   var maxNumber = 999999999999999999;
   var randomNumber = Math.floor(Math.random() * maxNumber + 100000000000000000);
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(randomNumber),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("".concat(randomNumber)),
       _useState12 = _slicedToArray(_useState11, 2),
       token = _useState12[0],
       setToken = _useState12[1];
@@ -59672,17 +59675,17 @@ var Register = function Register() {
   };
 
   if (!localStorage.getItem('auth_token')) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "blockAuth",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "Auth",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "dio",
           children: "DIO"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
           onSubmit: handleSubmit,
           method: "post",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             type: "email",
             name: "email",
             onChange: function onChange(e) {
@@ -59691,7 +59694,7 @@ var Register = function Register() {
             value: email,
             placeholder: "\u042D\u043B. \u0430\u0434\u0440\u0435\u0441",
             className: "username"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             type: "text",
             name: "name",
             onChange: function onChange(e) {
@@ -59700,7 +59703,7 @@ var Register = function Register() {
             value: name,
             placeholder: "\u0418\u043C\u044F \u0438 \u0424\u0430\u043C\u0438\u043B\u0438\u044F",
             className: "username"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             type: "text",
             name: "username",
             onChange: function onChange(e) {
@@ -59709,7 +59712,7 @@ var Register = function Register() {
             value: username,
             placeholder: "\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F",
             className: "username"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             type: type,
             name: "password",
             onChange: function onChange(e) {
@@ -59718,24 +59721,24 @@ var Register = function Register() {
             value: password,
             placeholder: "\u041F\u0430\u0440\u043E\u043B\u044C",
             className: "password"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
             type: "button",
             onClick: showPassword,
             className: "showBtn",
             children: "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
             type: "submit",
             className: "btn",
             disabled: isDisabled,
             children: "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {})]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "toReg",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           className: "textNoAcc",
           children: "\u0415\u0441\u0442\u044C \u0430\u043A\u043A\u0430\u0443\u043D\u0442? "
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
           to: "/",
           className: "toRegText",
           children: "\u0412\u0445\u043E\u0434"
@@ -66985,7 +66988,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Auth {\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 50px;\r\n  width: 260px;\r\n}\r\n\r\n.blockAuth {\r\n  display: flex;\r\n  justify-content: center;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.toReg {\r\n  margin-top: 10px;\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 13px;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\r\n  width: 335px;\r\n  text-align: center;\r\n}\r\n\r\n.dio {\r\n  text-align: center;\r\n  font-size: 40px;\r\n  font-family: cursive;\r\n  font-weight: bold;\r\n  margin-bottom: 50px;\r\n}\r\n\r\n.username {\r\n  background: #FAFAFA;\r\n  width: 245px;\r\n  height: 30px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n.password {\r\n  background: #FAFAFA;\r\n  width: 170px;\r\n  height: 30px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n  border-right: none;\r\n}\r\n\r\n.showBtn {\r\n  width: 75px;\r\n  height: 34px;\r\n  outline: none;\r\n  border: none;\r\n  border: 1px solid #DBDBDB;\r\n  background: #FAFAFA;\r\n  color: black;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  border-left: none;\r\n}\r\n\r\n.btn {\r\n  color: white;\r\n  background-color: #0095F6;\r\n  width: 250px;\r\n  height: 30px;\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btn:disabled {\r\n  background-color: #B2DFFC;\r\n}\r\n\r\n.forgotPass {\r\n  font-size: 14px;\r\n  color: #385185;\r\n}\r\n\r\n.textNoAcc {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n}\r\n\r\n.toRegText {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n  color: #0095F6;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n}\r\n\r\n\r\n/* Profile */\r\n.profile {\r\n  margin-top: 25px;\r\n  margin-bottom: 25px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 70%;\r\n  margin-left: 15%;\r\n}\r\n\r\n.blockInfo {\r\n  margin-left: 100px;\r\n}\r\n\r\n.avatarka {\r\n  border: 1px solid black;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.profile-username {\r\n  font-size: 26px;\r\n  font-family: Arial;\r\n  float: left;\r\n}\r\n\r\n.profile-name {\r\n  font-family: Arial;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  margin-bottom: 3px;\r\n}\r\n\r\n.profile-bio {\r\n  font-family: Arial;\r\n  width: 95%;\r\n}\r\n\r\n.to-edit-profile {\r\n  border: 1px solid gray;\r\n  border-radius: 4px;\r\n  background-color: white;\r\n  color: black;\r\n  font-size: 15px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  outline: none;\r\n  padding: 5px;\r\n  margin-left: 20px;\r\n}\r\n\r\n.hr {\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n/* Edit Profile */\r\n.block-edit-profile {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.form-edit-profile {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-top-left-radius: 0px;\r\n  border-bottom-left-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  padding: 30px 120px 30px 120px;\r\n}\r\n\r\n.block-switch-elements {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-right: none;\r\n  border-top-right-radius: 0px;\r\n  border-bottom-right-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  width: 235px;\r\n  padding-top: 5px;\r\n}\r\n\r\n.image-edit-profile {\r\n  width: 48px;\r\n  height: 48px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.input__file {\r\n   display: none;\r\n}\r\n\r\n.input__file-button-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #0d6efd;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.del-img-btn {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #DC3545;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.username-text {\r\n  font-family: Arial;\r\n  font-size: 20px;\r\n}\r\n\r\n.block-texts-username {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.block-form {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.block-username {\r\n  margin-left: 30px;\r\n}\r\n\r\n.label-profile {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #212529;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.input-edit {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 30px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.bio {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 50px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  padding-top: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  resize: vertical;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.personal-info-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #6c757d;\r\n}\r\n\r\n.personal-info-text-mini {\r\n  color: #6c757d;\r\n  font-size: 14px;\r\n  font-family: Arial;\r\n  width: 340px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.btnEdit {\r\n  font-weight: bold;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #0d6efd;\r\n  color: white;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 5px;\r\n  width: 150px;\r\n  height: 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btnEdit:disabled {\r\n  background-color: #B2DFFC;\r\n  cursor: default;\r\n}\r\n\r\n.li-list {\r\n  margin-left: 25px;\r\n  padding: 0px 10px 10px 10px;\r\n}\r\n\r\n.li-text {\r\n  font-family: Arial;\r\n  color: #262626;\r\n  font-size: 15px;\r\n  cursor: pointer;\r\n}\r\n\r\n.active {\r\n  font-weight: bold;\r\n  text-decoration: underline;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Auth {\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 50px;\r\n  width: 260px;\r\n}\r\n\r\n.blockAuth {\r\n  display: flex;\r\n  justify-content: center;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.toReg {\r\n  margin-top: 10px;\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 13px;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\r\n  width: 335px;\r\n  text-align: center;\r\n}\r\n\r\n.dio {\r\n  text-align: center;\r\n  font-size: 40px;\r\n  font-family: cursive;\r\n  font-weight: bold;\r\n  margin-bottom: 50px;\r\n}\r\n\r\n.username {\r\n  background: #FAFAFA;\r\n  width: 245px;\r\n  height: 30px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n.password {\r\n  background: #FAFAFA;\r\n  width: 170px;\r\n  height: 30px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n  border-right: none;\r\n}\r\n\r\n.showBtn {\r\n  width: 75px;\r\n  height: 34px;\r\n  outline: none;\r\n  border: none;\r\n  border: 1px solid #DBDBDB;\r\n  background: #FAFAFA;\r\n  color: black;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  border-left: none;\r\n}\r\n\r\n.btn {\r\n  color: white;\r\n  background-color: #0095F6;\r\n  width: 250px;\r\n  height: 30px;\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btn:disabled {\r\n  background-color: #B2DFFC;\r\n}\r\n\r\n.forgotPass {\r\n  font-size: 14px;\r\n  color: #385185;\r\n}\r\n\r\n.textNoAcc {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n}\r\n\r\n.toRegText {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n  color: #0095F6;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n}\r\n\r\n\r\n/* Profile */\r\n.profile {\r\n  margin-top: 25px;\r\n  margin-bottom: 25px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 70%;\r\n  margin-left: 15%;\r\n}\r\n\r\n.blockInfo {\r\n  margin-left: 100px;\r\n}\r\n\r\n.avatarka {\r\n  border: 1px solid black;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.profile-username {\r\n  font-size: 26px;\r\n  font-family: Arial;\r\n  float: left;\r\n}\r\n\r\n.profile-name {\r\n  font-family: Arial;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  margin-bottom: 3px;\r\n}\r\n\r\n.profile-bio {\r\n  font-family: Arial;\r\n  width: 95%;\r\n}\r\n\r\n.to-edit-profile {\r\n  border: 1px solid gray;\r\n  border-radius: 4px;\r\n  background-color: white;\r\n  color: black;\r\n  font-size: 15px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  outline: none;\r\n  padding: 5px;\r\n  margin-left: 20px;\r\n}\r\n\r\n.hr {\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n/* Edit Profile */\r\n.block-edit-profile {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.form-edit-profile {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-top-left-radius: 0px;\r\n  border-bottom-left-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  padding: 30px 120px 30px 120px;\r\n}\r\n\r\n.block-switch-elements {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-right: none;\r\n  border-top-right-radius: 0px;\r\n  border-bottom-right-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  width: 235px;\r\n  padding-top: 5px;\r\n}\r\n\r\n.image-edit-profile {\r\n  width: 48px;\r\n  height: 48px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.input__file {\r\n   display: none;\r\n}\r\n\r\n.input__file-button-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #0d6efd;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.del-img-btn {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #DC3545;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.username-text {\r\n  font-family: Arial;\r\n  font-size: 20px;\r\n}\r\n\r\n.block-texts-username {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.block-form {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.block-username {\r\n  margin-left: 30px;\r\n}\r\n\r\n.label-profile {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #212529;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.input-edit {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 30px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.bio {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 50px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  padding-top: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  resize: vertical;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.personal-info-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #6c757d;\r\n}\r\n\r\n.personal-info-text-mini {\r\n  color: #6c757d;\r\n  font-size: 14px;\r\n  font-family: Arial;\r\n  width: 340px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.btnEdit {\r\n  font-weight: bold;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #0d6efd;\r\n  color: white;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 5px;\r\n  width: 150px;\r\n  height: 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btnEdit:disabled {\r\n  background-color: #B2DFFC;\r\n  cursor: default;\r\n}\r\n\r\n.li-list {\r\n  margin-left: 25px;\r\n  padding: 0px 10px 10px 10px;\r\n}\r\n\r\n.li-text {\r\n  font-family: Arial;\r\n  color: #262626;\r\n  font-size: 15px;\r\n  cursor: pointer;\r\n}\r\n\r\n.active {\r\n  font-weight: bold;\r\n  text-decoration: underline;\r\n}\r\n\r\n.btnReset {\r\n  width: 250px;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

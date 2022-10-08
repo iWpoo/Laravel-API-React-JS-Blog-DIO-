@@ -101,11 +101,11 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
       <div>{error}</div>
       <div className="block-form">
         <label className="label-profile">Старый пароль</label>
-        <input className="input-edit" type="text" value={oldPass} onChange={(e) => setOldPass(e.target.value)} /><br/>
+        <input className="input-edit" type="password" value={oldPass} onChange={(e) => setOldPass(e.target.value)} /><br/>
         <label className="label-profile">Новый пароль</label>
-        <input className="input-edit" type="text" value={newPass} onChange={(e) => setNewPass(e.target.value)} /><br/>
+        <input className="input-edit" type="password" value={newPass} onChange={(e) => setNewPass(e.target.value)} /><br/>
         <label className="label-profile">Подтвердить новый пароль</label>
-        <input className="input-edit" type="text" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)} /><br/>
+        <input className="input-edit" type="password" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)} /><br/>
         
         <button className="btnEdit" onClick={handleChangePassword} disabled={isDisabled} type="submit">Сменить пароль</button>
     </div>

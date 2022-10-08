@@ -23,7 +23,6 @@ Route::post('/edit-image/{id}', [AuthController::class, 'editImage']);
 
 Route::post('/password/{id}', [AuthController::class, 'changePassword']);
 
-
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 });

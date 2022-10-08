@@ -41,7 +41,7 @@ const Login = (props) => {
     const formData = new FormData();
     formData.append('username', username);
     formData.append('password', password);
-
+ 
     axios.get('http://localhost:8000/sanctum/csrf-cookie').then(response => {
     axios.post('http://localhost:8000/api/login', formData).then(res => {
         const token = res.data.token;

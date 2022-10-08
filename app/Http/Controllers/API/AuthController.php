@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 use File;
+use Cookie;
+use Illuminate\Mail\SentMessage;
 
 class AuthController extends Controller
 {
@@ -131,6 +134,7 @@ class AuthController extends Controller
                 'status'=> 200,
                 'user'=>$user,
                 'name'=>$user->name,
+                'is_changepass'=>$user->is_changepass,
             ]);
         }
         else
