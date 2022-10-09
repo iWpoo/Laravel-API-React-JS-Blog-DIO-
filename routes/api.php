@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\StudentController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\ProfileController;
 use App\Http\Controllers\ChatController;
 
 Route::get('/posts', [StudentController::class, 'index']);
@@ -14,14 +15,21 @@ Route::post('/update-posts/{id}', [StudentController::class, 'update']);
 Route::delete('/delete-posts/{id}', [StudentController::class, 'destroy']);
 Route::get('/search/{key}', [StudentController::class, 'search']);
 
+// AUTH
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/profile/{id}', [AuthController::class, 'getUser']);
-Route::post('/edit-profile/{id}', [AuthController::class, 'editUser']);
-Route::post('/delete-profile-img/{id}', [AuthController::class, 'deleteUserImage']);
-Route::post('/edit-image/{id}', [AuthController::class, 'editImage']);
 
-Route::post('/password/{id}', [AuthController::class, 'changePassword']);
+// PROFILE
+Route::get('/profile/{id}', [ProfileController::class, 'getUser']);
+Route::post('/edit-profile/{id}', [ProfileController::class, 'editUser']);
+Route::post('/delete-profile-img/{id}', [ProfileController::class, 'deleteUserImage']);
+Route::post('/edit-image/{id}', [ProfileController::class, 'editImage']);
+
+//Change Password
+Route::post('/password/{id}', [ProfileController::class, 'changePassword']);
+
+//Privacy
+Route::post('/privacy_and_security/{id}', [ProfileController::class, 'closeAccount']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);

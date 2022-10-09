@@ -13,6 +13,7 @@ const Profile = () => {
       token: '',
       site: '',
       phone: '',
+      closed: '',
   });
 
   const {id} = useParams();
@@ -96,6 +97,7 @@ const Profile = () => {
   );
   }
   else {
+    if(userProfile.closed != 'true') {
     return (
       <div>
       <div className="profile">
@@ -111,6 +113,24 @@ const Profile = () => {
       <hr className="hr" />
       </div>
     );
+    }else {
+      return (
+        <div>
+      <div className="profile">
+        {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
+        <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
+        <div className="blockInfo">
+          <div className="profile-username">{userProfile.username}</div>
+          <button className="subsrcibe">Подписаться</button><br/><br/>
+          <div className="profile-name">{userProfile.name}</div>
+          <div className="profile-bio">{userProfile.bio}</div>
+        </div>
+        <h3>Закрытый аккаунт</h3>
+      </div>
+      <hr className="hr" />
+      </div>
+      );
+    }
   }
 }
 

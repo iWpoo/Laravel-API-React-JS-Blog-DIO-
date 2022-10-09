@@ -330,3 +330,23 @@
 .btnReset {
   width: 250px;
 }
+
+.form-privacy-profile {
+  border: 1px solid #DBDBDB;
+  border-radius: 4px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background-color: white;
+  margin-top: 25px;
+  padding: 30px 120px 30px 50px;
+}
+
+.text-privacy {
+  font-family: Arial;
+  color: #262626;
+  font-size: 22px;
+}
+
+.disapear {
+  display: none;
+}

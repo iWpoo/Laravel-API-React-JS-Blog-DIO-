@@ -1,4 +1,4 @@
-import {react, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import './App.css';
 import './css/style.css';
@@ -10,6 +10,7 @@ import Register from './auth/Register';
 import Profile from './auth/Profile';
 import EditProfile from './auth/EditProfile';
 import ChangePassword from './auth/ChangePassword';
+import Privacy from './auth/Privacy';
 
 const App = () => {
   let AuthToken = '';
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/profile/:id" element={<Profile/>} />
           <Route path="/accounts/edit" element={<EditProfile/>} />
           <Route path="/accounts/password/change/" element={<ChangePassword/>} />
+          <Route path="/accounts/privacy_and_security/" element={<Privacy/>} />
         </Routes>
         <Main />
     </div>
