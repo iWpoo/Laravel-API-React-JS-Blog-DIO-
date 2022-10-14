@@ -149,6 +149,7 @@
 .profile-bio {
   font-family: Arial;
   width: 95%;
+  font-size: 16px;
 }
 
 .to-edit-profile {
@@ -349,4 +350,51 @@
 
 .disapear {
   display: none;
+}
+
+.block_flex_center_align {
+  display: flex;
+  align-items: center;
+}
+
+#closed {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+#text-for-closed {
+  font-size: 16px;
+}
+
+.blur {
+  filter: blur(5px);
+}
+
+.block-confirm {
+  position: absolute;
+  background-color: #282923;
+  color: white;
+  z-index: 1;
+  width: 350px;
+  height: 230px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 4px;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.text-confirm {
+  opacity: 1;
+  font-size: 18px;
+  font-family: Arial;
+  cursor: pointer;
+}
+
+.text-warning {
+  font-size: 16px;
+  font-family: Arial;
 }

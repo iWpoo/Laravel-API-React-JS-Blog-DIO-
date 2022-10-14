@@ -10,7 +10,6 @@ body {
 }
  
 .header {
-
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -29,7 +28,7 @@ body {
   outline: none;
   background: #EFEFEF;
   border-radius: 5px;
-  width: 250px;
+  width: 300px;
 }
 
 .icons {

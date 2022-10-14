@@ -169,7 +169,7 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
     <form method="post" encType="multipart/form-data" className="form-edit-profile">
     <div>{errors}</div>
     <div className="block-texts-username">
-        <label for="input__file">
+        <label htmlFor="input__file">
         {isImg == true ? <img src={'/uploads/profiles/'+image} className="image-edit-profile" /> :
         <img src={'/uploads/default/'+image} className="image-edit-profile" />}
         </label>
@@ -177,7 +177,7 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
         <span className="username-text">{localStorage.getItem('auth_name')}</span>
         <input type="file" onInput={handleChangeImage} className="input input__file" id="input__file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
         <div class="input__wrapper">
-        <label for="input__file" className="input__file-button">
+        <label htmlFor="input__file" className="input__file-button">
           <span className="input__file-button-text">Изменить фото профиля</span>
         </label>
         </div>
