@@ -2,6 +2,7 @@ import react, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams} from 'react-router-dom';
 import '../css/auth.css';
 import axios from 'axios';
+import {AiOutlineSetting} from 'react-icons/ai';
 
 const Profile = () => {
   const history = useNavigate();
@@ -72,6 +73,25 @@ const Profile = () => {
       }
   })
 
+  const logout = () => {
+    localStorage.clear();
+    history('/');
+    window.location.reload();
+  }
+
+  const [clsName, setClsName] = useState('disapear');
+  const [clsName2, setClsName2] = useState('');
+
+  const openSettings = () => {
+    setClsName('');
+    setClsName2('blur');
+  }
+
+  const cancel = () => {
+    setClsName('disapear');
+    setClsName2('');
+  }
+
   let CryptoJS = require("crypto-js");
   const tk = userProfile.token;
   let dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
@@ -79,7 +99,23 @@ const Profile = () => {
   if(localStorage.getItem('auth_id') === id) {
   return (
     <div>
-    <div className="profile">
+      <div className="block-center">
+      <div className={clsName}>
+      <div className="block-settings">
+        <div><br/>
+          <Link to="/accounts/password/change/"><div className="text-settings">Сменить пароль</div></Link>
+          <hr/>
+          <Link to="/accounts/privacy_and_security/"><div className="text-settings">Конфиденциальность и безопасность</div></Link>
+          <hr/>
+          <div className="text-settings" onClick={logout}>Выйти</div>
+          <hr/>
+          <div onClick={cancel} className="text-settings">Отмена</div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+    <div className={"profile " + clsName2}>
       <input type="file" onInput={handleChangeImage} className="input input__file" id="input__file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
       <label for="input__file">
       {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
@@ -87,7 +123,8 @@ const Profile = () => {
       </label>
       <div className="blockInfo">
         <div className="profile-username">{userProfile.username}</div>
-        <Link to={"/accounts/edit/"}><button className="to-edit-profile">Редактировать профиль</button></Link><br/><br/>
+        <Link to={"/accounts/edit/"}><button className="to-edit-profile">Редактировать профиль</button></Link>
+        <AiOutlineSetting className="icons" onClick={openSettings} /><br/><br/>
         <div className="profile-name">{userProfile.name}</div>
         <div className="profile-bio">{userProfile.bio}</div>
       </div>

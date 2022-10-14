@@ -68,7 +68,7 @@ const Register = () => {
   if(!localStorage.getItem('auth_token')) {
     return (
       <div className="blockAuth">
-      <div className="Auth">
+      <div className="borderAuth">
       <div className="dio">DIO</div>
 
       <form onSubmit={handleSubmit} method="post">
@@ -76,8 +76,8 @@ const Register = () => {
           <input type="text" name="name" onChange={(e) => setName(e.target.value)} value={name} placeholder="Имя и Фамилия" className="username" /><br/>
           <input type="text" name="username" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Имя пользователя" className="username" /><br/>
           <input type={type} name="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Пароль" className="password" />
-          <button type="button" onClick={showPassword} className="showBtn">Показать</button><br/>
-          <button type="submit" className="btn" disabled={isDisabled}>Регистрация</button>
+          <button type="button" onClick={showPassword} className="showBtn2">Показать</button><br/>
+          <button type="submit" className="btnAuth" disabled={isDisabled}>Регистрация</button>
       </form><br/>
       </div>
 

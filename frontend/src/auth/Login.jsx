@@ -68,16 +68,15 @@ const Login = (props) => {
 
   return (
     <div className="blockAuth">
-    <div className="Auth">
+    <div className="borderAuth">
     <div className="dio">DIO</div>
     <div className="error">{error}</div><br/>
     <form onSubmit={handleSubmit}>
         <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Имя пользователя" className="username" /><br/>
         <input type={type} onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Пароль" className="password" />
         <button type="button" onClick={showPassword} className="showBtn">Показать</button><br/>
-        <button type="submit" className="btn" disabled={isDisabled}>Войти</button>
+        <button type="submit" className="btnAuth" disabled={isDisabled}>Войти</button>
     </form><br/>
-    <a href="" className="forgotPass">Забыли пароль?</a><br/><br/>
     </div>
 
     <div className="toReg">

@@ -88,7 +88,8 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
       </div>
       </div>
       </div>
-        <div className={"block-edit-profile " + clsName2}>
+        
+      <div className={"block-edit-profile " + clsName2}>
         <div className="block-switch-elements">
           <div className="li-list"><br/>
             <Link to="/accounts/edit/"><div className="li-text">Редактировать профиль</div></Link><br/><br/>
@@ -103,7 +104,9 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
           <input type="checkbox" id="closed" onChange={checkedSubmit} checked={check}/>
           <label htmlFor="closed" id="text-for-closed">Закрытый аккаунт</label>
         </div>
-      </form>
+        <p className="gray-info-mini-text">Если у вас закрытый аккаунт, ваши фото и видео в DIO смогут видеть только люди, которых вы одобрите.</p>
+        <hr/>
+      </form> 
       </div>
     </div>
   );

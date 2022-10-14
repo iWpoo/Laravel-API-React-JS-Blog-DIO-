@@ -30,7 +30,6 @@ const App = () => {
     AuthToken = (
     <div>
         <Header />
-        <hr className="hr"/>
         <Routes>
           <Route path="/profile/:id" element={<Profile/>} />
           <Route path="/accounts/edit" element={<EditProfile/>} />
