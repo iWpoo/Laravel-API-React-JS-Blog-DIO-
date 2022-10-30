@@ -101,7 +101,7 @@
   cursor: pointer;
 }
 
-.btn:disabled {
+.btnAuth:disabled {
   background-color: #B2DFFC;
 }
 
@@ -178,6 +178,19 @@
   cursor: pointer;
   outline: none;
   padding: 5px;
+  margin-left: 20px;
+}
+
+.CountersBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.counter_text {
+  color: black;
+  font-family: Arial;
+  font-size: 17px;
   margin-left: 20px;
 }
 

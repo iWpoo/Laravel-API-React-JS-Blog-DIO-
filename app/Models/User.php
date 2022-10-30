@@ -28,6 +28,7 @@ class User extends Authenticatable
         'bio',
         'token',
         'password',
+        'is_private',
     ];
 
     /**

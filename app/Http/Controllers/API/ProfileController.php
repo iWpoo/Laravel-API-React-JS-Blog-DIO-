@@ -13,28 +13,14 @@ use File;
 class ProfileController extends Controller
 {
     public function closeAccount(Request $request, $id) {
-        $validator = Validator::make($request->all(),[
-            'closed'=>'required',
+        $user = User::find($id);
+        $user->is_private = $request->input('is_private');
+
+        $user->update();
+
+        return response()->json([
+            'status'=> 200,
         ]);
-
-        if($validator->fails())
-        {
-            return response()->json([
-                'status'=> 422,
-                'validate_err'=> $validator->messages(),
-            ]);
-        }
-        else
-        {
-            $user = User::find($id);
-            $user->closed = $request->input('closed');
-
-            $user->update();
-
-            return response()->json([
-                'status'=> 200,
-            ]);
-        }
     }
 
     public function changePassword(Request $request, $id) {
@@ -117,7 +103,7 @@ class ProfileController extends Controller
             'site'=>'',
             'phone'=>'',
             'bio'=>'',
-            'closed'=>'',
+            'is_private'=>'',
         ]);
 
         if($validator->fails())
@@ -136,7 +122,7 @@ class ProfileController extends Controller
             $user->site = $request->input('site');
             $user->phone = $request->input('phone');
             $user->bio = $request->input('bio');
-            $user->closed = $request->input('closed');
+            $user->is_private = $request->input('id_private');
 
             $user->update();
 
@@ -159,7 +145,6 @@ class ProfileController extends Controller
                 'status'=> 200,
                 'user'=>$user,
                 'name'=>$user->name,
-                'is_changepass'=>$user->is_changepass,
             ]);
         }
         else
@@ -169,6 +154,23 @@ class ProfileController extends Controller
                 'message' => 'Данный пользователь не найден.',
             ]);
         }
+    }
 
+    public function getAllUsers() {
+        $users = User::orderBy('id', 'DESC')->get();
+
+        if($users)
+        {
+            return response()->json([
+                'status'=> 200,
+                'users'=>$users,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+            ]);
+        }
     }
 }

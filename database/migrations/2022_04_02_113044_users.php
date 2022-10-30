@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('bio')->nullable();
             $table->string('token');
             $table->string('password');
-            $table->enum('closed', ['false', 'true'])->default('false');
+            $table->enum('is_private', ['false', 'true'])->default('false')->nullable();
             $table->timestamps();
         });
     }

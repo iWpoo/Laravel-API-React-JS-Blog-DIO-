@@ -176,7 +176,7 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
         <div className="block-username">
         <span className="username-text">{localStorage.getItem('auth_name')}</span>
         <input type="file" onInput={handleChangeImage} className="input input__file" id="input__file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
-        <div class="input__wrapper">
+        <div className="input__wrapper">
         <label htmlFor="input__file" className="input__file-button">
           <span className="input__file-button-text">Изменить фото профиля</span>
         </label>

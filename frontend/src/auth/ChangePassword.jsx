@@ -112,8 +112,6 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
     </form>
     </div>
   );
-} else {
-  history('/');
 }
 
 }

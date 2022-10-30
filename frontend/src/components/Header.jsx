@@ -31,10 +31,10 @@ const Header = () => {
             <Link to="/add-post"><AiOutlinePlusCircle className="icons" /></Link>
             <Link to="/explore"><AiOutlineCompass className="icons" /></Link>
             <Link to="/notification"><AiOutlineHeart className="icons" /></Link>
-            <Link to={"/profile/"+localStorage.getItem('auth_id')}>
+            <a href={"/profile/"+localStorage.getItem('auth_id')}>
             {isImg == true ? <img src={'/uploads/profiles/'+image} className="icons imgicon" /> :
             <img src={'/uploads/default/'+image} className="icons imgicon" />}
-            </Link>
+            </a>
             </div>
         </header>
     </div>

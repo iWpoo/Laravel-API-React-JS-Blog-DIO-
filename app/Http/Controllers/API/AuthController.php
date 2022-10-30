@@ -33,7 +33,6 @@ class AuthController extends Controller
                 'token'=>$request->token,
                 'password'=>Hash::make($request->password),
             ]);
-
             $user->save();
             return response()->json([
                 'status'=>200,

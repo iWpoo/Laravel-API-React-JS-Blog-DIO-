@@ -11,6 +11,7 @@ import Profile from './auth/Profile';
 import EditProfile from './auth/EditProfile';
 import ChangePassword from './auth/ChangePassword';
 import Privacy from './auth/Privacy';
+import AddPost from './posts/AddPost';
 
 const App = () => {
   let AuthToken = '';
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/accounts/edit" element={<EditProfile/>} />
           <Route path="/accounts/password/change/" element={<ChangePassword/>} />
           <Route path="/accounts/privacy_and_security/" element={<Privacy/>} />
+          <Route path="/add-post" element={<AddPost/>} />
         </Routes>
         <Main />
     </div>

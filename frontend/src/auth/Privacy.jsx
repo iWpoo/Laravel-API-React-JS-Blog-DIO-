@@ -18,7 +18,7 @@ const Privacy = () => {
           if(res.data.status === 200)
           {
             setToken(res.data.user.token);
-            if(res.data.user.closed === 'true') {
+            if(res.data.user.is_private === 'true') {
               setCheck(true);
               setClose(true);
               setTextWarning('Вашу страничку могут видеть все пользователи. Сделать аккаунт общедоступным?');
@@ -57,14 +57,11 @@ const Privacy = () => {
     e.preventDefault();
     
     const formData = new FormData();
-    formData.append('closed', closeUser);
+    formData.append('is_private', closeUser);
 
     axios.post(`/api/privacy_and_security/${localStorage.getItem('auth_id')}`, formData).then(res => {
       if(res.data.status === 200) {
         window.location.reload();
-      }
-      else if(res.data.status === 422) {
-        console.log(res.data.validate_err);
       }
     });
   }
