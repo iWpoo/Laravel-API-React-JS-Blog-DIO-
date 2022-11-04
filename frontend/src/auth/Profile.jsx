@@ -3,7 +3,8 @@ import {BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams} fr
 import '../css/auth.css';
 import axios from 'axios';
 import {AiOutlineSetting} from 'react-icons/ai';
-import Followers from './Followers';
+import Followers from './followers/Followers';
+import Following from './followers/Following';
 
 const Profile = (props) => {
   const history = useNavigate();
@@ -17,6 +18,10 @@ const Profile = (props) => {
       phone: '',
       closed: '',
   });
+
+  let CryptoJS = require("crypto-js");
+  const tk = userProfile.token;
+  let dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
 
 
   // Getting information about the users
@@ -84,6 +89,7 @@ const Profile = (props) => {
 
   const [users, setUsers] = useState([]);
   const [followers, setFollowers] = useState([]);
+  const [textBtnFollow, setTextBtnFollow] = useState('Подписаться');
 
   useEffect(() => {
       axios.get(`http://localhost:8000/api/users`).then( res => {
@@ -110,10 +116,11 @@ const Profile = (props) => {
 
   }, []);
   
-  
+  let boolean = false;
   let counter = 0;
   let str = String(counter);
-
+  let img = 'default';
+  let block = '';
   let viewMap = followers.map((item, index) => {
     if(id == item.user_id) {
       return (
@@ -122,8 +129,19 @@ const Profile = (props) => {
             users.map((el, index) => {
               if(item.follower_id === el.id) {
                 counter++;
+                block = (<div><a href={"/profile/"+el.id}><div className="fol_username_text">{el.username}</div></a><div className="fol_bio_text">{el.bio}</div></div>);
+                if(el.image != 'default.jpg') img = 'profiles';
+                else img = 'default';
+
+                if(localStorage.getItem('auth_id') == el.id) boolean = true;
+                
                 return (
-                  <div key={el.id}>{el.username}</div>
+                  <div key={el.id} className="followers_block">
+                    <img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} />
+                    <div className="block_followers_text">
+                      {counter != 0 ? block : 'Нету подписчиков...'}
+                    </div>
+                  </div>
                 )
               }
             })
@@ -140,14 +158,68 @@ const Profile = (props) => {
   if(counter > 99999999) counter = str[0] + str[1] + str[2] + 'M'; 
 
 
+
+  // Get following
+  let counter2 = 0;
+  let str2 = String(counter2);
+  let block2 = '';
+  let viewMap2 = followers.map((item, index) => {
+    if(id == item.follower_id) {
+      return (
+        <div key={item.id}>
+          {
+            users.map((el, index) => {
+              if(item.user_id === el.id) {
+                counter2++;
+                block2 = (<div><a href={"/profile/"+el.id}><div className="fol_username_text">{el.username}</div></a><div className="fol_bio_text">{el.bio}</div></div>);
+                if(el.image != 'default.jpg') img = 'profiles';
+                else img = 'default';
+                return (
+                  <div key={el.id} className="followers_block">
+                    <img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} />
+                    <div className="block_followers_text">
+                      {counter2 != 0 ? block2 : 'Нету подписок...'}
+                    </div>
+                  </div>
+                )
+              }
+            })
+          }
+        </div>
+      )
+    }
+  });
+
+  if(counter2 > 9999) counter2 = str[0]+str[1] + 'K'; 
+  if(counter2 > 99999) counter2 = str[0]+str[1]+str[2] + 'K'; 
+  if(counter2 > 999999) counter2 = str[0] + 'M'; 
+  if(counter2 > 9999999) counter2 = str[0] + str[1] + 'M'; 
+  if(counter2 > 99999999) counter2 = str[0] + str[1] + str[2] + 'M'; 
+  
+
+  const [followsOrNot1, setFollowsOrNot1] = useState('');
+  const [followsOrNot2, setFollowsOrNot2] = useState('disapear');
+  const [disable, setDisable] = useState(false);
+
+  useEffect(() => {
+    
+    if(boolean === true) {
+      setFollowsOrNot1('disapear');
+      setFollowsOrNot2('');
+    }else {
+      setFollowsOrNot1('');
+      setFollowsOrNot2('disapear');
+    }
+  })
+
   // Follow on user
 
-  const [textBtnFollow, setTextBtnFollow] = useState('Подписаться');
   const [follower_id, setFollowerId] = useState(localStorage.getItem('auth_id'));
   const [user_id, setUserId] = useState(id);
 
   const handleToFollow = (e) => {
     e.preventDefault();
+    setDisable(true);
 
     const formData = new FormData();
     formData.append('follower_id', follower_id);
@@ -177,29 +249,69 @@ const Profile = (props) => {
 
   const [clsName, setClsName] = useState('disapear');
   const [clsName2, setClsName2] = useState('');
+  const [clsName3, setClsName3] = useState('disapear');
+  const [clsName4, setClsName4] = useState('disapear');
 
   const openSettings = () => {
     setClsName('');
     setClsName2('blur');
   }
 
-  const cancel = () => {
-    setClsName('disapear');
-    setClsName2('');
+  // Open the followers list
+  const openList = () => {
+    setClsName3('');
+    setClsName2('blur');
   }
 
+  const openList2 = () => {
+    setClsName4('');
+    setClsName2('blur');
+  }
 
-  // Decrypt the token
-
-  let CryptoJS = require("crypto-js");
-  const tk = userProfile.token;
-  let dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
+  const cancel = () => {
+    if(clsName == '') {
+      setClsName('disapear');
+      setClsName2('');
+    }
+    if(clsName3 == '') {
+      setClsName3('disapear');
+      setClsName2('');
+    }
+    if(clsName4 == '') {
+      setClsName4('disapear');
+      setClsName2('');
+    }
+  }
 
   if(localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8) && localStorage.getItem('auth_id') == id) {
   return (
     <div>
+      <div className="block-center">
+      <div className={clsName3}>
+      <div className="block-followers">
+        <div onClick={cancel} className="xcancel">×</div>
+        <div className="text_subs">Подписчики</div>
+        <hr/>
+        <div>
+          <Followers followers={viewMap} />
+        </div>
+      </div>
+      </div>
+      </div>
+
+      <div className="block-center">
+      <div className={clsName4}>
+      <div className="block-followers">
+        <div onClick={cancel} className="xcancel">×</div>
+        <div className="text_subs">Подписки</div>
+        <hr/>
+        <div>
+          <Following followers={viewMap2} />
+        </div>
+      </div>
+      </div>
+      </div>
       
-      <Followers followers={viewMap} />
 
       <div className="block-center">
       <div className={clsName}>
@@ -227,12 +339,12 @@ const Profile = (props) => {
         <div className="profile-username">{userProfile.username}</div>
         <Link to={"/accounts/edit/"}><button className="to-edit-profile">Редактировать профиль</button></Link>
         <AiOutlineSetting className="icons" onClick={openSettings} /><br/><br/>
-
+ 
         <div className="CountersBlock">
-          <div className="counter_text"><b>345</b> публикаций</div>
-          <div className="counter_text"><b>{counter}</b> подписчиков</div>
-          <div className="counter_text"><b>500</b> подписок</div>
-        </div>
+          <div className="counter_text"><b>345</b> публикаций</div>&nbsp;&nbsp;&nbsp;
+          <div onClick={openList} className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
+          <div onClick={openList2} className="counter_text"><b>{counter2}</b> подписок</div>
+        </div><br/>
 
         <div className="profile-name">{userProfile.name}</div>
         <div className="profile-bio">{userProfile.bio}</div>
@@ -246,18 +358,47 @@ const Profile = (props) => {
     if(userProfile.closed != 'true') {
     return (
       <div>
+      
+      <div className="block-center">
+      <div className={clsName3}>
+      <div className="block-followers">
+        <div onClick={cancel} className="xcancel">×</div>
+        <div className="text_subs">Подписчики</div>
+        <hr/>
+        <div>
+          <Followers followers={viewMap} />
+        </div>
+      </div>
+      </div>
+      </div>
 
-      <div>{counter}</div>
-      <Followers followers={viewMap} />
+      <div className="block-center">
+      <div className={clsName4}>
+      <div className="block-followers">
+        <div onClick={cancel} className="xcancel">×</div>
+        <div className="text_subs">Подписки</div>
+        <hr/>
+        <div>
+          <Following followers={viewMap2} />
+        </div>
+      </div>
+      </div>
+      </div>
 
-      <div className="profile">
+      <div onClick={cancel} className={"profile " + clsName2}>
         {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
         <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
         <div className="blockInfo">
+          <div className="move_to_center">
           <div className="profile-username">{userProfile.username}</div>
-          <form method="post">
-            <button onClick={handleToFollow} className="subsrcibe">{textBtnFollow}</button><br/><br/>
-          </form>
+          <button onClick={handleToFollow} disabled={disable} className={"subsrcibe " + followsOrNot1}>Подписаться</button><br/><br/>
+          <button className={"subsrcibed " + followsOrNot2}>Написать</button><br/><br/>
+          </div>
+          <div className="CountersBlock">
+            <div className="counter_text"><b>345</b> публикаций</div>&nbsp;&nbsp;&nbsp;
+            <div onClick={openList} className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
+            <div onClick={openList2} className="counter_text"><b>{counter2}</b> подписок</div>
+          </div><br/>
           <div className="profile-name">{userProfile.name}</div>
           <div className="profile-bio">{userProfile.bio}</div>
         </div>
@@ -274,7 +415,11 @@ const Profile = (props) => {
         <div className="blockInfo">
           <div className="profile-username">{userProfile.username}</div>
           <button className="subsrcibe">Подписаться</button><br/><br/>
-          <div>{counter}</div>
+          <div className="CountersBlock">
+            <div className="counter_text"><b>345</b> публикаций</div>&nbsp;&nbsp;&nbsp;
+            <div className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
+            <div className="counter_text"><b>{counter2}</b> подписок</div>
+          </div><br/>
           <div className="profile-name">{userProfile.name}</div>
           <div className="profile-bio">{userProfile.bio}</div>
         </div>

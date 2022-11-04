@@ -45730,6 +45730,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var IconsManifest = [
   {
+    "id": "ci",
+    "name": "Circum Icons",
+    "projectUrl": "https://circumicons.com/",
+    "license": "MPL-2.0 license",
+    "licenseUrl": "https://github.com/Klarr-Agency/Circum-Icons/blob/main/LICENSE"
+  },
+  {
     "id": "fa",
     "name": "Font Awesome",
     "projectUrl": "https://fontawesome.com/",
@@ -45842,11 +45849,25 @@ var IconsManifest = [
     "licenseUrl": "https://opensource.org/licenses/MIT"
   },
   {
+    "id": "hi2",
+    "name": "Heroicons 2",
+    "projectUrl": "https://github.com/tailwindlabs/heroicons",
+    "license": "MIT",
+    "licenseUrl": "https://opensource.org/licenses/MIT"
+  },
+  {
     "id": "si",
     "name": "Simple Icons",
     "projectUrl": "https://simpleicons.org/",
     "license": "CC0 1.0 Universal",
     "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "sl",
+    "name": "Simple Line Icons",
+    "projectUrl": "https://thesabbir.github.io/simple-line-icons/",
+    "license": "MIT",
+    "licenseUrl": "https://opensource.org/licenses/MIT"
   },
   {
     "id": "im",
@@ -45880,6 +45901,13 @@ var IconsManifest = [
     "projectUrl": "https://github.com/tabler/tabler-icons",
     "license": "MIT",
     "licenseUrl": "https://opensource.org/licenses/MIT"
+  },
+  {
+    "id": "tfi",
+    "name": "Themify Icons",
+    "projectUrl": "https://github.com/lykmapipo/themify-icons",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/thecreation/standard-icons/blob/master/modules/themify-icons/LICENSE"
   }
 ]
 
@@ -59138,39 +59166,6 @@ var EditProfile = function EditProfile() {
 
 /***/ }),
 
-/***/ "./frontend/src/auth/Followers.jsx":
-/*!*****************************************!*\
-  !*** ./frontend/src/auth/Followers.jsx ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./frontend/node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _css_auth_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/auth.css */ "./frontend/src/css/auth.css");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./frontend/node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-var Followers = function Followers(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    children: props.followers
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Followers);
-
-/***/ }),
-
 /***/ "./frontend/src/auth/Login.jsx":
 /*!*************************************!*\
   !*** ./frontend/src/auth/Login.jsx ***!
@@ -59575,14 +59570,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./frontend/node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./frontend/node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _css_auth_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/auth.css */ "./frontend/src/css/auth.css");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./frontend/node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-icons/ai */ "./frontend/node_modules/react-icons/ai/index.esm.js");
-/* harmony import */ var _Followers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Followers */ "./frontend/src/auth/Followers.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-icons/ai */ "./frontend/node_modules/react-icons/ai/index.esm.js");
+/* harmony import */ var _followers_Followers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./followers/Followers */ "./frontend/src/auth/followers/Followers.jsx");
+/* harmony import */ var _followers_Following__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./followers/Following */ "./frontend/src/auth/followers/Following.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -59604,8 +59600,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Profile = function Profile(props) {
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     username: '',
@@ -59619,10 +59616,14 @@ var Profile = function Profile(props) {
   }),
       _useState2 = _slicedToArray(_useState, 2),
       userProfile = _useState2[0],
-      setUser = _useState2[1]; // Getting information about the users
+      setUser = _useState2[1];
 
+  var CryptoJS = __webpack_require__(/*! crypto-js */ "./frontend/node_modules/crypto-js/index.js");
 
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
+  var tk = userProfile.token;
+  var dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token'); // Getting information about the users
+
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useParams)(),
       id = _useParams.id;
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -59704,6 +59705,11 @@ var Profile = function Profile(props) {
       followers = _useState18[0],
       setFollowers = _useState18[1];
 
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Подписаться'),
+      _useState20 = _slicedToArray(_useState19, 2),
+      textBtnFollow = _useState20[0],
+      setTextBtnFollow = _useState20[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     axios__WEBPACK_IMPORTED_MODULE_2___default().get("http://localhost:8000/api/users").then(function (res) {
       if (res.data.status === 200) {
@@ -59720,16 +59726,42 @@ var Profile = function Profile(props) {
       }
     });
   }, []);
+  var _boolean = false;
   var counter = 0;
   var str = String(counter);
+  var img = 'default';
+  var block = '';
   var viewMap = followers.map(function (item, index) {
     if (id == item.user_id) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         children: users.map(function (el, index) {
           if (item.follower_id === el.id) {
             counter++;
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              children: el.username
+            block = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                href: "/profile/" + el.id,
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                  className: "fol_username_text",
+                  children: el.username
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "fol_bio_text",
+                children: el.bio
+              })]
+            });
+            if (el.image != 'default.jpg') img = 'profiles';else img = 'default';
+            if (localStorage.getItem('auth_id') == el.id) _boolean = true;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "followers_block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                className: "avatarka",
+                width: "48px",
+                height: "48px",
+                src: '/uploads/' + img + '/' + el.image
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "block_followers_text",
+                children: counter != 0 ? block : 'Нету подписчиков...'
+              })]
             }, el.id);
           }
         })
@@ -59740,25 +59772,91 @@ var Profile = function Profile(props) {
   if (counter > 99999) counter = str[0] + str[1] + str[2] + 'K';
   if (counter > 999999) counter = str[0] + 'M';
   if (counter > 9999999) counter = str[0] + str[1] + 'M';
-  if (counter > 99999999) counter = str[0] + str[1] + str[2] + 'M'; // Follow on user
+  if (counter > 99999999) counter = str[0] + str[1] + str[2] + 'M'; // Get following
 
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Подписаться'),
-      _useState20 = _slicedToArray(_useState19, 2),
-      textBtnFollow = _useState20[0],
-      setTextBtnFollow = _useState20[1];
+  var counter2 = 0;
+  var str2 = String(counter2);
+  var block2 = '';
+  var viewMap2 = followers.map(function (item, index) {
+    if (id == item.follower_id) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: users.map(function (el, index) {
+          if (item.user_id === el.id) {
+            counter2++;
+            block2 = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                href: "/profile/" + el.id,
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                  className: "fol_username_text",
+                  children: el.username
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "fol_bio_text",
+                children: el.bio
+              })]
+            });
+            if (el.image != 'default.jpg') img = 'profiles';else img = 'default';
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "followers_block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                className: "avatarka",
+                width: "48px",
+                height: "48px",
+                src: '/uploads/' + img + '/' + el.image
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "block_followers_text",
+                children: counter2 != 0 ? block2 : 'Нету подписок...'
+              })]
+            }, el.id);
+          }
+        })
+      }, item.id);
+    }
+  });
+  if (counter2 > 9999) counter2 = str[0] + str[1] + 'K';
+  if (counter2 > 99999) counter2 = str[0] + str[1] + str[2] + 'K';
+  if (counter2 > 999999) counter2 = str[0] + 'M';
+  if (counter2 > 9999999) counter2 = str[0] + str[1] + 'M';
+  if (counter2 > 99999999) counter2 = str[0] + str[1] + str[2] + 'M';
 
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(localStorage.getItem('auth_id')),
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState22 = _slicedToArray(_useState21, 2),
-      follower_id = _useState22[0],
-      setFollowerId = _useState22[1];
+      followsOrNot1 = _useState22[0],
+      setFollowsOrNot1 = _useState22[1];
 
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(id),
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('disapear'),
       _useState24 = _slicedToArray(_useState23, 2),
-      user_id = _useState24[0],
-      setUserId = _useState24[1];
+      followsOrNot2 = _useState24[0],
+      setFollowsOrNot2 = _useState24[1];
+
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState26 = _slicedToArray(_useState25, 2),
+      disable = _useState26[0],
+      setDisable = _useState26[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (_boolean === true) {
+      setFollowsOrNot1('disapear');
+      setFollowsOrNot2('');
+    } else {
+      setFollowsOrNot1('');
+      setFollowsOrNot2('disapear');
+    }
+  }); // Follow on user
+
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(localStorage.getItem('auth_id')),
+      _useState28 = _slicedToArray(_useState27, 2),
+      follower_id = _useState28[0],
+      setFollowerId = _useState28[1];
+
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(id),
+      _useState30 = _slicedToArray(_useState29, 2),
+      user_id = _useState30[0],
+      setUserId = _useState30[1];
 
   var handleToFollow = function handleToFollow(e) {
     e.preventDefault();
+    setDisable(true);
     var formData = new FormData();
     formData.append('follower_id', follower_id);
     formData.append('user_id', user_id);
@@ -59779,60 +59877,125 @@ var Profile = function Profile(props) {
   }; // Open/Close the Settings
 
 
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('disapear'),
-      _useState26 = _slicedToArray(_useState25, 2),
-      clsName = _useState26[0],
-      setClsName = _useState26[1];
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('disapear'),
+      _useState32 = _slicedToArray(_useState31, 2),
+      clsName = _useState32[0],
+      setClsName = _useState32[1];
 
-  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-      _useState28 = _slicedToArray(_useState27, 2),
-      clsName2 = _useState28[0],
-      setClsName2 = _useState28[1];
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState34 = _slicedToArray(_useState33, 2),
+      clsName2 = _useState34[0],
+      setClsName2 = _useState34[1];
+
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('disapear'),
+      _useState36 = _slicedToArray(_useState35, 2),
+      clsName3 = _useState36[0],
+      setClsName3 = _useState36[1];
+
+  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('disapear'),
+      _useState38 = _slicedToArray(_useState37, 2),
+      clsName4 = _useState38[0],
+      setClsName4 = _useState38[1];
 
   var openSettings = function openSettings() {
     setClsName('');
     setClsName2('blur');
+  }; // Open the followers list
+
+
+  var openList = function openList() {
+    setClsName3('');
+    setClsName2('blur');
+  };
+
+  var openList2 = function openList2() {
+    setClsName4('');
+    setClsName2('blur');
   };
 
   var cancel = function cancel() {
-    setClsName('disapear');
-    setClsName2('');
-  }; // Decrypt the token
+    if (clsName == '') {
+      setClsName('disapear');
+      setClsName2('');
+    }
 
+    if (clsName3 == '') {
+      setClsName3('disapear');
+      setClsName2('');
+    }
 
-  var CryptoJS = __webpack_require__(/*! crypto-js */ "./frontend/node_modules/crypto-js/index.js");
-
-  var tk = userProfile.token;
-  var dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
+    if (clsName4 == '') {
+      setClsName4('disapear');
+      setClsName2('');
+    }
+  };
 
   if (localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8) && localStorage.getItem('auth_id') == id) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Followers__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        followers: viewMap
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "block-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: clsName3,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "block-followers",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              onClick: cancel,
+              className: "xcancel",
+              children: "\xD7"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "text_subs",
+              children: "\u041F\u043E\u0434\u043F\u0438\u0441\u0447\u0438\u043A\u0438"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_followers_Followers__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                followers: viewMap
+              })
+            })]
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "block-center",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: clsName4,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "block-followers",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              onClick: cancel,
+              className: "xcancel",
+              children: "\xD7"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "text_subs",
+              children: "\u041F\u043E\u0434\u043F\u0438\u0441\u043A\u0438"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_followers_Following__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                followers: viewMap2
+              })
+            })]
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "block-center",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: clsName,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "block-settings",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
                 to: "/accounts/password/change/",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "text-settings",
                   children: "\u0421\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
                 to: "/accounts/privacy_and_security/",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "text-settings",
                   children: "\u041A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u0438 \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "text-settings",
                 onClick: logout,
                 children: "\u0412\u044B\u0439\u0442\u0438"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 onClick: cancel,
                 className: "text-settings",
                 children: "\u041E\u0442\u043C\u0435\u043D\u0430"
@@ -59840,9 +60003,9 @@ var Profile = function Profile(props) {
             })
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "profile " + clsName2,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
           type: "file",
           onInput: handleChangeImage,
           className: "input input__file",
@@ -59853,141 +60016,220 @@ var Profile = function Profile(props) {
               image: e.target.files[0]
             });
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
           htmlFor: "input__file",
-          children: isImg == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          children: isImg == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             className: "avatarka",
             src: '/uploads/profiles/' + userProfile.image,
             width: "150",
             height: "150"
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             className: "avatarka",
             src: '/uploads/default/' + userProfile.image,
             width: "150",
             height: "150"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "blockInfo",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "profile-username",
             children: userProfile.username
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
             to: "/accounts/edit/",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
               className: "to-edit-profile",
               children: "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043F\u0440\u043E\u0444\u0438\u043B\u044C"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_ai__WEBPACK_IMPORTED_MODULE_7__.AiOutlineSetting, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_ai__WEBPACK_IMPORTED_MODULE_8__.AiOutlineSetting, {
             className: "icons",
             onClick: openSettings
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "CountersBlock",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "counter_text",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
                 children: "345"
               }), " \u043F\u0443\u0431\u043B\u0438\u043A\u0430\u0446\u0438\u0439"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), "\xA0\xA0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              onClick: openList,
               className: "counter_text",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
                 children: counter
               }), " \u043F\u043E\u0434\u043F\u0438\u0441\u0447\u0438\u043A\u043E\u0432"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), "\xA0\xA0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              onClick: openList2,
               className: "counter_text",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
-                children: "500"
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+                children: counter2
               }), " \u043F\u043E\u0434\u043F\u0438\u0441\u043E\u043A"]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "profile-name",
             children: userProfile.name
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "profile-bio",
             children: userProfile.bio
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
         className: "hr"
       })]
     });
   } else {
     if (userProfile.closed != 'true') {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          children: counter
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Followers__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          followers: viewMap
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "profile",
-          children: [isImg == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "block-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: clsName3,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "block-followers",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                onClick: cancel,
+                className: "xcancel",
+                children: "\xD7"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "text_subs",
+                children: "\u041F\u043E\u0434\u043F\u0438\u0441\u0447\u0438\u043A\u0438"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_followers_Followers__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  followers: viewMap
+                })
+              })]
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "block-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: clsName4,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "block-followers",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                onClick: cancel,
+                className: "xcancel",
+                children: "\xD7"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "text_subs",
+                children: "\u041F\u043E\u0434\u043F\u0438\u0441\u043A\u0438"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_followers_Following__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  followers: viewMap2
+                })
+              })]
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          onClick: cancel,
+          className: "profile " + clsName2,
+          children: [isImg == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             className: "avatarka",
             src: '/uploads/profiles/' + userProfile.image,
             width: "150",
             height: "150"
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             className: "avatarka",
             src: '/uploads/default/' + userProfile.image,
             width: "150",
             height: "150"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "blockInfo",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "profile-username",
-              children: userProfile.username
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
-              method: "post",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "move_to_center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "profile-username",
+                children: userProfile.username
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 onClick: handleToFollow,
-                className: "subsrcibe",
-                children: textBtnFollow
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                disabled: disable,
+                className: "subsrcibe " + followsOrNot1,
+                children: "\u041F\u043E\u0434\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                className: "subsrcibed " + followsOrNot2,
+                children: "\u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {})]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "CountersBlock",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "counter_text",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+                  children: "345"
+                }), " \u043F\u0443\u0431\u043B\u0438\u043A\u0430\u0446\u0438\u0439"]
+              }), "\xA0\xA0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                onClick: openList,
+                className: "counter_text",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+                  children: counter
+                }), " \u043F\u043E\u0434\u043F\u0438\u0441\u0447\u0438\u043A\u043E\u0432"]
+              }), "\xA0\xA0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                onClick: openList2,
+                className: "counter_text",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+                  children: counter2
+                }), " \u043F\u043E\u0434\u043F\u0438\u0441\u043E\u043A"]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "profile-name",
               children: userProfile.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "profile-bio",
               children: userProfile.bio
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
           className: "hr"
         })]
       });
     } else {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "profile",
-          children: [isImg == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          children: [isImg == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             className: "avatarka",
             src: '/uploads/profiles/' + userProfile.image,
             width: "150",
             height: "150"
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             className: "avatarka",
             src: '/uploads/default/' + userProfile.image,
             width: "150",
             height: "150"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "blockInfo",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "profile-username",
               children: userProfile.username
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
               className: "subsrcibe",
               children: "\u041F\u043E\u0434\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              children: counter
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "CountersBlock",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "counter_text",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+                  children: "345"
+                }), " \u043F\u0443\u0431\u043B\u0438\u043A\u0430\u0446\u0438\u0439"]
+              }), "\xA0\xA0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "counter_text",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+                  children: counter
+                }), " \u043F\u043E\u0434\u043F\u0438\u0441\u0447\u0438\u043A\u043E\u0432"]
+              }), "\xA0\xA0\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "counter_text",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+                  children: counter2
+                }), " \u043F\u043E\u0434\u043F\u0438\u0441\u043E\u043A"]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "profile-name",
               children: userProfile.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "profile-bio",
               children: userProfile.bio
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
             children: "\u0417\u0430\u043A\u0440\u044B\u0442\u044B\u0439 \u0430\u043A\u043A\u0430\u0443\u043D\u0442"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
           className: "hr"
         })]
       });
@@ -60212,6 +60454,66 @@ var Register = function Register() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Register);
+
+/***/ }),
+
+/***/ "./frontend/src/auth/followers/Followers.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/src/auth/followers/Followers.jsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./frontend/node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./frontend/node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
+
+
+
+
+var Followers = function Followers(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: props.followers
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Followers);
+
+/***/ }),
+
+/***/ "./frontend/src/auth/followers/Following.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/src/auth/followers/Following.jsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./frontend/node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./frontend/node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./frontend/node_modules/react/jsx-runtime.js");
+
+
+
+
+var Followers = function Followers(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: props.followers
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Followers);
 
 /***/ }),
 
@@ -67555,7 +67857,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".borderAuth {\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 50px;\r\n  width: 350px;\r\n}\r\n\r\n.blockAuth {\r\n  display: flex;\r\n  justify-content: center;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.toReg {\r\n  margin-top: 10px;\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 13px;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\r\n  width: 350px;\r\n  text-align: center;\r\n}\r\n\r\n.dio {\r\n  text-align: center;\r\n  font-size: 40px;\r\n  font-family: cursive;\r\n  font-weight: bold;\r\n  margin-bottom: 50px;\r\n}\r\n\r\n.username {\r\n  background: #FAFAFA;\r\n  width: 245px;\r\n  height: 35px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n.password {\r\n  background: #FAFAFA;\r\n  width: 170px;\r\n  height: 35px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n  border-right: none;\r\n}\r\n\r\n.showBtn {\r\n  width: 75px;\r\n  height: 35px;\r\n  margin-top: 1px;\r\n  outline: none;\r\n  border: none;\r\n  border: 1px solid #DBDBDB;\r\n  background: #FAFAFA;\r\n  color: black;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  border-left: none;\r\n}\r\n\r\n.showBtn2 {\r\n  width: 75px;\r\n  height: 35px;\r\n  margin-top: 2px;\r\n  outline: none;\r\n  border: none;\r\n  border: 1px solid #DBDBDB;\r\n  background: #FAFAFA;\r\n  color: black;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  border-left: none;\r\n}\r\n\r\n.btnAuth {\r\n  color: white;\r\n  background-color: #0095F6;\r\n  width: 250px;\r\n  height: 32px;\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btnAuth:disabled {\r\n  background-color: #B2DFFC;\r\n}\r\n\r\n.forgotPass {\r\n  font-size: 14px;\r\n  color: #385185;\r\n}\r\n\r\n.textNoAcc {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n}\r\n\r\n.toRegText {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n  color: #0095F6;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n}\r\n\r\n\r\n/* Profile */\r\n.profile {\r\n  margin-top: 25px;\r\n  margin-bottom: 25px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 70%;\r\n  margin-left: 15%;\r\n}\r\n\r\n.blockInfo {\r\n  margin-left: 100px;\r\n}\r\n\r\n.avatarka {\r\n  border: 1px solid black;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.profile-username {\r\n  font-size: 26px;\r\n  font-family: Arial;\r\n  float: left;\r\n}\r\n\r\n.profile-name {\r\n  font-family: Arial;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  margin-bottom: 3px;\r\n}\r\n\r\n.profile-bio {\r\n  font-family: Arial;\r\n  width: 95%;\r\n  font-size: 16px;\r\n}\r\n\r\n.to-edit-profile {\r\n  border: 1px solid gray;\r\n  border-radius: 4px;\r\n  background-color: white;\r\n  color: black;\r\n  font-size: 15px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  outline: none;\r\n  padding: 5px;\r\n  margin-left: 20px;\r\n}\r\n\r\n.CountersBlock {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n}\r\n\r\n.counter_text {\r\n  color: black;\r\n  font-family: Arial;\r\n  font-size: 17px;\r\n  margin-left: 20px;\r\n}\r\n\r\n.hr {\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n/* Edit Profile */\r\n.block-edit-profile {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.form-edit-profile {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-top-left-radius: 0px;\r\n  border-bottom-left-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  padding: 30px 120px 30px 120px;\r\n}\r\n\r\n.block-switch-elements {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-right: none;\r\n  border-top-right-radius: 0px;\r\n  border-bottom-right-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  width: 235px;\r\n  padding-top: 5px;\r\n}\r\n\r\n.image-edit-profile {\r\n  width: 48px;\r\n  height: 48px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.input__file {\r\n   display: none;\r\n}\r\n\r\n.input__file-button-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #0d6efd;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.del-img-btn {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #DC3545;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.username-text {\r\n  font-family: Arial;\r\n  font-size: 20px;\r\n}\r\n\r\n.block-texts-username {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.block-form {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.block-username {\r\n  margin-left: 30px;\r\n}\r\n\r\n.label-profile {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #212529;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.input-edit {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 30px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.bio {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 50px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  padding-top: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  resize: vertical;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.personal-info-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #6c757d;\r\n}\r\n\r\n.personal-info-text-mini {\r\n  color: #6c757d;\r\n  font-size: 14px;\r\n  font-family: Arial;\r\n  width: 340px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.gray-info-mini-text {\r\n  color: #6c757d;\r\n  font-size: 14px;\r\n  font-family: Arial;\r\n  margin-bottom: 10px;\r\n  width: 500px;\r\n}\r\n\r\n.btnEdit {\r\n  font-weight: bold;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #0d6efd;\r\n  color: white;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 5px;\r\n  width: 150px;\r\n  height: 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btnEdit:disabled {\r\n  background-color: #B2DFFC;\r\n  cursor: default;\r\n}\r\n\r\n.li-list {\r\n  margin-left: 25px;\r\n  padding: 0px 10px 10px 10px;\r\n}\r\n\r\n.li-text {\r\n  font-family: Arial;\r\n  color: #262626;\r\n  font-size: 15px;\r\n  cursor: pointer;\r\n}\r\n\r\n.active {\r\n  font-weight: bold;\r\n  text-decoration: underline;\r\n}\r\n\r\n.btnReset {\r\n  width: 250px;\r\n}\r\n\r\n.form-privacy-profile {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-top-left-radius: 0px;\r\n  border-bottom-left-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  padding: 30px 120px 30px 50px;\r\n}\r\n\r\n.text-privacy {\r\n  font-family: Arial;\r\n  color: #262626;\r\n  font-size: 22px;\r\n}\r\n\r\n.disapear {\r\n  display: none;\r\n}\r\n\r\n.block_flex_center_align {\r\n  display: flex;\r\n  align-items: center;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n#closed {\r\n  width: 16px;\r\n  height: 16px;\r\n  margin-right: 10px;\r\n}\r\n\r\n#text-for-closed {\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n}\r\n\r\n.blur {\r\n  filter: blur(5px);\r\n}\r\n\r\n.block-confirm {\r\n  position: absolute;\r\n  background-color: #282923;\r\n  color: white;\r\n  z-index: 1;\r\n  width: 350px;\r\n  height: 230px;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  border: 1px solid black;\r\n  border-radius: 4px;\r\n  opacity: 0.9;\r\n  text-align: center;\r\n}\r\n\r\n.text-confirm {\r\n  opacity: 1;\r\n  font-size: 18px;\r\n  font-family: Arial;\r\n  cursor: pointer;\r\n}\r\n\r\n.text-warning {\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n}\r\n\r\n.block-settings {\r\n  position: absolute;\r\n  background-color: #282923;\r\n  color: white;\r\n  z-index: 1;\r\n  width: 350px;\r\n  height: 240px;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  border: 1px solid black;\r\n  border-radius: 4px;\r\n  opacity: 0.9;\r\n  text-align: center;\r\n}\r\n\r\n.text-settings {\r\n  opacity: 1;\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n  cursor: pointer;\r\n  color: white;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".borderAuth {\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 50px;\r\n  width: 350px;\r\n}\r\n\r\n.blockAuth {\r\n  display: flex;\r\n  justify-content: center;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.toReg {\r\n  margin-top: 10px;\r\n  background: white;\r\n  border: 1px solid #DBDBDB;\r\n  padding: 13px;\r\n  padding-top: 20px;\r\n  padding-bottom: 20px;\r\n  width: 350px;\r\n  text-align: center;\r\n}\r\n\r\n.dio {\r\n  text-align: center;\r\n  font-size: 40px;\r\n  font-family: cursive;\r\n  font-weight: bold;\r\n  margin-bottom: 50px;\r\n}\r\n\r\n.username {\r\n  background: #FAFAFA;\r\n  width: 245px;\r\n  height: 35px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n.password {\r\n  background: #FAFAFA;\r\n  width: 170px;\r\n  height: 35px;\r\n  outline: none;\r\n  border: none;\r\n  padding-left: 5px;\r\n  margin-bottom: 10px;\r\n  border: 1px solid #DBDBDB;\r\n  border-right: none;\r\n}\r\n\r\n.showBtn {\r\n  width: 75px;\r\n  height: 35px;\r\n  margin-top: 1px;\r\n  outline: none;\r\n  border: none;\r\n  border: 1px solid #DBDBDB;\r\n  background: #FAFAFA;\r\n  color: black;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  border-left: none;\r\n}\r\n\r\n.showBtn2 {\r\n  width: 75px;\r\n  height: 35px;\r\n  margin-top: 2px;\r\n  outline: none;\r\n  border: none;\r\n  border: 1px solid #DBDBDB;\r\n  background: #FAFAFA;\r\n  color: black;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  border-left: none;\r\n}\r\n\r\n.btnAuth {\r\n  color: white;\r\n  background-color: #0095F6;\r\n  width: 250px;\r\n  height: 32px;\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btnAuth:disabled {\r\n  background-color: #B2DFFC;\r\n}\r\n\r\n.forgotPass {\r\n  font-size: 14px;\r\n  color: #385185;\r\n}\r\n\r\n.textNoAcc {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n}\r\n\r\n.toRegText {\r\n  font-family: Arial;\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n  color: #0095F6;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n}\r\n\r\n\r\n/* Profile */\r\n.profile {\r\n  margin-top: 25px;\r\n  margin-bottom: 25px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 70%;\r\n  margin-left: 15%;\r\n}\r\n\r\n.blockInfo {\r\n  margin-left: 100px;\r\n}\r\n\r\n.avatarka {\r\n  border: 1px solid black;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.profile-username {\r\n  font-size: 26px;\r\n  font-family: Arial;\r\n  float: left;\r\n}\r\n\r\n.profile-name {\r\n  font-family: Arial;\r\n  font-size: 18px;\r\n  font-weight: bold;\r\n  margin-bottom: 3px;\r\n}\r\n\r\n.profile-bio {\r\n  font-family: Arial;\r\n  width: 95%;\r\n  font-size: 16px;\r\n}\r\n\r\n.to-edit-profile {\r\n  border: 1px solid gray;\r\n  border-radius: 4px;\r\n  background-color: white;\r\n  color: black;\r\n  font-size: 15px;\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n  outline: none;\r\n  padding: 5px;\r\n  margin-left: 20px;\r\n}\r\n\r\n.CountersBlock {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n}\r\n\r\n.counter_text {\r\n  color: black;\r\n  font-family: Arial;\r\n  font-size: 17px;\r\n}\r\n\r\n.hr {\r\n  border: 1px solid #DBDBDB;\r\n}\r\n\r\n/* Edit Profile */\r\n.block-edit-profile {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.form-edit-profile {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-top-left-radius: 0px;\r\n  border-bottom-left-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  padding: 30px 120px 30px 120px;\r\n}\r\n\r\n.block-switch-elements {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-right: none;\r\n  border-top-right-radius: 0px;\r\n  border-bottom-right-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  width: 235px;\r\n  padding-top: 5px;\r\n}\r\n\r\n.image-edit-profile {\r\n  width: 48px;\r\n  height: 48px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 100%;\r\n  cursor: pointer;\r\n}\r\n\r\n.input__file {\r\n   display: none;\r\n}\r\n\r\n.input__file-button-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #0d6efd;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.del-img-btn {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #DC3545;\r\n  font-size: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.username-text {\r\n  font-family: Arial;\r\n  font-size: 20px;\r\n}\r\n\r\n.block-texts-username {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.block-form {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.block-username {\r\n  margin-left: 30px;\r\n}\r\n\r\n.label-profile {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #212529;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.input-edit {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 30px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.bio {\r\n  margin-bottom: 25px;\r\n  width: 340px;\r\n  height: 50px;\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  padding-top: 10px;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  resize: vertical;\r\n  background: #FAFAFA;\r\n}\r\n\r\n.personal-info-text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  color: #6c757d;\r\n}\r\n\r\n.personal-info-text-mini {\r\n  color: #6c757d;\r\n  font-size: 14px;\r\n  font-family: Arial;\r\n  width: 340px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.gray-info-mini-text {\r\n  color: #6c757d;\r\n  font-size: 14px;\r\n  font-family: Arial;\r\n  margin-bottom: 10px;\r\n  width: 500px;\r\n}\r\n\r\n.btnEdit {\r\n  font-weight: bold;\r\n  font-family: Arial;\r\n  font-size: 16px;\r\n  background: #0d6efd;\r\n  color: white;\r\n  outline: none;\r\n  border: none;\r\n  border-radius: 5px;\r\n  width: 150px;\r\n  height: 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.btnEdit:disabled {\r\n  background-color: #B2DFFC;\r\n  cursor: default;\r\n}\r\n\r\n.li-list {\r\n  margin-left: 25px;\r\n  padding: 0px 10px 10px 10px;\r\n}\r\n\r\n.li-text {\r\n  font-family: Arial;\r\n  color: #262626;\r\n  font-size: 15px;\r\n  cursor: pointer;\r\n}\r\n\r\n.active {\r\n  font-weight: bold;\r\n  text-decoration: underline;\r\n}\r\n\r\n.btnReset {\r\n  width: 250px;\r\n}\r\n\r\n.form-privacy-profile {\r\n  border: 1px solid #DBDBDB;\r\n  border-radius: 4px;\r\n  border-top-left-radius: 0px;\r\n  border-bottom-left-radius: 0px;\r\n  background-color: white;\r\n  margin-top: 25px;\r\n  padding: 30px 120px 30px 50px;\r\n}\r\n\r\n.text-privacy {\r\n  font-family: Arial;\r\n  color: #262626;\r\n  font-size: 22px;\r\n}\r\n\r\n.disapear {\r\n  display: none;\r\n}\r\n\r\n.block_flex_center_align {\r\n  display: flex;\r\n  align-items: center;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n#closed {\r\n  width: 16px;\r\n  height: 16px;\r\n  margin-right: 10px;\r\n}\r\n\r\n#text-for-closed {\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n}\r\n\r\n.blur {\r\n  filter: blur(5px);\r\n}\r\n\r\n.block-confirm {\r\n  position: absolute;\r\n  background-color: #282923;\r\n  color: white;\r\n  z-index: 1;\r\n  width: 350px;\r\n  height: 230px;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  border: 1px solid black;\r\n  border-radius: 4px;\r\n  opacity: 0.9;\r\n  text-align: center;\r\n}\r\n\r\n.text-confirm {\r\n  opacity: 1;\r\n  font-size: 18px;\r\n  font-family: Arial;\r\n  cursor: pointer;\r\n}\r\n\r\n.text-warning {\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n}\r\n\r\n.block-settings {\r\n  position: absolute;\r\n  background-color: #282923;\r\n  color: white;\r\n  z-index: 1;\r\n  width: 350px;\r\n  height: 240px;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  border: 1px solid black;\r\n  border-radius: 4px;\r\n  opacity: 0.9;\r\n  text-align: center;\r\n}\r\n\r\n.block-followers {\r\n  position: absolute;\r\n  background-color: white;\r\n  color: black;\r\n  z-index: 1;\r\n  width: 350px;\r\n  height: 240px;\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  border: 1px solid black;\r\n  border-radius: 4px;\r\n  opacity: 1;\r\n  overflow: auto;\r\n}\r\n\r\n.text-settings {\r\n  opacity: 1;\r\n  font-size: 16px;\r\n  font-family: Arial;\r\n  cursor: pointer;\r\n  color: white;\r\n}\r\n\r\n.followers_block {\r\n  display: flex;\r\n  align-items: center;\r\n  margin-left: 20px;\r\n  margin-top: 20px;\r\n  cursor: pointer;\r\n}\r\n\r\n.block_followers_text { \r\n  margin-left: 10px;\r\n}\r\n\r\n.fol_username_text {\r\n  font-family: Arial;\r\n  font-weight: bold;\r\n  font-size: 16px;\r\n}\r\n\r\n.fol_bio_text {\r\n  font-family: Arial;\r\n  color: gray;\r\n}\r\n\r\n.text_subs {\r\n  font-family: Arial;\r\n  font-size: 18px;\r\n  margin-left: 20px;\r\n  margin-top: 20px;\r\n}\r\n\r\n.xcancel {\r\n  font-size: 25px;\r\n  float: right;\r\n  margin-right: 20px;\r\n  margin-top: 13px;\r\n  cursor: pointer;\r\n}\r\n\r\n.subsrcibe {\r\n  background: #0095F6;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n  font-family: Arial;\r\n  border-radius: 4px;\r\n  width: 150px;\r\n  height: 30px;\r\n  margin-left: 30px;\r\n}\r\n\r\n.subsrcibed {\r\n  background: white;\r\n  outline: none;\r\n  border: 1px solid #DBDBDB;\r\n  color: black;\r\n  font-size: 15px;\r\n  font-weight: bold;\r\n  font-family: Arial;\r\n  border-radius: 4px;\r\n  width: 150px;\r\n  height: 30px;\r\n  margin-left: 30px;\r\n}\r\n\r\n.move_to_center {\r\n  display: flex;\r\n  align-items: center;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
