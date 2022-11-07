@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
 import './css/style.css';
 import ReactDOM from 'react-dom';
@@ -14,6 +15,7 @@ import Privacy from './auth/Privacy';
 import AddPost from './posts/AddPost';
 
 const App = () => {
+
   let AuthToken = '';
 
   if(!localStorage.getItem('auth_token')) {
@@ -32,7 +34,7 @@ const App = () => {
     <div>
         <Header />
         <Routes>
-          <Route path="/profile/:id" element={<Profile/>} />
+          <Route path="/profile/:id" element={<Profile />} />
           <Route path="/accounts/edit" element={<EditProfile/>} />
           <Route path="/accounts/password/change/" element={<ChangePassword/>} />
           <Route path="/accounts/privacy_and_security/" element={<Privacy/>} />

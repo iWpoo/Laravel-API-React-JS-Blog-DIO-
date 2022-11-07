@@ -40,3 +40,4 @@ Route::post('/privacy_and_security/{id}', [ProfileController::class, 'closeAccou
 // Followers system
 Route::get('/followers', [FollowsController::class, 'followUsers']);
 Route::post('/tofollow', [FollowsController::class, 'toFollow']);
+Route::delete('/unfollow/{id}', [FollowsController::class, 'unFollow']);

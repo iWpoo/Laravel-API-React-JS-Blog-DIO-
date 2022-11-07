@@ -12,7 +12,8 @@ use File;
 
 class ProfileController extends Controller
 {
-    public function closeAccount(Request $request, $id) {
+    public function closeAccount(Request $request, $id) 
+    {
         $user = User::find($id);
         $user->is_private = $request->input('is_private');
 
@@ -23,7 +24,8 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function changePassword(Request $request, $id) {
+    public function changePassword(Request $request, $id) 
+    {
         $user = User::find($id);
 
         $user->password = Hash::make($request->input('password'));
@@ -36,7 +38,8 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function deleteUserImage(Request $request, $id) {
+    public function deleteUserImage(Request $request, $id) 
+    {
         $user = User::find($id);
 
         $path = 'uploads/profiles/'.$user->image;
@@ -56,7 +59,8 @@ class ProfileController extends Controller
 
     }
 
-    public function editImage(Request $request, $id) {
+    public function editImage(Request $request, $id) 
+    {
         $validator = Validator::make($request->all(),[
             'image'=>'',
         ]);
@@ -97,9 +101,9 @@ class ProfileController extends Controller
     public function editUser(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
-            'username'=>'',
-            'name'=>'',
-            'email'=>'email',
+            'username'=>'required|min:3|max:55|unique:users',
+            'name'=>'max:55',
+            'email'=>'email|unique:users',
             'site'=>'',
             'phone'=>'',
             'bio'=>'',
@@ -122,7 +126,7 @@ class ProfileController extends Controller
             $user->site = $request->input('site');
             $user->phone = $request->input('phone');
             $user->bio = $request->input('bio');
-            $user->is_private = $request->input('id_private');
+            $user->is_private = $request->input('is_private');
 
             $user->update();
 
@@ -135,7 +139,8 @@ class ProfileController extends Controller
         }
     }
 
-    public function getUser($id) {
+    public function getUser($id) 
+    {
 
         $user = User::find($id);
 
@@ -156,7 +161,8 @@ class ProfileController extends Controller
         }
     }
 
-    public function getAllUsers() {
+    public function getAllUsers() 
+    {
         $users = User::orderBy('id', 'DESC')->get();
 
         if($users)

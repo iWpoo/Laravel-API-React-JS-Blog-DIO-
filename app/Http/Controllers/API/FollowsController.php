@@ -9,7 +9,8 @@ use App\Models\User;
 
 class FollowsController extends Controller
 {
-    public function followUsers() {
+    public function followUsers() 
+    {
         $followers = Follower::orderBy('id', 'DESC')->get();
 
         if($followers)
@@ -27,7 +28,8 @@ class FollowsController extends Controller
         }
     }
 
-    public function toFollow(Request $request) {
+    public function toFollow(Request $request) 
+    {
         $follow = new Follower;
         $follow->follower_id = $request->follower_id;
         $follow->user_id = $request->user_id;
@@ -38,6 +40,13 @@ class FollowsController extends Controller
         ]);
     }
 
+    public function unFollow($id) 
+    {
+        $follow = Follower::find($id);
+        $follow->delete();
 
-
+        return response()->json([
+            'status' => 200,
+        ]);
+    } 
 }
