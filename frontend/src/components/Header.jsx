@@ -9,14 +9,14 @@ AiOutlinePlusCircle, AiFillPlusCircle,
 AiOutlineCompass, AiFillCompass,
 AiOutlineHeart, AiFillHeart} from 'react-icons/ai';
 
-const Header = () => {
+const Header = (props) => {
   const [image, setImage] = useState(localStorage.getItem('auth_image'));
 
   const [isImg, setIsImg] = useState(true);
 
   useEffect(() => {
       if(image == 'default.jpg') {
-          setIsImg(false);
+        setIsImg(false);
       }
   })
 
@@ -28,7 +28,7 @@ const Header = () => {
             <div className="iconsBlock">
             <Link to="/"><AiOutlineHome className="icons"/></Link>
             <Link to="/direct/inbox/"><AiOutlineMessage className="icons" /></Link>
-            <Link to="/add-post"><AiOutlinePlusCircle className="icons" /></Link>
+            <AiOutlinePlusCircle className="icons" onClick={handleToAddPost} />
             <Link to="/explore"><AiOutlineCompass className="icons" /></Link>
             <Link to="/notification"><AiOutlineHeart className="icons" /></Link>
             <a href={"/profile/"+localStorage.getItem('auth_id')}>

@@ -166,7 +166,7 @@ const Profile = (props) => {
                 if(el.image != 'default.jpg') img = 'profiles';
                 else img = 'default';  
 
-                dtk2 = CryptoJS.AES.decrypt(el.token, 'my-secret-token')
+                dtk2 = CryptoJS.AES.decrypt(el.token, 'my-secret-token');
   
                 if(dtk2.toString(CryptoJS.enc.Utf8) == localStorage.getItem('auth_token')) boolean = true;
                 
@@ -243,11 +243,11 @@ const Profile = (props) => {
     }
   });
 
-  if(counter2 > 9999) counter2 = str[0]+str[1] + 'K'; 
-  if(counter2 > 99999) counter2 = str[0]+str[1]+str[2] + 'K'; 
-  if(counter2 > 999999) counter2 = str[0] + 'M'; 
-  if(counter2 > 9999999) counter2 = str[0] + str[1] + 'M'; 
-  if(counter2 > 99999999) counter2 = str[0] + str[1] + str[2] + 'M'; 
+  if(counter2 > 9999) counter2 = str2[0]+str2[1] + 'K'; 
+  if(counter2 > 99999) counter2 = str2[0]+str2[1]+str2[2] + 'K'; 
+  if(counter2 > 999999) counter2 = str2[0] + 'M'; 
+  if(counter2 > 9999999) counter2 = str2[0] + str2[1] + 'M'; 
+  if(counter2 > 99999999) counter2 = str2[0] + str2[1] + str2[2] + 'M'; 
   
 
   // Follow on user
@@ -355,7 +355,6 @@ const Profile = (props) => {
     }
   }
 
-
   if(localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8) && localStorage.getItem('auth_id') == id) {
   return (
     <div>
@@ -427,7 +426,7 @@ const Profile = (props) => {
     </div>
   );
   }
-  else {
+  else if(localStorage.getItem('auth_token') != dtk.toString(CryptoJS.enc.Utf8)){
     if(userProfile.is_private != 'true') {
     return (
       <div>
@@ -465,7 +464,7 @@ const Profile = (props) => {
           <div className="profile-username">{userProfile.username}</div>
           <button onClick={handleToFollow} disabled={disable} className={"subsrcibe " + followsOrNot1}>Подписаться</button>
           <button className={"subsrcibed " + followsOrNot2}>Написать</button>
-          <button onClick={handleUnfollow} className={followsOrNot2}>Отписаться</button><br/><br/>
+          <button onClick={handleUnfollow} className={"subsrcibed " + followsOrNot2}>Отписаться</button><br/><br/>
           </div>
           <div className="CountersBlock">
             <div className="counter_text"><b>345</b> публикаций</div>&nbsp;&nbsp;&nbsp;
@@ -516,7 +515,7 @@ const Profile = (props) => {
           <div className="move_to_center">
           <div className="profile-username">{userProfile.username}</div>
           <button className={"subsrcibed " + followsOrNot2}>Написать</button>
-          <button onClick={handleUnfollow} className={followsOrNot2}>Отписаться</button><br/><br/>
+          <button onClick={handleUnfollow} className={"unfollowsBtn " + followsOrNot2}>Отписаться</button><br/><br/>
           </div>
           <div className="CountersBlock">
             <div className="counter_text"><b>345</b> публикаций</div>&nbsp;&nbsp;&nbsp;

@@ -46,12 +46,12 @@ const Login = (props) => {
     axios.post('http://localhost:8000/api/login', formData).then(res => {
         const token = res.data.token;
         let dtk = CryptoJS.AES.decrypt(token, 'my-secret-token');
+        const pass = CryptoJS.AES.encrypt(password, 'my-secret-personal-password').toString();
         if(res.data.status === 200) {
             localStorage.setItem('auth_token', dtk.toString(CryptoJS.enc.Utf8));
             localStorage.setItem('auth_name', res.data.username);
             localStorage.setItem('auth_image', res.data.image);
             localStorage.setItem('auth_id', res.data.id);
-            const pass = CryptoJS.AES.encrypt(password, 'my-secret-personal-password').toString();
             localStorage.setItem('auth_info', pass);
             window.location.reload();
         }

@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('followers');
         Schema::create('followers', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('follower_id')->unsigned()->index();
             $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('follower_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
-        });
+        }); 
     }
 
     /**

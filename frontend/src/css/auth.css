@@ -184,7 +184,7 @@
 .CountersBlock {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .counter_text {
@@ -541,6 +541,20 @@
   width: 150px;
   height: 30px;
   margin-left: 30px;
+}
+
+.unfollowsBtn {
+  background: white;
+  outline: none;
+  border: 1px solid #DBDBDB;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Arial;
+  border-radius: 4px;
+  width: 150px;
+  height: 30px;
+  margin-left: 5px;
 }
 
 .move_to_center {

@@ -8,14 +8,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ProfileController;
 use App\Http\Controllers\API\FollowsController;
 use App\Http\Controllers\API\PostController;
-use App\Http\Controllers\ChatController;
-
-Route::get('/posts', [StudentController::class, 'index']);
-Route::post('/add-posts', [PostController::class, 'store']);
-Route::get('/edit-posts/{id}', [StudentController::class, 'edit']);
-Route::post('/update-posts/{id}', [StudentController::class, 'update']);
-Route::delete('/delete-posts/{id}', [StudentController::class, 'destroy']);
-Route::get('/search/{key}', [StudentController::class, 'search']);
+use App\Http\Controllers\API\CommentsController;
 
 // AUTH
 Route::post('/register', [AuthController::class, 'register']);
@@ -41,3 +34,19 @@ Route::post('/privacy_and_security/{id}', [ProfileController::class, 'closeAccou
 Route::get('/followers', [FollowsController::class, 'followUsers']);
 Route::post('/tofollow', [FollowsController::class, 'toFollow']);
 Route::delete('/unfollow/{id}', [FollowsController::class, 'unFollow']);
+
+// POSTS
+Route::get('/posts', [PostController::class, 'index']);
+Route::post('/add-posts', [PostController::class, 'store']);
+Route::get('/edit-posts/{id}', [StudentController::class, 'edit']);
+Route::post('/update-posts/{id}', [StudentController::class, 'update']);
+Route::delete('/delete-posts/{id}', [StudentController::class, 'destroy']);
+
+// LIKES
+Route::post('/likes', [PostController::class, 'likes']);
+Route::get('/likes-get', [PostController::class, 'likesGet']);
+Route::delete('/like-delete/{id}', [PostController::class, 'UnLike']);
+
+// COMMENTS
+Route::post('/comment-add', [CommentsController::class, 'AddComment']);
+Route::get('/comments-get', [CommentsController::class, 'GetComments']);

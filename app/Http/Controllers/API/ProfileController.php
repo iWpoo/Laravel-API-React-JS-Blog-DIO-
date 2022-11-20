@@ -54,7 +54,7 @@ class ProfileController extends Controller
         return response()->json([
             'status'=> 200,
             'image'=>$user->image,
-            'message'=>'Image Deleted Successfully',
+            'message'=>'Изображение успешно удалено.',
         ]);
 
     }
@@ -101,9 +101,9 @@ class ProfileController extends Controller
     public function editUser(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
-            'username'=>'required|min:3|max:55|unique:users',
+            'username'=>'required|min:3|max:55',
             'name'=>'max:55',
-            'email'=>'email|unique:users',
+            'email'=>'email',
             'site'=>'',
             'phone'=>'',
             'bio'=>'',

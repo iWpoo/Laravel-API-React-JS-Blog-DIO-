@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Like;
+use Illuminate\Support\Facades\Validator;
+use File;
 
 class PostController extends Controller
 {
@@ -16,7 +19,63 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::orderBy('id', 'DESC')->get();
+
+        if($posts)
+        {
+            return response()->json([
+                'status' => 200,
+                'posts' => $posts,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 404,
+            ]);
+        }
+    }
+
+    public function likes(Request $request) 
+    {
+        $like = new Like;
+        $like->id_post = $request->id_post;
+        $like->id_user = $request->id_user;
+
+        $like->save();
+
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
+
+    public function likesGet(Request $request) 
+    {
+        $likes = Like::orderBy('created_at', 'DESC')->get();
+
+        if($likes)
+        {
+            return response()->json([
+                'status' => 200,
+                'likes' => $likes,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 404,
+            ]);
+        }
+    }
+
+    public function UnLike(Request $request, $id) 
+    {
+        $like = Like::find($id);
+        $like->delete();
+        
+        return response()->json([
+            'status' => 200,
+        ]);
     }
 
     /**
@@ -37,13 +96,27 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Post;
-        $post->image = $request->image;
-        $post->description = $request->description;
-        $post->save();
+        $posts = new Post();
+        $posts->id_user = $request->id_user;
+        $posts->description = $request->description;
+
+        if($request->hasFile('post')) {
+            $path = 'uploads/posts/'.$posts->post;
+            $file = $request->file('post');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            if(strpos($filename, 'mp4') != false) {
+                $file->move('uploads/videos/', $filename);
+            }else {
+                $file->move('uploads/posts/', $filename);
+            }
+            $posts->post = $filename;
+        }
+        $posts->save();
 
         return response()->json([
             'status' => 200,
+            'message' => 'Ваша новая публикация!',
         ]);
     }
 
