@@ -128,7 +128,22 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+
+        if($post)
+        {
+            return response()->json([
+                'status' => 200,
+                'post' => $post,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'Данный пост не найден.',
+            ]);
+        }
     }
 
     /**

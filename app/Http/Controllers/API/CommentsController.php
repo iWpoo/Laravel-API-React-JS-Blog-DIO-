@@ -23,7 +23,7 @@ class CommentsController extends Controller
 
     public function GetComments()
     {
-        $comments = Comment::orderBy('id', 'DESC')->get();
+        $comments = Comment::orderBy('id', 'ASC')->get();
 
         if($comments)
         {

@@ -18,6 +18,7 @@ import ChangePassword from './auth/ChangePassword';
 import Privacy from './auth/Privacy';
 import AddPost from './posts/AddPost';
 import Main from './components/Main';
+import Comment from './components/comments/Comment';
 
 const App = () => {
 
@@ -83,6 +84,7 @@ const App = () => {
           <Route path="/accounts/password/change/" element={<ChangePassword/>} />
           <Route path="/accounts/privacy_and_security/" element={<Privacy/>} />
           <Route path="/" element={<Main/>} />
+          <Route path="/post/:id" element={<Comment />} />
         </Routes>
       </div>
 

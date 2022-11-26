@@ -4,9 +4,9 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import '../css/style.css';
 import {AiOutlineHeart, AiOutlineComment, AiOutlineBook} from 'react-icons/ai';
 import moment from 'moment';
+import Comment from './comments/Comment';
 
-
-const Main = () => {
+const Main = (props) => {
   const [users, setUsers] = useState([]);
   const [followers, setFollowers] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -59,27 +59,19 @@ const Main = () => {
       }
     });
 
-    axios.get(`http://localhost:8000/api/comments-get`).then( res => {
-      if(res.data.status === 200)
-      {
-        setComments(res.data.comments);
-      }
-      else if(res.data.status === 404)
-      {
-        console.log(404);
-      }
-    });
-
   }, []);
 
   let img = '';
+
   let viewMap = followers.map((item, index) => {
     if(localStorage.getItem('auth_id') == item.follower_id) {
+      
       return (
         <div key={item.id}>
           {
             users.map((el, index) => {
               if(item.user_id === el.id) {
+                
                 if(el.image != 'default.jpg') img = 'profiles';
                 else img = 'default';
 
@@ -94,7 +86,7 @@ const Main = () => {
                     </div>
                   </div>
                 )
-              }
+              } 
             })
           }
         </div>
@@ -109,16 +101,16 @@ const Main = () => {
   let CryptoJS = require("crypto-js");
   let profileImg = '';
   let profileImg2 = '';
+  let profileImg3 = '';
   let image = '';
   let video = '';
   let block = '';
   let counterLikes = 0;
   let likedOrNot = '';
+  let counterComments = 0;
   const [liked, setLiked] = useState(false);
-
-  const [textComment, setTextComment] = useState('');
-  const [blockOrNone, setBlockOrNone] = useState('disappear');
-  const [blur, setBlur] = useState('');
+  
+  const [userIDComment, setUserIDComment] = useState(0);
 
   let viewPosts = followers.map((item, index) => {
     if(localStorage.getItem('auth_id') == item.follower_id) {
@@ -207,73 +199,11 @@ const Main = () => {
                           }else {
                             block = image;
                           }
-                          
 
                           return (
-                            <div key={el.id} className="home_posts">
+                            <div key={el.id} className="home_posts">                               
+
                                 <div>
-                                  <div className="block-center">
-                                  <div className={blockOrNone}>
-                                  <div className="block-followers">
-                                    <div>
-                                      {comments.map((comment, index) => {
-                                        if(id === comment.id_post) {
-                                          return (
-                                            <div key={comment.id}>
-                                              {
-                                                users.map((user, i) => {
-                                                  if(user.id === comment.id_user) {
-                                                    if(user.image != 'default.jpg') profileImg2 = 'profiles';
-                                                    else profileImg2 = 'default';
-
-                                                    return (
-                                                      <div key={i}>
-                                                        <div className="block-texts-username2 padding10">
-                                                        <Link to={"/profile/" + comment.id_user}><img className="avatarka" width="36px" height="36px" src={'/uploads/' + profileImg2 + '/' + user.image}  /></Link>
-                                                        
-                                                        <div className="block-texts-username">
-                                                        <Link to={"/profile/" + comment.id_user}><div className="username-text-post">{user.username}</div></Link>
-                                                        <div className="commentText">{comment.text}</div><br/>
-                                                        
-                                                          <span className="datetime">{moment(comment.created_at).fromNow()}</span>
-                                                        </div>
-                                                        </div>
-                                                      </div>
-                                                    )
-                                                  }
-                                                })}
-                                              
-                                            </div>
-
-                                          )
-                                          
-                                        }
-                                      })}
-                                    </div>
-                                    <form method="post" className="form_comment">
-                                      <input type="text" onChange={(e) => setTextComment(e.target.value)} value={textComment} className="input_comment" placeholder="Добавить комментарий..." />
-                                      <button onClick={(e) => {
-                                        e.preventDefault();
-
-                                        const formData = new FormData();
-                                        formData.append('id_user', localStorage.getItem('auth_id'));
-                                        formData.append('id_post', id);
-                                        formData.append('text', textComment);
-
-                                        axios.post(`http://localhost:8000/api/comment-add`, formData).then( res => {
-                                          if(res.data.status === 200)
-                                          {
-                                            window.location.reload();
-                                          }
-                                        });   
-                                      }} className="postComment" disabled={textComment.length >= 1 ? false : true}>Post</button>
-                                    </form>
-                                  </div>
-                                  </div>
-                                  </div>
-                                </div>
-
-                                <div className={blur}>
                                   <div className="block-texts-username padding10">
                                   <Link to={"/profile/" + el.id_user}><img className="avatarka" width="36px" height="36px" src={'/uploads/' + profileImg + '/' + elem.image}  /></Link>
                                   <Link to={"/profile/" + el.id_user}><div className="username-text-post">{elem.username}</div></Link>
@@ -281,6 +211,7 @@ const Main = () => {
                                   </div>      
                                   {block}
                                   <div className="block-icons-post">
+                                  
                                   <span>
                                   
                                   {likedOrNot != '' ? likedOrNot
@@ -299,14 +230,10 @@ const Main = () => {
                                       })}} />}
                                   
                                   </span>
-                                  <AiOutlineComment className="icons" onClick={(e) => {
-                                    e.preventDefault();
-                                    
-                                    setBlockOrNone('');
-                                    setBlur('blur');
-                                    setId(el.id);
-                                  }} />
-                                  </div>  
+                                  <Link to={"/post/" + el.id}><AiOutlineComment className="icons" /></Link>
+                                  </div> 
+                                  
+                                  <div className="PostDescription"><b>{elem.username}</b> {el.description}</div> 
                                 </div>                  
                             </div>
                           )
@@ -323,12 +250,10 @@ const Main = () => {
     }
   });
 
-
   return (
     <div className="main">
-    
     <div>
-      <div className={"follow_users " + blur}>
+      <div className="follow_users">
         {viewMap}
       </div><br/>
 

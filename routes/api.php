@@ -37,6 +37,7 @@ Route::delete('/unfollow/{id}', [FollowsController::class, 'unFollow']);
 
 // POSTS
 Route::get('/posts', [PostController::class, 'index']);
+Route::get('/post/{id}', [PostController::class, 'show']);
 Route::post('/add-posts', [PostController::class, 'store']);
 Route::get('/edit-posts/{id}', [StudentController::class, 'edit']);
 Route::post('/update-posts/{id}', [StudentController::class, 'update']);
