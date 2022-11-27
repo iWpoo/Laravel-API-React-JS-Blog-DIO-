@@ -5,6 +5,8 @@ import axios from 'axios';
 import {AiOutlineSetting} from 'react-icons/ai';
 import Followers from './followers/Followers';
 import Following from './followers/Following';
+import PostsUser from './posts/PostsUser';
+import LikesPost from './posts/LikesPost';
 
 const Profile = (props) => {
   const history = useNavigate();
@@ -74,7 +76,7 @@ const Profile = (props) => {
           }
       });
     }
-  });
+  }, []);
 
   const [isImg, setIsImg] = useState(true);
 
@@ -131,7 +133,7 @@ const Profile = (props) => {
         }
       });
     }
-  })
+  }, [])
 
   let boolean = false;
   let bool = false;
@@ -278,7 +280,7 @@ const Profile = (props) => {
         }
       });
     }
-  })
+  }, [])
 
 
   const handleToFollow = (e) => {
@@ -423,6 +425,13 @@ const Profile = (props) => {
       </div>
     </div>
     <hr className="hr" />
+
+
+    <Routes>
+      <Route path={"/profile/" + id} element={<PostsUser />} />
+      <Route path={"/profile/" + id + "/likes"} element={<LikesPost />} />
+    </Routes>
+
     </div>
   );
   }
@@ -476,11 +485,12 @@ const Profile = (props) => {
         </div>
       </div>
       <hr className="hr" />
+
       </div>
     );
     }else {
       if(bool == true) {
-        return (
+      return (
       <div>
       <div className="block-center">
       <div className={clsName3}>
@@ -509,6 +519,7 @@ const Profile = (props) => {
       </div>
 
       <div onClick={cancel} className={"profile " + clsName2}>
+
         {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
         <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
         <div className="blockInfo">
@@ -527,6 +538,9 @@ const Profile = (props) => {
         </div>
       </div>
       <hr className="hr" />
+
+      <PostsUser />
+
       </div>
     ); 
       }else {

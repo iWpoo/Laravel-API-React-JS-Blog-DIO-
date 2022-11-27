@@ -18,7 +18,9 @@ import ChangePassword from './auth/ChangePassword';
 import Privacy from './auth/Privacy';
 import AddPost from './posts/AddPost';
 import Main from './components/Main';
-import Comment from './components/comments/Comment';
+import Post from './posts/Post';
+import PostsUser from './auth/posts/PostsUser';
+import LikesPost from './auth/posts/LikesPost';
 
 const App = () => {
 
@@ -79,12 +81,13 @@ const App = () => {
         </header>
         </div>
         <Routes>
-          <Route path="/profile/:id" element={<Profile />} />
           <Route path="/accounts/edit" element={<EditProfile/>} />
           <Route path="/accounts/password/change/" element={<ChangePassword/>} />
           <Route path="/accounts/privacy_and_security/" element={<Privacy/>} />
           <Route path="/" element={<Main/>} />
-          <Route path="/post/:id" element={<Comment />} />
+          <Route path="/post/:id" element={<Post />} />
+          <Route path="/profile/:id" element={<PostsUser />} />
+          <Route path="/profile/:id/likes" element={<LikesPost />} />
         </Routes>
       </div>
 

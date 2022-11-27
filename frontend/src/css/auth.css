@@ -146,6 +146,7 @@
   border: 1px solid black;
   border-radius: 100%;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .profile-username {
@@ -566,4 +567,52 @@
   color: #DC3545;
   float: right;
   margin-left: 150px;
+}
+
+
+/* POSTS IN PROFILE */
+
+.block-center {
+  display: flex;
+  justify-content: center;
+}
+
+.block-posts-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 65%;
+}
+
+.postsProfile {
+  object-fit: cover;
+  padding: 15px;
+}
+
+.postsProfile:hover {
+  opacity: 0.6;
+}
+
+.block-switch-posts {
+  display: flex;
+  justify-content: center;
+}
+
+.block-switch {
+  display: flex;
+  justify-content: space-between;
+  width: 143px;
+}
+
+.element {
+  font-family: Arial;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.active {
+  border-bottom: 1px solid black;
+  font-weight: bold;
+  text-decoration: none;
 }

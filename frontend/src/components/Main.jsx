@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import '../css/style.css';
 import {AiOutlineHeart, AiOutlineComment, AiOutlineBook} from 'react-icons/ai';
 import moment from 'moment';
-import Comment from './comments/Comment';
 
 const Main = (props) => {
   const [users, setUsers] = useState([]);
@@ -209,7 +208,7 @@ const Main = (props) => {
                                   <Link to={"/profile/" + el.id_user}><div className="username-text-post">{elem.username}</div></Link>
                                   <span className="datetime"> • {moment(el.created_at).fromNow()}</span>
                                   </div>      
-                                  {block}
+                                  <div className="postBgColor">{block}</div>
                                   <div className="block-icons-post">
                                   
                                   <span>

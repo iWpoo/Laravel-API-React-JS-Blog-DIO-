@@ -41,6 +41,7 @@ body {
   color: black;
   margin-left: 15px;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .hr {
@@ -328,4 +329,8 @@ a {
   margin-top: -5px;
   margin-left: 20px;
   margin-bottom: 10px;
+}
+
+.postBgColor {
+  background: #000;
 }
