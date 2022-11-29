@@ -611,8 +611,3 @@
   text-decoration: none;
 }
 
-.active {
-  border-bottom: 1px solid black;
-  font-weight: bold;
-  text-decoration: none;
-}

@@ -133,7 +133,7 @@ const Profile = (props) => {
         }
       });
     }
-  }, [])
+  })
 
   let boolean = false;
   let bool = false;
@@ -257,7 +257,7 @@ const Profile = (props) => {
   const [follower_id, setFollowerId] = useState(localStorage.getItem('auth_id'));
   const [user_id, setUserId] = useState(id);
 
-  useEffect(() => {    
+  useEffect(() => {   
     if(boolean === true) {
       setFollowsOrNot1('disapear');
       setFollowsOrNot2('');
@@ -280,7 +280,7 @@ const Profile = (props) => {
         }
       });
     }
-  }, [])
+  })
 
 
   const handleToFollow = (e) => {
@@ -538,8 +538,6 @@ const Profile = (props) => {
         </div>
       </div>
       <hr className="hr" />
-
-      <PostsUser />
 
       </div>
     ); 
