@@ -35,11 +35,18 @@ const LikesPost = (props) => {
     let image = '';
     let video = '';
     let block = '';
+    let counterPosts = 0;
 
     return (
     	<div>
 
-      <Profile />
+      {posts.map((post, i) => {
+        if(post.id_user == id) {
+          counterPosts++;
+        }
+      })}
+
+      <Profile counterPosts={counterPosts} />
 
     	  <div className="block-switch-posts">
     	      <div className="block-switch">

@@ -58,12 +58,20 @@ const PostsUser = (props) => {
     let video = '';
     let block = '';
     let data = '';
-    let closedProfile = 'Закрытый профиль';
+    let closedProfile = '';
+    let counterPosts = 0;
+    let disap = '';
     
     return (
     	<div>
+
+        {posts.map((post, i) => {
+          if(post.id_user == id) {
+            counterPosts++;
+          }
+        })}
         
-        <Profile />
+        <Profile counterPosts={counterPosts} />
 
     	  <div className="block-switch-posts">
     	    <div className="block-switch">
@@ -71,12 +79,14 @@ const PostsUser = (props) => {
             <Link to={"/profile/" + id + "/likes"}><span className="element">LIKES</span></Link>
           </div>
         </div>
-
+        
     	  <div className="block-center">
         <div className="block-posts-profile">
         	{
             posts.map((post, i) => {
               if(post.id_user == id) {
+                counterPosts++;
+
                 image = (<img src={"/uploads/posts/" + post.post} className="postsProfile" width="300px" height="300px" />);
                 video = (
                   <video className="postsProfile" width="300px" height="300px" autoPlay loop muted>
@@ -96,11 +106,15 @@ const PostsUser = (props) => {
                       followers.map((item, i) => {
                       if(userProfile.is_private == 'true' && item.user_id === userProfile.id && item.follower_id == localStorage.getItem('auth_id')) {
                       closedProfile = '';
+                      disap = "disappear";
+
                       return (
                         <div key={i}>
                           <Link to={"/post/" + post.id}>{block}</Link>
                         </div>  
                       )
+                      }if(userProfile.is_private == 'true' && item.follower_id != localStorage.getItem('auth_id')) {
+                        closedProfile = 'Закрытый профиль';
                       }
                       })
                     }
@@ -115,14 +129,16 @@ const PostsUser = (props) => {
                 )
               }
             })
-          }
+          } 
 
-          {
-            userProfile.is_private == 'true' ? 
-            <div>{closedProfile}</div> : <div></div>
-          }
         </div>
         </div>
+        
+        <br/><br/>
+        <div className="text-align-center">
+          <div className={"closedProfileText " + disap}>{closedProfile}</div>
+        </div>
+
         </div>
     )
 }

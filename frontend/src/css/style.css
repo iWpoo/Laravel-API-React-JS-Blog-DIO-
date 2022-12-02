@@ -334,3 +334,23 @@ a {
 .postBgColor {
   background: #000;
 }
+
+.text-on-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.closedProfileText {
+  font-size: 18px;
+  font-family: Arial;
+  font-weight: bold;
+}

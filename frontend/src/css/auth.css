@@ -450,7 +450,7 @@
   transform: translate(-50%, -50%);
   border: 1px solid black;
   border-radius: 4px;
-  opacity: 0.9;
+  opacity: 1;
   text-align: center;
 }
 

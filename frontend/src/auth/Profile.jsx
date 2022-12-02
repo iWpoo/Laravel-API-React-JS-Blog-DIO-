@@ -415,7 +415,7 @@ const Profile = (props) => {
         <AiOutlineSetting className="icons" onClick={openSettings} /><br/><br/>
  
         <div className="CountersBlock">
-          <div className="counter_text"><b>345</b> публикаций</div>&nbsp;&nbsp;&nbsp;
+          <div className="counter_text"><b>{props.counterPosts}</b> публикаций</div>&nbsp;&nbsp;&nbsp;
           <div onClick={openList} className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
           <div onClick={openList2} className="counter_text"><b>{counter2}</b> подписок</div>
         </div><br/>
@@ -476,7 +476,7 @@ const Profile = (props) => {
           <button onClick={handleUnfollow} className={"subsrcibed " + followsOrNot2}>Отписаться</button><br/><br/>
           </div>
           <div className="CountersBlock">
-            <div className="counter_text"><b>345</b> публикаций</div>&nbsp;&nbsp;&nbsp;
+            <div className="counter_text"><b>{props.counterPosts}</b> публикаций</div>&nbsp;&nbsp;&nbsp;
             <div onClick={openList} className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
             <div onClick={openList2} className="counter_text"><b>{counter2}</b> подписок</div>
           </div><br/>
@@ -529,7 +529,7 @@ const Profile = (props) => {
           <button onClick={handleUnfollow} className={"unfollowsBtn " + followsOrNot2}>Отписаться</button><br/><br/>
           </div>
           <div className="CountersBlock">
-            <div className="counter_text"><b>345</b> публикаций</div>&nbsp;&nbsp;&nbsp;
+            <div className="counter_text"><b>{props.counterPosts}</b> публикаций</div>&nbsp;&nbsp;&nbsp;
             <div onClick={openList} className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
             <div onClick={openList2} className="counter_text"><b>{counter2}</b> подписок</div>
           </div><br/>
@@ -548,18 +548,20 @@ const Profile = (props) => {
         {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
         <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
         <div className="blockInfo">
+          <div className="move_to_center">
           <div className="profile-username">{userProfile.username}</div>
           <button onClick={handleToFollow} disabled={disable} className={"subsrcibe " + followsOrNot1}>Подписаться</button>
-
+          <button className={"subsrcibed " + followsOrNot2}>Написать</button>
+          <button onClick={handleUnfollow} className={"subsrcibed " + followsOrNot2}>Отписаться</button><br/><br/>
+          </div>
           <div className="CountersBlock">
-            <div className="counter_text"><b>345</b> публикаций</div>&nbsp;&nbsp;&nbsp;
-            <div className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
-            <div className="counter_text"><b>{counter2}</b> подписок</div>
+            <div className="counter_text"><b>{props.counterPosts}</b> публикаций</div>&nbsp;&nbsp;&nbsp;
+            <div onClick={openList} className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
+            <div onClick={openList2} className="counter_text"><b>{counter2}</b> подписок</div>
           </div><br/>
           <div className="profile-name">{userProfile.name}</div>
           <div className="profile-bio">{userProfile.bio}</div>
         </div>
-        <h3>Закрытый аккаунт</h3>
       </div>
       <hr className="hr" />
       </div>

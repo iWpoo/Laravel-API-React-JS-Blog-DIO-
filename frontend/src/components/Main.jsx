@@ -92,7 +92,7 @@ const Main = (props) => {
       )
     }
   });
-
+  
   let CryptoJS = require("crypto-js");
   let profileImg = '';
   let profileImg2 = '';
@@ -100,8 +100,7 @@ const Main = (props) => {
   let image = '';
   let video = '';
   let block = '';
-  let counterLikes = 0;
-  let counterComments = 0;
+  let counterPosts = 0;
   const [liked, setLiked] = useState(false);
 
   
@@ -120,8 +119,8 @@ const Main = (props) => {
                   <div key={elem.id}>
                     {
                       posts.map((el, index) => {
-                        if(elem.id === el.id_user) {                          
-                
+                        if(elem.id === el.id_user) {
+                          counterPosts++;
                           image = (<img src={"/uploads/posts/" + el.post} className="imagePost" />);
                           video = (
                             <video className="video_post" width="600px" height="600px" autoPlay loop controls muted>
@@ -146,7 +145,7 @@ const Main = (props) => {
                                   </div>      
                                   <div className="postBgColor">{block}</div>
                                   <div className="block-icons-post">
-                                  
+
                                   <Link to={"/post/" + el.id}><AiOutlineHeart className="icons" /></Link>                                
                                   <Link to={"/post/" + el.id}><AiOutlineComment className="icons" /></Link>
                                   </div> 
@@ -177,7 +176,7 @@ const Main = (props) => {
 
       <div className="follow_posts">
         
-        {viewPosts}
+        {counterPosts != 0 ? viewPosts : <div className="text-on-center">Подпишитесь на других, чтобы увидеть свежие посты в ленте.</div>}
         
       </div>
     </div>
