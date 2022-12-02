@@ -68,6 +68,16 @@ class PostController extends Controller
         }
     }
 
+    public function likeOne(Request $request, $id) 
+    {
+        $like = Like::find($id);
+        
+        return response()->json([
+            'status' => 200,
+            'like' => $like,
+        ]);
+    }
+
     public function UnLike(Request $request, $id) 
     {
         $like = Like::find($id);

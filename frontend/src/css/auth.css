@@ -588,6 +588,7 @@
 .postsProfile {
   object-fit: cover;
   padding: 15px;
+  cursor: pointer;
 }
 
 .postsProfile:hover {

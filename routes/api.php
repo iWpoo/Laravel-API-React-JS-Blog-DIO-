@@ -46,6 +46,7 @@ Route::delete('/delete-posts/{id}', [StudentController::class, 'destroy']);
 // LIKES
 Route::post('/likes', [PostController::class, 'likes']);
 Route::get('/likes-get', [PostController::class, 'likesGet']);
+Route::get('/like/{id}', [PostController::class, 'likeOne']);
 Route::delete('/like-delete/{id}', [PostController::class, 'UnLike']);
 
 // COMMENTS

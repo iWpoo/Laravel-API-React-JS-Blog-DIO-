@@ -1,9 +1,10 @@
 import react, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
+import Profile from '../Profile';
 
 const LikesPost = (props) => {
-    const {id} = useParams();
+  const {id} = useParams();
 	const [posts, setPosts] = useState([]);
 	const [likes, setLikes] = useState([]);
 
@@ -37,47 +38,50 @@ const LikesPost = (props) => {
 
     return (
     	<div>
-    	<div className="block-switch-posts">
-    	    <div className="block-switch">
-                <Link to={"/profile/" + id}><span className="element active">POSTS</span></Link>
-                <span className="element">LIKES</span>
+
+      <Profile />
+
+    	  <div className="block-switch-posts">
+    	      <div className="block-switch">
+              <Link to={"/profile/" + id}><span className="element">POSTS</span></Link>
+              <Link to={"/profile/" + id + "/likes"}><span className="element active">LIKES</span></Link>
             </div>
         </div>
-    	<div className="block-center">
+
+    	  <div className="block-center">
         <div className="block-posts-profile">
         	{
-        		posts.map((post, i) => {
-                
-        			return (
-        			    <div key={post.id} className="postBg">
-        				    {
-        				    	likes.map((like, i) => {
-        				    	if(like.id_post == post.id) {
-        				    		image = (<Link to={"/post/" + post.id}><img src={"/uploads/posts/" + post.post} width="300px" height="300px" className="postsProfile" /></Link>);
-                                    video = (
-                                      <Link to={"/post/" + post.id}><video className="postsProfile" width="300px" height="300px" autoPlay loop muted>
-                                        <source src={"/uploads/videos/" + post.post} type="video/mp4" />
-                                      </video></Link> 
-                                    );
-                
-                                    if(post.post.includes('.mp4') === true) {
-                                      block = video;
-                                    }else {
-                                      block = image;
-                                    }
+            likes.map((like, i) => {
+              if(like.id_user == id) {
+                return (
+                  <div key={i}>
+                    {posts.map((post, i) => {
+                      if(like.id_post === post.id) {
+                        image = (<img src={"/uploads/posts/" + post.post} className="postsProfile" width="300px" height="300px" />);
+                        video = (
+                          <video className="postsProfile" width="300px" height="300px" autoPlay loop muted>
+                            <source src={"/uploads/videos/" + post.post} type="video/mp4" />
+                          </video>  
+                        );
 
-        				    		return (
-                                        <div key={i}>
-                                        	
-                                        </div>
-        				    		)
-        				    	}
-        				    	})
-        				    }
-        			    </div>
-        			)
-        		})
-        	}
+                        if(post.post.includes('.mp4') === true) {
+                          block = video;
+                        }else {
+                          block = image;
+                        }
+
+                        return (
+                          <div key={post.id}>
+                            <Link to={"/post/" + post.id}>{block}</Link>
+                          </div>
+                        )
+                      }
+                    })}
+                  </div>
+                )
+              }
+            })
+          }
         </div>
         </div>
         </div>

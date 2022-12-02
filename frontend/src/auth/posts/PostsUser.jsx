@@ -65,13 +65,14 @@ const PostsUser = (props) => {
         
         <Profile />
 
-    	<div className="block-switch-posts">
+    	  <div className="block-switch-posts">
     	    <div className="block-switch">
-                <Link to={"/profile/" + id}><span className="element active">POSTS</span></Link>
-                <span className="element">LIKES</span>
-            </div>
+            <Link to={"/profile/" + id}><span className="element active">POSTS</span></Link>
+            <Link to={"/profile/" + id + "/likes"}><span className="element">LIKES</span></Link>
+          </div>
         </div>
-    	<div className="block-center">
+
+    	  <div className="block-center">
         <div className="block-posts-profile">
         	{
             posts.map((post, i) => {

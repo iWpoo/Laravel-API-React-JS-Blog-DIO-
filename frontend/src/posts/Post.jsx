@@ -10,6 +10,7 @@ const Post = (props) => {
   const {id} = useParams();
   const [textComment, setTextComment] = useState('');
   const [post, setPost] = useState({
+    id: 0,
     id_user: 0,
     post: '',
     description: '',
@@ -22,6 +23,12 @@ const Post = (props) => {
   });
   const [comments, setComments] = useState([]);
   const [users, setUsers] = useState([]);
+  const [likes, setLikes] = useState([]);
+  const [like, setLike] = useState({
+    id: 1,
+    id_user: 1,
+    id_post: 1,
+  });
 
   let block = '';
   let image = (<img src={"/uploads/posts/" + post.post} className="imagePost" />);
@@ -76,7 +83,61 @@ const Post = (props) => {
       }
     });
 
+    axios.get(`http://localhost:8000/api/likes-get`).then( res => {
+      if(res.data.status === 200)
+      {
+        setLikes(res.data.likes);
+      }
+      else if(res.data.status === 404)
+      {
+        console.log(404);
+      }
+    });
+
+
   }, []);
+
+  let bool = false;
+  const [liked, setLiked] = useState();
+  let idLike = 0;
+
+  let viewLikes = likes.map((like, i) => {
+    if(id == like.id_post && localStorage.getItem('auth_id') == like.id_user) {
+      bool = true;
+      idLike = like.id;       
+    } 
+  });
+
+  useEffect(() => {
+    if(bool === true) {
+      setLiked(<img src="/uploads/like.png" className="icons" onClick={(e) => {
+        e.preventDefault();
+                          
+        axios.delete(`http://localhost:8000/api/like-delete/${idLike}`).then( res => {
+        if(res.data.status === 200)
+        {
+          window.location.reload();
+        }
+        });
+      }}/>);
+    }else {
+      setLiked(<AiOutlineHeart className="icons" onClick={(e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('id_post', id);
+        formData.append('id_user', localStorage.getItem('auth_id'));
+
+        axios.post(`http://localhost:8000/api/likes`, formData).then( res => {
+          if(res.data.status === 200)
+          {
+            window.location.reload();
+          }
+        })}}
+      />);
+    }
+  }, [bool, idLike])
+
 
   if(post.post.includes('.mp4') === true) {
     block = video;
@@ -103,6 +164,8 @@ const Post = (props) => {
 
           {block}
 
+          {liked}
+          
           <form method="post" className="form_comment">
             <input type="text" onChange={(e) => setTextComment(e.target.value)} value={textComment} className="input_comment" placeholder="Добавить комментарий..." />
             <button onClick={(e) => {

@@ -92,10 +92,6 @@ const Main = (props) => {
       )
     }
   });
- 
-  const [id_post, setIdPost] = useState(2);
-  const [id_user, setIdUser] = useState(localStorage.getItem('auth_id'));
-  const [like, setLike] = useState(1);
 
   let CryptoJS = require("crypto-js");
   let profileImg = '';
@@ -105,12 +101,10 @@ const Main = (props) => {
   let video = '';
   let block = '';
   let counterLikes = 0;
-  let likedOrNot = '';
   let counterComments = 0;
   const [liked, setLiked] = useState(false);
-  
-  const [userIDComment, setUserIDComment] = useState(0);
 
+  
   let viewPosts = followers.map((item, index) => {
     if(localStorage.getItem('auth_id') == item.follower_id) {
       return (
@@ -126,65 +120,7 @@ const Main = (props) => {
                   <div key={elem.id}>
                     {
                       posts.map((el, index) => {
-                        if(elem.id === el.id_user) {
-
-                            likedOrNot = likes.map((like, i) => { 
-
-                                if(el.id === like.id_post) {
-                                return (
-                                <div key={like.id}>
-                                  
-                                  {localStorage.getItem('auth_id') == like.id_user ? <img src={"/uploads/"+like.liked} className="icons" onClick={(e) => {
-                                    e.preventDefault();
-
-                                    axios.delete(`http://localhost:8000/api/like-delete/${like.id}`).then( res => {
-                                    if(res.data.status === 200)
-                                    {
-                                      window.location.reload();
-                                    }
-                                    });
-                                  }}/> : <div>
-                                  
-                                  <AiOutlineHeart className="icons" onClick={(e) => {
-                                  e.preventDefault();
-
-                                  const formData = new FormData();
-                                  formData.append('id_post', el.id);
-                                  formData.append('id_user', localStorage.getItem('auth_id'));
-
-                                  axios.post(`http://localhost:8000/api/likes`, formData).then( res => {
-                                    if(res.data.status === 200)
-                                    {
-                                      window.location.reload();
-                                    }
-                                  })}} />
-                                  </div>}
-                                </div>
-                                )
-                                
-                                }else if(localStorage.getItem('auth_id') != like.id_user){
-                                  return (
-                                    <div key={i}>
-                                     <div>
-                                      <AiOutlineHeart className="icons" onClick={(e) => {
-                                      e.preventDefault();
-
-                                      const formData = new FormData();
-                                      formData.append('id_post', el.id);
-                                      formData.append('id_user', localStorage.getItem('auth_id'));
-
-                                      axios.post(`http://localhost:8000/api/likes`, formData).then( res => {
-                                        if(res.data.status === 200)
-                                        {
-                                          window.location.reload();
-                                        }
-                                      })}} />
-                                      </div>
-                                    </div>
-                                  )
-                                }
-                              })                          
-                          
+                        if(elem.id === el.id_user) {                          
                 
                           image = (<img src={"/uploads/posts/" + el.post} className="imagePost" />);
                           video = (
@@ -211,24 +147,7 @@ const Main = (props) => {
                                   <div className="postBgColor">{block}</div>
                                   <div className="block-icons-post">
                                   
-                                  <span>
-                                  
-                                  {likedOrNot != '' ? likedOrNot
-                                  : <AiOutlineHeart className="icons" onClick={(e) => {
-                                      e.preventDefault();
-
-                                      const formData = new FormData();
-                                      formData.append('id_post', el.id);
-                                      formData.append('id_user', localStorage.getItem('auth_id'));
-
-                                      axios.post(`http://localhost:8000/api/likes`, formData).then( res => {
-                                        if(res.data.status === 200)
-                                        {
-                                          window.location.reload();
-                                        }
-                                      })}} />}
-                                  
-                                  </span>
+                                  <Link to={"/post/" + el.id}><AiOutlineHeart className="icons" /></Link>                                
                                   <Link to={"/post/" + el.id}><AiOutlineComment className="icons" /></Link>
                                   </div> 
                                   
@@ -257,11 +176,14 @@ const Main = (props) => {
       </div><br/>
 
       <div className="follow_posts">
+        
         {viewPosts}
+        
       </div>
     </div>
     </div>
   );
+
 }
 
 export default Main;
