@@ -162,9 +162,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $post->description = $request->input('description');
+
+        $post->update();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Описание успешно редактировано!',
+        ]);
     }
 
     /**
@@ -187,6 +195,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Запись удалена.',
+        ]);
     }
 }

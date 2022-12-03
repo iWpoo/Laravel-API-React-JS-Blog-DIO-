@@ -29,6 +29,7 @@ const App = () => {
 
   const cancel = () => {
     setClsName('disapear');
+    setEdit('disapear');
     setBlurPage('');
   }
 
@@ -46,7 +47,7 @@ const App = () => {
     if(clsName == '') {
       setBlurPage('blur');
     }
-  })
+  }, [image, clsName])
 
   if(!localStorage.getItem('auth_token')) {
     AuthToken = (

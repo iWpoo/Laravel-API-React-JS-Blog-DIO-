@@ -21,6 +21,16 @@ class CommentsController extends Controller
         ]);
     }   
 
+    public function DeleteComment(Request $request, $id) 
+    {
+        $comment = Comment::find($id);
+        $comment->delete();
+        
+        return response()->json([
+            'status' => 200,
+        ]);
+    }   
+
     public function GetComments()
     {
         $comments = Comment::orderBy('id', 'ASC')->get();

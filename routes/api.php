@@ -39,9 +39,8 @@ Route::delete('/unfollow/{id}', [FollowsController::class, 'unFollow']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/post/{id}', [PostController::class, 'show']);
 Route::post('/add-posts', [PostController::class, 'store']);
-Route::get('/edit-posts/{id}', [StudentController::class, 'edit']);
-Route::post('/update-posts/{id}', [StudentController::class, 'update']);
-Route::delete('/delete-posts/{id}', [StudentController::class, 'destroy']);
+Route::post('/edit-posts/{id}', [PostController::class, 'edit']);
+Route::delete('/delete-posts/{id}', [PostController::class, 'destroy']);
 
 // LIKES
 Route::post('/likes', [PostController::class, 'likes']);
@@ -52,3 +51,4 @@ Route::delete('/like-delete/{id}', [PostController::class, 'UnLike']);
 // COMMENTS
 Route::post('/comment-add', [CommentsController::class, 'AddComment']);
 Route::get('/comments-get', [CommentsController::class, 'GetComments']);
+Route::delete('/comment-delete/{id}', [CommentsController::class, 'DeleteComment']);

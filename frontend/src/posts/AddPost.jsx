@@ -36,7 +36,7 @@ const AddPost = (props) => {
           }
       });
 
-  }, []);
+  }, [localStorage.getItem('auth_id')]);
 
   const [disable, setDisable] = useState(false);
 

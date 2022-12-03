@@ -439,7 +439,7 @@
 }
 
 .block-settings {
-  position: absolute;
+  position: fixed;
   background-color: #282923;
   color: white;
   z-index: 1;
@@ -454,8 +454,24 @@
   text-align: center;
 }
 
+.block-settings-ellipsis {
+  position: fixed;
+  background-color: #282923;
+  color: white;
+  z-index: 1;
+  width: 350px;
+  height: 185px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 4px;
+  opacity: 1;
+  text-align: center;
+}
+
 .block-followers {
-  position: absolute;
+  position: fixed;
   background-color: white;
   color: black;
   z-index: 1;
@@ -469,6 +485,7 @@
   opacity: 1;
   overflow: auto;
 }
+
 
 .text-settings {
   opacity: 1;
@@ -579,16 +596,22 @@
 
 .block-posts-profile {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   flex-wrap: wrap;
-  width: 65%;
+  padding: 5px;
 }
 
 .postsProfile {
   object-fit: cover;
-  padding: 15px;
   cursor: pointer;
+  display: block;
+  flex: 1 1 auto;
+
+  position: relative;
+  
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  padding: 15px;
 }
 
 .postsProfile:hover {
@@ -612,3 +635,6 @@
   text-decoration: none;
 }
 
+.textToTheCenter {
+  text-align: center;
+}

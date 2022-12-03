@@ -58,9 +58,24 @@ const Main = (props) => {
       }
     });
 
+    axios.get(`http://localhost:8000/api/comments-get`).then( res => {
+      if(res.data.status === 200)
+      {
+        setComments(res.data.comments);
+      }
+      else if(res.data.status === 404)
+      {
+        console.log(404);
+      }
+    });
+
   }, []);
 
   let img = '';
+  let img2 = '';
+
+  if(localStorage.getItem('auth_image') != 'default.jpg') img2 = 'profiles';
+  else img2 = 'default';
 
   let viewMap = followers.map((item, index) => {
     if(localStorage.getItem('auth_id') == item.follower_id) {
@@ -76,12 +91,14 @@ const Main = (props) => {
 
                 return (
                   <div key={el.id} className="block_list_users">
-                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>
+                    <div>
+                    <a href={"/profile/"+el.id}><img className="avatarka" width="64px" height="64px" src={'/uploads/' + img + '/' + el.image} /></a>
                     
                     <div className="block_followers_text2">
                       <Link to={"/profile/"+el.id}>
                         <div className="textToTheCenter">{el.username}</div>
                       </Link>
+                    </div>
                     </div>
                   </div>
                 )
@@ -102,6 +119,8 @@ const Main = (props) => {
   let block = '';
   let counterPosts = 0;
   const [liked, setLiked] = useState(false);
+  let counterLikes = 0;
+  let counterComments = 0;
 
   
   let viewPosts = followers.map((item, index) => {
@@ -149,8 +168,9 @@ const Main = (props) => {
                                   <Link to={"/post/" + el.id}><AiOutlineHeart className="icons" /></Link>                                
                                   <Link to={"/post/" + el.id}><AiOutlineComment className="icons" /></Link>
                                   </div> 
-                                  
+
                                   <div className="PostDescription"><b>{elem.username}</b> {el.description}</div> 
+
                                 </div>                  
                             </div>
                           )
@@ -171,6 +191,15 @@ const Main = (props) => {
     <div className="main">
     <div>
       <div className="follow_users">
+        <div className="marginleft25px">
+        <a href={"/profile/"+localStorage.getItem('auth_id')}><img className="avatarka" width="64px" height="64px" src={'/uploads/' + img2 + '/' + localStorage.getItem('auth_image')} /></a>
+        <div>
+          <Link to={"/profile/"+localStorage.getItem('auth_id')}>
+            <div className="textToTheCenter">{localStorage.getItem('auth_name')}</div>
+          </Link>
+        </div>      
+        </div>
+
         {viewMap}
       </div><br/>
 

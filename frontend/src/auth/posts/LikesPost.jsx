@@ -64,9 +64,9 @@ const LikesPost = (props) => {
                   <div key={i}>
                     {posts.map((post, i) => {
                       if(like.id_post === post.id) {
-                        image = (<img src={"/uploads/posts/" + post.post} className="postsProfile" width="300px" height="300px" />);
+                        image = (<img src={"/uploads/posts/" + post.post} className="postsProfile" />);
                         video = (
-                          <video className="postsProfile" width="300px" height="300px" autoPlay loop muted>
+                          <video className="postsProfile" autoPlay loop muted>
                             <source src={"/uploads/videos/" + post.post} type="video/mp4" />
                           </video>  
                         );

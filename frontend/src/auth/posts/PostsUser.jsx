@@ -87,9 +87,9 @@ const PostsUser = (props) => {
               if(post.id_user == id) {
                 counterPosts++;
 
-                image = (<img src={"/uploads/posts/" + post.post} className="postsProfile" width="300px" height="300px" />);
+                image = (<img src={"/uploads/posts/" + post.post} className="postsProfile" />);
                 video = (
-                  <video className="postsProfile" width="300px" height="300px" autoPlay loop muted>
+                  <video className="postsProfile" autoPlay loop muted>
                     <source src={"/uploads/videos/" + post.post} type="video/mp4" />
                   </video>  
                 );

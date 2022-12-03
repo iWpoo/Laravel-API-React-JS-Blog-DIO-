@@ -3,10 +3,11 @@ import {BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams} fr
 import axios from 'axios';
 import '../css/style.css';
 import moment from 'moment';
-import {AiOutlineHeart} from 'react-icons/ai';
+import {AiOutlineHeart, AiOutlineEllipsis} from 'react-icons/ai';
+import EditPost from './EditPost';
 
 const Post = (props) => {
-
+  const navigate = useNavigate();
   const {id} = useParams();
   const [textComment, setTextComment] = useState('');
   const [post, setPost] = useState({
@@ -35,7 +36,7 @@ const Post = (props) => {
   let video = (
     <video className="video_post" width="600px" height="600px" autoPlay loop controls muted>
       <source src={"/uploads/videos/" + post.post} type="video/mp4" />
-    </video>  
+    </video> 
   );
 
   useEffect(() => {
@@ -43,6 +44,7 @@ const Post = (props) => {
       if(res.data.status === 200)
       {
         setPost(res.data.post);
+
         axios.get(`http://localhost:8000/api/profile/${res.data.post.id_user}`).then( res => {
           if(res.data.status === 200)
           {
@@ -95,7 +97,7 @@ const Post = (props) => {
     });
 
 
-  }, []);
+  }, [id]);
 
   let bool = false;
   const [liked, setLiked] = useState();
@@ -148,28 +150,96 @@ const Post = (props) => {
   let profileImg = '';
   let profileImg2 = '';
   let likedOrNot = '';
+  let counterLikes = 0;
+  let disabledPost = false;
 
   if(userProfile.image != 'default.jpg') profileImg = 'profiles';
   else profileImg = 'default';
-  
+
+  const [clsName, setClsName] = useState('disappear');
+  const [clsEdit, setClsEdit] = useState('disappear');
+  const [blur, setBlur] = useState('');
+
+  const handleEditPost = () => {
+    cancel();
+    setBlur('blur');
+    setClsEdit('');
+  }
+
+  const openSettings = () => {
+    setClsName('');
+    setBlur('blur');
+  }
+
+  const cancel = () => {
+    setClsName('disappear');
+    setClsEdit('disappear');
+    setBlur('');
+  }
+
+  const handleDeletePost = (e) => {
+    e.preventDefault();
+
+    axios.delete(`http://localhost:8000/api/delete-posts/${id}`).then( res => {
+      if(res.data.status === 200)
+      {
+        navigate('/');  
+      }
+    })
+  }
+
   return (
     <div className="main">
+
+      <div className={clsEdit}><EditPost cancel={cancel} /></div>
+
+      <div className="block-center">
+      <div className={clsName}>
+      <div className="block-settings-ellipsis">
+        <div><br/>
+          <div onClick={handleEditPost} className="text-settings">Редактировать</div>
+          <hr/>
+          <div onClick={handleDeletePost} className="text-settings text-danger">Удалить</div>
+          <hr/>
+          <div onClick={cancel} className="text-settings">Отмена</div>
+        </div>
+      </div>
+      </div>
+      </div>
+      
+      <div>
       <div className="home_posts">
-        <div>
+        <div className={blur}>
+          <div className="block-to-settings">
           <div className="block-texts-username padding10">
             <Link to={"/profile/" + post.id_user}><img className="avatarka" width="36px" height="36px" src={'/uploads/' + profileImg + '/' + userProfile.image}  /></Link>
             <Link to={"/profile/" + post.id_user}><div className="username-text-post">{userProfile.username}</div></Link>
             <span className="datetime"> • {moment(post.created_at).fromNow()}</span>
           </div>
-
+          <div>
+            {userProfile.id == localStorage.getItem('auth_id') ? <div className="threedots" onClick={openSettings}><AiOutlineEllipsis className="icons" /></div> : <div></div>}
+          </div>
+          </div>
+          
+          <div onClick={cancel}>
           {block}
 
+          {likes.map((like, i) => {
+            if(like.id_post == id) {
+              counterLikes++;
+            }
+          })}
+
+          <div className="margintop15px">
           {liked}
-          
+          <span className="counterLikes"><b>{counterLikes} likes</b></span>
+          </div> 
+
           <form method="post" className="form_comment">
             <input type="text" onChange={(e) => setTextComment(e.target.value)} value={textComment} className="input_comment" placeholder="Добавить комментарий..." />
             <button onClick={(e) => {
               e.preventDefault();
+              disabledPost = true;
 
               const formData = new FormData();
               formData.append('id_user', localStorage.getItem('auth_id'));
@@ -182,7 +252,7 @@ const Post = (props) => {
                   window.location.reload();
                 }
               });   
-            }} className="postComment" disabled={textComment.length >= 1 ? false : true}>Post</button>
+            }} className="postComment" disabled={textComment.length >= 1 ? disabledPost : true}>Post</button>
           </form> 
           
           {users.map((u, i) => {
@@ -211,12 +281,24 @@ const Post = (props) => {
 
                         return (
                           <div key={i} className="block-comments-out padding10">
-                            <div className="block-comments-profile">
+                            <div className="block-comments-profile block-to-settings">
                               <Link to={"/profile/" + comment.id_user}><img className="avatarka" width="36px" height="36px" src={'/uploads/' + profileImg2 + '/' + u.image}  /></Link>
                               <div className="block-comments">
                                 <Link to={"/profile/" + comment.id_user}><div className="username-text-post">{u.username}</div></Link>
                                 <div className="commentText">{comment.text}</div>
-                                <span className="datetime">{moment(comment.created_at).fromNow()}</span>
+                                <div>
+                                  <span className="datetime">{moment(comment.created_at).fromNow()}</span>
+                                  {localStorage.getItem('auth_id') == comment.id_user ? <span onClick={(e) => {
+                                    e.preventDefault();
+
+                                    axios.delete(`http://localhost:8000/api/comment-delete/${comment.id}`).then( res => {
+                                      if(res.data.status === 200)
+                                      {
+                                        window.location.reload();  
+                                      }
+                                    })
+                                  }} className="datetime">Удалить</span> : <span></span>}
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -233,6 +315,8 @@ const Post = (props) => {
           })}
 
         </div>                              
+      </div>
+      </div>
       </div>
     </div>
   );
