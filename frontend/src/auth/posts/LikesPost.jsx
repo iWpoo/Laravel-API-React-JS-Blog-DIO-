@@ -7,6 +7,9 @@ const LikesPost = (props) => {
   const {id} = useParams();
 	const [posts, setPosts] = useState([]);
 	const [likes, setLikes] = useState([]);
+  const [user, setUser] = useState({
+    likes: '',
+  });
 
 	useEffect(() => {
         axios.get(`http://localhost:8000/api/posts`).then( res => {
@@ -30,7 +33,18 @@ const LikesPost = (props) => {
               console.log(404);
             }
         });
-    }, []);
+
+        axios.get(`http://localhost:8000/api/profile/${id}`).then( res => {
+          if(res.data.status === 200)
+          {
+              setUser(res.data.user);
+          }
+          else if(res.data.status === 404)
+          {
+              console.log(404);
+          }
+        });
+    }, [id]);
 
     let image = '';
     let video = '';
@@ -57,7 +71,8 @@ const LikesPost = (props) => {
 
     	  <div className="block-center">
         <div className="block-posts-profile">
-        	{
+        	{user.likes === 'true' && localStorage.getItem('auth_id') != id ? 
+          <div>Пользователь скрыл показ пролайканных постов.</div> :
             likes.map((like, i) => {
               if(like.id_user == id) {
                 return (

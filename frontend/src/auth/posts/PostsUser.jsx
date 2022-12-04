@@ -110,7 +110,7 @@ const PostsUser = (props) => {
 
                       return (
                         <div key={i}>
-                          <Link to={"/post/" + post.id}>{block}</Link>
+                          <Link to={"/post/" + post.id}><div className="block-posts">{block}</div></Link>
                         </div>  
                       )
                       }if(userProfile.is_private == 'true' && item.follower_id != localStorage.getItem('auth_id')) {

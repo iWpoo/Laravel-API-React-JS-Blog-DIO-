@@ -47,7 +47,7 @@ const EditProfile = () => {
           }
           else if(res.data.status === 404)
           {
-              history('/');
+              console.log(404);
           }
       });
 

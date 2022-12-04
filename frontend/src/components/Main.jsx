@@ -6,12 +6,13 @@ import {AiOutlineHeart, AiOutlineComment, AiOutlineBook} from 'react-icons/ai';
 import moment from 'moment';
 
 const Main = (props) => {
+
   const [users, setUsers] = useState([]);
   const [followers, setFollowers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [likes, setLikes] = useState([]);
   const [comments, setComments] = useState([]);
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(0); 
 
   useEffect(() => {
       axios.get(`http://localhost:8000/api/users`).then( res => {
@@ -92,7 +93,7 @@ const Main = (props) => {
                 return (
                   <div key={el.id} className="block_list_users">
                     <div>
-                    <a href={"/profile/"+el.id}><img className="avatarka" width="64px" height="64px" src={'/uploads/' + img + '/' + el.image} /></a>
+                    <Link to={"/profile/"+el.id}><img className="avatarka" width="64px" height="64px" src={'/uploads/' + img + '/' + el.image} /></Link>
                     
                     <div className="block_followers_text2">
                       <Link to={"/profile/"+el.id}>
@@ -110,7 +111,6 @@ const Main = (props) => {
     }
   });
   
-  let CryptoJS = require("crypto-js");
   let profileImg = '';
   let profileImg2 = '';
   let profileImg3 = '';
@@ -187,6 +187,7 @@ const Main = (props) => {
     }
   });
 
+
   return (
     <div className="main">
     <div>
@@ -211,7 +212,7 @@ const Main = (props) => {
     </div>
     </div>
   );
-
+  
 }
 
 export default Main;

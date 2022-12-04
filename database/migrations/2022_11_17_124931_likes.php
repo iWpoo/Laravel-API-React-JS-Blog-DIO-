@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreign('id_post')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
             $table->bigInteger('id_user')->unsigned()->index();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('liked')->default('like.png');
             $table->timestamps();
         });
     }

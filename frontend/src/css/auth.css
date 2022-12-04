@@ -395,13 +395,13 @@
   margin-bottom: 5px;
 }
 
-#closed {
+.closed {
   width: 16px;
   height: 16px;
   margin-right: 10px;
 }
 
-#text-for-closed {
+.text-for-closed {
   font-size: 15px;
   font-weight: bold;
 }
@@ -596,8 +596,10 @@
 
 .block-posts-profile {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 5px;
+  width: 75%;
 }
 
 .postsProfile {

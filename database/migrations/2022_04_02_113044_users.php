@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('token');
             $table->string('password');
             $table->enum('is_private', ['false', 'true'])->default('false')->nullable();
+            $table->enum('likes', ['false', 'true'])->default('true')->nullable();
             $table->timestamps();
         });
     }

@@ -42,7 +42,7 @@ const Profile = (props) => {
           }
       });
 
-  }, []);
+  }, [id]);
 
 
   // Change the image profile
@@ -159,9 +159,9 @@ const Profile = (props) => {
                 counter++;
                 block = (
                   <div>
-                    <a href={"/profile/"+el.id}>
+                    <Link to={"/profile/"+el.id}>
                       <div className="fol_username_text">{el.username}</div>
-                    </a>
+                    </Link>
                     <div className="fol_bio_text">{el.bio}</div>
                   </div>);
                 
@@ -175,7 +175,7 @@ const Profile = (props) => {
                 if(localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8) && localStorage.getItem('auth_id') == id) {
                 return (
                   <div key={el.id} className="followers_block">
-                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>                   
+                    <Link to={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></Link>                   
                     <div className="block_followers_text">
                       {counter != 0 ? block : 'Нету подписчиков...'}
                     </div>
@@ -185,7 +185,7 @@ const Profile = (props) => {
                 } else {
                   return (
                   <div key={el.id} className="followers_block">
-                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>                   
+                    <Link to={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></Link>                   
                     <div className="block_followers_text">
                       {counter != 0 ? block : 'Нету подписчиков...'}
                     </div>
@@ -225,13 +225,13 @@ const Profile = (props) => {
             users.map((el, index) => {
               if(item.user_id === el.id) {
                 counter2++;
-                block2 = (<div><a href={"/profile/"+el.id}><div className="fol_username_text">{el.username}</div></a><div className="fol_bio_text">{el.bio}</div></div>);
+                block2 = (<div><Link to={"/profile/"+el.id}><div className="fol_username_text">{el.username}</div></Link><div className="fol_bio_text">{el.bio}</div></div>);
                 if(el.image != 'default.jpg') img = 'profiles';
                 else img = 'default';
 
                 return (
                   <div key={el.id} className="followers_block">
-                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>
+                    <Link to={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></Link>
                     <div className="block_followers_text">
                       {counter2 != 0 ? block2 : 'Нету подписок...'}
                     </div>

@@ -21,15 +21,39 @@ import Main from './components/Main';
 import Post from './posts/Post';
 import PostsUser from './auth/posts/PostsUser';
 import LikesPost from './auth/posts/LikesPost';
+import Explore from './components/Explore';
 
 const App = () => {
 
+  // Protection against XSS attacks
+  const [id, setId] = useState(localStorage.getItem('auth_id'));
+
+  let CryptoJS = require("crypto-js");
+  const [token, setToken] = useState(''); 
+  
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/profile/${id}`).then( res => {
+      if(res.data.status === 200)
+      {
+        setToken(res.data.user.token);
+      }
+      else if(res.data.status === 404)
+      {
+        console.log(404);
+      }
+    });
+  }, [id, token])
+
+  let tk = token;
+  let dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
+  
+  // Add Post
+  
   const [clsName, setClsName] = useState('disapear');
   const [blurPage, setBlurPage] = useState('');
 
   const cancel = () => {
     setClsName('disapear');
-    setEdit('disapear');
     setBlurPage('');
   }
 
@@ -60,12 +84,12 @@ const App = () => {
           </Routes>
       </div>
     )
-  } else {
+  } else if(localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8)){
     AuthToken = (
     <div>
       <div className={blurPage}>
         <div className="head">
-        <header className="header">
+        <header className="header"> 
             <Link to="/"><div className="DIO">DIO</div></Link>
             <input type="text" id="sch" placeholder="🔍 Поиск" className="schInput" />
             <div className="iconsBlock">
@@ -74,18 +98,19 @@ const App = () => {
             <AiOutlinePlusCircle className="icons" onClick={() => setClsName('')} />
             <Link to="/explore"><AiOutlineCompass className="icons" /></Link>
             <Link to="/notification"><AiOutlineHeart className="icons" /></Link>
-            <a href={"/profile/"+localStorage.getItem('auth_id')}>
+            <Link to={"/profile/"+localStorage.getItem('auth_id')}>
             {isImg == true ? <img src={'/uploads/profiles/'+image} className="icons imgicon" /> :
             <img src={'/uploads/default/'+image} className="icons imgicon" />}
-            </a>
+            </Link>
             </div>
         </header>
         </div>
         <Routes>
-          <Route path="/accounts/edit" element={<EditProfile/>} />
-          <Route path="/accounts/password/change/" element={<ChangePassword/>} />
-          <Route path="/accounts/privacy_and_security/" element={<Privacy/>} />
-          <Route path="/" element={<Main/>} />
+          <Route path="/accounts/edit" element={<EditProfile />} />
+          <Route path="/accounts/password/change/" element={<ChangePassword />} />
+          <Route path="/accounts/privacy_and_security/" element={<Privacy />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/explore" element={<Explore />} />
           <Route path="/post/:id" element={<Post />} />
           <Route path="/profile/:id" element={<PostsUser />} />
           <Route path="/profile/:id/likes" element={<LikesPost />} />
@@ -96,8 +121,12 @@ const App = () => {
       <div className={clsName}><AddPost cancel={cancel} /></div>
     </div>
     )
+  }else {
+    return (
+      <div></div>
+    )
   }
-
+  
   return (
     <div className="App">
       <Router>
@@ -110,5 +139,5 @@ const App = () => {
 export default App;
 
 if (document.getElementById('app')) {
-    ReactDOM.render(<App />, document.getElementById('app'));
+  ReactDOM.render(<App />, document.getElementById('app'));
 }

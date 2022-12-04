@@ -9,6 +9,28 @@ import EditPost from './EditPost';
 const Post = (props) => {
   const navigate = useNavigate();
   const {id} = useParams();
+  let CryptoJS = require("crypto-js");
+
+  const [token, setToken] = useState(''); 
+  const [idUserComment, setIdUserComment] = useState(0);
+  
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/profile/${localStorage.getItem('auth_id')}`).then( res => {
+      if(res.data.status === 200)
+      {
+        setToken(res.data.user.token);
+        setIdUserComment(res.data.user.id);
+      }
+      else if(res.data.status === 404)
+      {
+        console.log(404);
+      }
+    });
+  }, [])
+
+  let tok = token;
+  let dtok = CryptoJS.AES.decrypt(tok, 'my-secret-token');
+
   const [textComment, setTextComment] = useState('');
   const [post, setPost] = useState({
     id: 0,
@@ -18,10 +40,15 @@ const Post = (props) => {
     created_at: '',
   });
   const [userProfile, setUser] = useState({
+      id: 0,
       username: '',
       bio: '',
       image: '',
+      token: '',
   });
+  let tk = userProfile.token;
+  let dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
+
   const [comments, setComments] = useState([]);
   const [users, setUsers] = useState([]);
   const [likes, setLikes] = useState([]);
@@ -217,7 +244,7 @@ const Post = (props) => {
             <span className="datetime"> • {moment(post.created_at).fromNow()}</span>
           </div>
           <div>
-            {userProfile.id == localStorage.getItem('auth_id') ? <div className="threedots" onClick={openSettings}><AiOutlineEllipsis className="icons" /></div> : <div></div>}
+            {dtk.toString(CryptoJS.enc.Utf8) == localStorage.getItem('auth_token') ? <div className="threedots" onClick={openSettings}><AiOutlineEllipsis className="icons" /></div> : <div></div>}
           </div>
           </div>
           
@@ -242,7 +269,7 @@ const Post = (props) => {
               disabledPost = true;
 
               const formData = new FormData();
-              formData.append('id_user', localStorage.getItem('auth_id'));
+              formData.append('id_user', idUserComment);
               formData.append('id_post', id);
               formData.append('text', textComment);
 

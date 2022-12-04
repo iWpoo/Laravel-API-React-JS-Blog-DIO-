@@ -28,7 +28,7 @@ Route::post('/edit-image/{id}', [ProfileController::class, 'editImage']);
 Route::post('/password/{id}', [ProfileController::class, 'changePassword']);
 
 // Privacy
-Route::post('/privacy_and_security/{id}', [ProfileController::class, 'closeAccount']);
+Route::post('/privacy_and_security/{id}', [ProfileController::class, 'privacyAccount']);
 
 // Followers system
 Route::get('/followers', [FollowsController::class, 'followUsers']);

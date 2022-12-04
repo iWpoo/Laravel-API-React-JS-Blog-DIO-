@@ -12,10 +12,11 @@ use File;
 
 class ProfileController extends Controller
 {
-    public function closeAccount(Request $request, $id) 
+    public function privacyAccount(Request $request, $id) 
     {
         $user = User::find($id);
         $user->is_private = $request->input('is_private');
+        $user->likes = $request->input('likes');
 
         $user->update();
 
