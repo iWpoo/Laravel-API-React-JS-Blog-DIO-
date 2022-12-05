@@ -13,15 +13,15 @@ const Explore = (props) => {
   useEffect(() => {
 
   	axios.get(`http://localhost:8000/api/users`).then( res => {
-          if(res.data.status === 200)
-          {
-            setUsers(res.data.users);
-          }
-          else if(res.data.status === 404)
-          {
-            history('/');
-          }
-      });
+      if(res.data.status === 200)
+      {
+        setUsers(res.data.users);
+      }
+      else if(res.data.status === 404)
+      {
+        console.log(404);
+      }
+    });
 
     axios.get(`http://localhost:8000/api/posts`).then( res => {
       if(res.data.status === 200)
@@ -41,31 +41,41 @@ const Explore = (props) => {
   let block = '';
   
   let viewPosts = posts.map((post, i) => {
-                image = (<img src={"/uploads/posts/" + post.post} className="postsProfile" />);
-                video = (
-                  <video className="postsProfile" autoPlay loop muted>
-                    <source src={"/uploads/videos/" + post.post} type="video/mp4" />
-                  </video>  
-                );
+    image = (<img src={"/uploads/posts/" + post.post} className="postsProfile" />);
+    video = (
+      <video className="postsProfile" autoPlay loop muted>
+        <source src={"/uploads/videos/" + post.post} type="video/mp4" />
+      </video>  
+    );
 
-                if(post.post.includes('.mp4') === true) {
-                  block = video;
-                }else {
-                  block = image;
-                }
+    if(post.post.includes('.mp4') === true) {
+      block = video;
+    }else {
+      block = image;
+    }
 
-                return (
-                  <div key={post.id}>
-                    {
-                      <Link to={"/post/" + post.id}><div className="block-posts">{block}</div></Link>
-                    }
-                  </div>
-                )
-            });
+    return (
+      <div key={post.id}>
+        {
+          users.map((user, i) => {
+            if(post.id_user == user.id && user.is_private != 'true') {
+              return (
+                <div key={i}>
+                  <Link to={"/post/" + post.id}><div className="block-posts">{block}</div></Link>
+                </div>
+              )
+            }
+          })
+        }
+      </div>
+    )
+  });
 
   return (
     <div>
-      {viewPosts}
+      <div className="block-posts-explore">
+        {viewPosts}
+      </div>
     </div>
   );
   

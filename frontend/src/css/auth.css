@@ -602,6 +602,13 @@
   width: 75%;
 }
 
+.block-posts-explore {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
 .postsProfile {
   object-fit: cover;
   cursor: pointer;
