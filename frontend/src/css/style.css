@@ -236,6 +236,10 @@ a {
   font-weight: bold;
 }
 
+.space10px {
+  margin-left: 10px;
+}
+
 .block-icons-post {
   display: flex;
   flex-direction: row;
@@ -247,7 +251,7 @@ a {
 .datetime {
   color: gray;
   font-size: 14px;
-  margin-left: 8px;
+  margin-left: 10px;
 }
 
 
@@ -382,4 +386,34 @@ a {
 .threedots {
   margin-right: 10px;
   cursor: pointer;
+}
+
+.block-notification-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.block-username-notification {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.not_post {
+  width: 36px;
+  height: 36px;
+  object-fit: cover; 
+}
+
+.notification-post {
+  order: 999;
+  margin-left: auto;
+}
+
+.not_padding {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
 }

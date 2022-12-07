@@ -159,9 +159,9 @@ const Profile = (props) => {
                 counter++;
                 block = (
                   <div>
-                    <Link to={"/profile/"+el.id}>
+                    <a href={"/profile/"+el.id}>
                       <div className="fol_username_text">{el.username}</div>
-                    </Link>
+                    </a>
                     <div className="fol_bio_text">{el.bio}</div>
                   </div>);
                 
@@ -175,7 +175,7 @@ const Profile = (props) => {
                 if(localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8) && localStorage.getItem('auth_id') == id) {
                 return (
                   <div key={el.id} className="followers_block">
-                    <Link to={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></Link>                   
+                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>                   
                     <div className="block_followers_text">
                       {counter != 0 ? block : 'Нету подписчиков...'}
                     </div>
@@ -185,7 +185,7 @@ const Profile = (props) => {
                 } else {
                   return (
                   <div key={el.id} className="followers_block">
-                    <Link to={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></Link>                   
+                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>                   
                     <div className="block_followers_text">
                       {counter != 0 ? block : 'Нету подписчиков...'}
                     </div>
@@ -225,13 +225,13 @@ const Profile = (props) => {
             users.map((el, index) => {
               if(item.user_id === el.id) {
                 counter2++;
-                block2 = (<div><Link to={"/profile/"+el.id}><div className="fol_username_text">{el.username}</div></Link><div className="fol_bio_text">{el.bio}</div></div>);
+                block2 = (<div><a href={"/profile/"+el.id}><div className="fol_username_text">{el.username}</div></a><div className="fol_bio_text">{el.bio}</div></div>);
                 if(el.image != 'default.jpg') img = 'profiles';
                 else img = 'default';
 
                 return (
                   <div key={el.id} className="followers_block">
-                    <Link to={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></Link>
+                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>
                     <div className="block_followers_text">
                       {counter2 != 0 ? block2 : 'Нету подписок...'}
                     </div>
@@ -327,6 +327,7 @@ const Profile = (props) => {
   const openSettings = () => {
     setClsName('');
     setClsName2('blur');
+    props.handleBlurPost();
   }
 
 
@@ -335,14 +336,17 @@ const Profile = (props) => {
   const openList = () => {
     setClsName3('');
     setClsName2('blur');
+    props.handleBlurPost();
   }
 
   const openList2 = () => {
     setClsName4('');
     setClsName2('blur');
+    props.handleBlurPost();
   }
 
   const cancel = () => {
+    props.cancelBlur();
     if(clsName == '') {
       setClsName('disapear');
       setClsName2('');
@@ -425,13 +429,6 @@ const Profile = (props) => {
       </div>
     </div>
     <hr className="hr" />
-
-
-    <Routes>
-      <Route path={"/profile/" + id} element={<PostsUser />} />
-      <Route path={"/profile/" + id + "/likes"} element={<LikesPost />} />
-    </Routes>
-
     </div>
   );
   }

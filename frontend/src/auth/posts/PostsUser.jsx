@@ -54,6 +54,16 @@ const PostsUser = (props) => {
         });
     }, []);
 
+    const [blurPage, setBlurPage] = useState('');
+
+    const handleBlurPost = () => {
+      setBlurPage('blur');
+    }
+
+    const cancelBlur = () => {
+      setBlurPage('');
+    }
+
     let image = '';
     let video = '';
     let block = '';
@@ -71,7 +81,7 @@ const PostsUser = (props) => {
           }
         })}
         
-        <Profile counterPosts={counterPosts} />
+        <Profile counterPosts={counterPosts} cancelBlur={cancelBlur} handleBlurPost={handleBlurPost} />
 
     	  <div className="block-switch-posts">
     	    <div className="block-switch">
@@ -79,7 +89,7 @@ const PostsUser = (props) => {
             <Link to={"/profile/" + id + "/likes"}><span className="element">LIKES</span></Link>
           </div>
         </div>
-        
+
     	  <div className="block-center">
         <div className="block-posts-profile">
         	{
@@ -113,15 +123,25 @@ const PostsUser = (props) => {
                           <Link to={"/post/" + post.id}><div className="block-posts">{block}</div></Link>
                         </div>  
                       )
-                      }if(userProfile.is_private == 'true' && item.follower_id != localStorage.getItem('auth_id')) {
+                      }
+
+                      else if(userProfile.is_private == 'true' && item.follower_id != localStorage.getItem('auth_id')) {
                         closedProfile = 'Закрытый профиль';
+                      }
+
+                      else if(userProfile.is_private == 'true' && userProfile.id == localStorage.getItem('auth_id')) {
+                        return (
+                          <div key={i}>
+                            <Link to={"/post/" + post.id}><div className="block-posts">{block}</div></Link>
+                          </div>  
+                        )
                       }
                       })
                     }
 
                     {
                       userProfile.is_private != 'true' ? 
-                      <div key={post.id}>
+                      <div key={post.id} className={blurPage}>
                         <Link to={"/post/" + post.id}>{block}</Link>
                       </div> : <div></div>
                     }

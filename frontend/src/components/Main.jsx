@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import '../css/style.css';
-import {AiOutlineHeart, AiOutlineComment, AiOutlineBook} from 'react-icons/ai';
+import {AiOutlineHeart, AiOutlineComment} from 'react-icons/ai';
 import moment from 'moment';
 
 const Main = (props) => {

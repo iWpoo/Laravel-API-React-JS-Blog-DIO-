@@ -46,6 +46,16 @@ const LikesPost = (props) => {
         });
     }, [id]);
 
+    const [blurPage, setBlurPage] = useState('');
+
+    const handleBlurPost = () => {
+      setBlurPage('blur');
+    }
+
+    const cancelBlur = () => {
+      setBlurPage('');
+    }
+
     let image = '';
     let video = '';
     let block = '';
@@ -60,7 +70,7 @@ const LikesPost = (props) => {
         }
       })}
 
-      <Profile counterPosts={counterPosts} />
+      <Profile counterPosts={counterPosts} cancelBlur={cancelBlur} handleBlurPost={handleBlurPost} />
 
     	  <div className="block-switch-posts">
     	      <div className="block-switch">

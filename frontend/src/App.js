@@ -22,6 +22,7 @@ import Post from './posts/Post';
 import PostsUser from './auth/posts/PostsUser';
 import LikesPost from './auth/posts/LikesPost';
 import Explore from './components/Explore';
+import Notification from './components/Notification';
 
 const App = () => {
 
@@ -47,15 +48,23 @@ const App = () => {
   let tk = token;
   let dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
   
-  // Add Post
+  // Add Post && Notification
   
   const [clsName, setClsName] = useState('disapear');
   const [blurPage, setBlurPage] = useState('');
+  const [notification, setNotification] = useState('disapear');
 
   const cancel = () => {
-    setClsName('disapear');
-    setBlurPage('');
+    if(clsName == '') { 
+      setClsName('disapear');
+      setBlurPage('');
+    }
+    if(notification == '') {
+      setNotification('disapear');
+      setBlurPage('');
+    }
   }
+
 
   let AuthToken = '';
 
@@ -97,7 +106,7 @@ const App = () => {
             <Link to="/direct/inbox/"><AiOutlineMessage className="icons" /></Link>
             <AiOutlinePlusCircle className="icons" onClick={() => setClsName('')} />
             <Link to="/explore"><AiOutlineCompass className="icons" /></Link>
-            <Link to="/notification"><AiOutlineHeart className="icons" /></Link>
+            <span onClick={() => {setNotification(''); setBlurPage('blur');}}><AiOutlineHeart className="icons" /></span>
             <Link to={"/profile/"+localStorage.getItem('auth_id')}>
             {isImg == true ? <img src={'/uploads/profiles/'+image} className="icons imgicon" /> :
             <img src={'/uploads/default/'+image} className="icons imgicon" />}
@@ -119,6 +128,9 @@ const App = () => {
 
       {/* Add Post */}
       <div className={clsName}><AddPost cancel={cancel} /></div>
+
+      {/* Notification */}
+      <div className={notification}><Notification cancel={cancel} /></div>
     </div>
     )
   }else {
