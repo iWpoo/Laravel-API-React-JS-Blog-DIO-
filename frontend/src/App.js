@@ -66,6 +66,27 @@ const App = () => {
   }
 
 
+  // Search users
+
+  const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState('');
+  let block = '';
+  let img = '';
+
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/users`).then( res => {
+          if(res.data.status === 200)
+          {
+            setUsers(res.data.users);
+          }
+          else if(res.data.status === 404)
+          {
+            history('/');
+          }
+    });
+  }, [])
+
+
   let AuthToken = '';
 
   const [image, setImage] = useState(localStorage.getItem('auth_image'));
@@ -97,10 +118,10 @@ const App = () => {
     AuthToken = (
     <div>
       <div className={blurPage}>
-        <div className="head">
+        <div className="head" onClick={() => {setSearch('')}}>
         <header className="header"> 
             <Link to="/"><div className="DIO">DIO</div></Link>
-            <input type="text" id="sch" placeholder="🔍 Поиск" className="schInput" />
+            <input type="text" onChange={(e) => setSearch(e.target.value)} id="sch" placeholder="🔍 Поиск" className="schInput" />
             <div className="iconsBlock">
             <Link to="/"><AiOutlineHome className="icons"/></Link>
             <Link to="/direct/inbox/"><AiOutlineMessage className="icons" /></Link>
@@ -114,6 +135,43 @@ const App = () => {
             </div>
         </header>
         </div>
+        {search.length != 0 ?
+        <div className="block-search-users">
+          {
+            users.filter((value) => {
+              if(search === "") {
+                return value;
+              }else if(value.username.toLowerCase().includes(search.toLowerCase())) {
+                return value;
+              }else if(value.name.toLowerCase().includes(search.toLowerCase())) {
+                return value;
+              }
+            }).map((item) => {
+
+              block = (
+              <div>
+                <Link to={"/profile/"+item.id}>
+                <div className="fol_username_text">{item.username}</div>
+                </Link>
+                <div className="fol_bio_text">{item.bio}</div>
+              </div>);
+
+              if(item.image != 'default.jpg') img = 'profiles';
+              else img = 'default';  
+
+              return (
+                <div key={item.id} className="followers_block" onClick={() => {setSearch('')}}>
+                  <Link to={"/profile/"+item.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + item.image} /></Link>            
+                  <div className="block_followers_text">
+                    {block}
+                  </div>
+                </div>
+              )
+            })
+          }
+        </div> : <div></div>}
+      
+        <div onClick={() => {setSearch('')}}>
         <Routes>
           <Route path="/accounts/edit" element={<EditProfile />} />
           <Route path="/accounts/password/change/" element={<ChangePassword />} />
@@ -124,6 +182,7 @@ const App = () => {
           <Route path="/profile/:id" element={<PostsUser />} />
           <Route path="/profile/:id/likes" element={<LikesPost />} />
         </Routes>
+        </div>
       </div>
 
       {/* Add Post */}

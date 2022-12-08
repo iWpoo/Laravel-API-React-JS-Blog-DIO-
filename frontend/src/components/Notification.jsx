@@ -78,6 +78,10 @@ const Notification = (props) => {
   let text = '';
   let img ='';
 
+  let counterFollowers = 0;
+  let counterLikes = 0;
+  let counterComments = 0;
+
   let viewFollowers = followers.map((follower, i) => {
     if(localStorage.getItem('auth_id') == follower.user_id) {
       return (
@@ -85,10 +89,11 @@ const Notification = (props) => {
           {
             users.map((user, i) => {
               if(follower.follower_id === user.id) {
+                counterFollowers++;
 
                 if(user.image != 'default.jpg') img = 'profiles';
                 else img = 'default';  
-
+                
                 return (
                   <div key={user.id}>
                     <a href={"/profile/" + user.id} className="block-notification-flex not_padding">
@@ -121,6 +126,7 @@ const Notification = (props) => {
                     {
                       users.map((user, i) => {
                         if(like.id_user === user.id && user.id != localStorage.getItem('auth_id')) {
+                          counterLikes++;
                           image = (<a href={"/post/" + post.id}><img src={"/uploads/posts/" + post.post} className="not_post" /></a>);
                           video = (
                             <a href={"/post/" + post.id}>
@@ -176,6 +182,7 @@ const Notification = (props) => {
                     {
                       users.map((user, i) => {
                         if(comment.id_user === user.id && user.id != localStorage.getItem('auth_id')) {
+                          counterComments++;
                           image = (<a href={"/post/" + post.id}><img src={"/uploads/posts/" + post.post} className="not_post" /></a>);
                           video = (
                             <a href={"/post/" + post.id}>

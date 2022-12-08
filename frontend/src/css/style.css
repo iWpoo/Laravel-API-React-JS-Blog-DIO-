@@ -324,7 +324,7 @@ a {
 
 .commentText {
   font-size: 15px;
-  margin-left: 8px;
+  margin-left: 10px;
 }
 
 .close-overflow {
@@ -416,4 +416,18 @@ a {
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
+}
+
+.block-search-users {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  width: 510px;
+  height: 320px;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  overflow-y: auto;
 }

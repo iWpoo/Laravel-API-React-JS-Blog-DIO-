@@ -603,7 +603,7 @@
 
 
 /* POSTS IN PROFILE */
-
+ 
 .block-center {
   display: flex;
   justify-content: center;
@@ -629,8 +629,6 @@
   cursor: pointer;
   display: block;
   flex: 1 1 auto;
-
-  position: relative;
   
   box-sizing: border-box;
   width: 300px;

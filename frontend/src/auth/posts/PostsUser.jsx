@@ -92,8 +92,32 @@ const PostsUser = (props) => {
 
     	  <div className="block-center">
         <div className="block-posts-profile">
-        	{
-            posts.map((post, i) => {
+        	{localStorage.getItem('auth_id') == id ?
+          posts.map((post, i) => {
+              if(post.id_user == id) {
+                counterPosts++;
+
+                image = (<img src={"/uploads/posts/" + post.post} className="postsProfile" />);
+                video = (
+                  <video className="postsProfile" autoPlay loop muted>
+                    <source src={"/uploads/videos/" + post.post} type="video/mp4" />
+                  </video>  
+                );
+
+                if(post.post.includes('.mp4') === true) {
+                  block = video;
+                }else {
+                  block = image;
+                }
+
+                return (
+                  <div key={post.id}>
+                    <Link to={"/post/" + post.id}><div className="block-posts">{block}</div></Link>
+                  </div>
+                )
+              }
+            }) 
+          : posts.map((post, i) => {
               if(post.id_user == id) {
                 counterPosts++;
 
@@ -124,17 +148,8 @@ const PostsUser = (props) => {
                         </div>  
                       )
                       }
-
                       else if(userProfile.is_private == 'true' && item.follower_id != localStorage.getItem('auth_id')) {
                         closedProfile = 'Закрытый профиль';
-                      }
-
-                      else if(userProfile.is_private == 'true' && userProfile.id == localStorage.getItem('auth_id')) {
-                        return (
-                          <div key={i}>
-                            <Link to={"/post/" + post.id}><div className="block-posts">{block}</div></Link>
-                          </div>  
-                        )
                       }
                       })
                     }
