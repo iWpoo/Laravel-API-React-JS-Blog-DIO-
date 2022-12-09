@@ -29,7 +29,7 @@ const EditProfile = () => {
           }
       });
 
-  }, []);
+  }, [localStorage.getItem('auth_id')]);
 
   useEffect(() => {
       axios.get(`http://localhost:8000/api/profile/`+localStorage.getItem('auth_id')).then( res => {
@@ -51,7 +51,7 @@ const EditProfile = () => {
           }
       });
 
-  }, []);
+  }, [localStorage.getItem('auth_id')]);
 
   const [errors, setErrors] = useState('');
 
@@ -155,7 +155,22 @@ const EditProfile = () => {
     }
   });
 
-if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
+  let block = '';
+
+  let imageProfile = (<img src={"/uploads/profiles/" + image} className="image-edit-profile" />);
+  let video = (
+    <video className="image-edit-profile" autoPlay loop muted>
+      <source src={"/uploads/profiles/" + image} type="video/mp4" />
+    </video>  
+  );
+  
+  if(image.includes('.mp4') === true) {
+    block = video;
+  }else {
+    block = imageProfile;
+  }
+  
+  if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
   return (
     <div className="block-edit-profile">
     <div className="block-switch-elements">
@@ -170,7 +185,7 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
     <div>{errors}</div>
     <div className="block-texts-username">
         <label htmlFor="input__file">
-        {isImg == true ? <img src={'/uploads/profiles/'+image} className="image-edit-profile" /> :
+        {isImg == true ? block :
         <img src={'/uploads/default/'+image} className="image-edit-profile" />}
         </label>
         <div className="block-username">
@@ -205,8 +220,8 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
     </form>
     </div>
   );
-} else {
-  history('/');
+}else {
+  console.log(404);
 }
 
 }

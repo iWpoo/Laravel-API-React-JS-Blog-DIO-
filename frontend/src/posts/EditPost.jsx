@@ -75,6 +75,20 @@ const EditPost = (props) => {
     }
   })
 
+  let imageProfile = (<img src={path + localStorage.getItem('auth_image')} className="image-edit-profile" />);
+  let video_profile = (
+  <video className="image-edit-profile" autoPlay loop muted>
+    <source src={"/uploads/profiles/" + localStorage.getItem('auth_image')} type="video/mp4" />
+  </video>  
+  );  
+  let blockProfiles = '';
+
+  if(localStorage.getItem('auth_image').includes('.mp4') === true) {
+    blockProfiles = video_profile;
+  }else {
+    blockProfiles = imageProfile;
+  }
+
   
     return (
       <div className="blockEditPost">
@@ -84,7 +98,7 @@ const EditPost = (props) => {
       <form onSubmit={handleSubmit} method="post">
           <div className="formAddPost">
           <div className="block-texts">
-          <img src={path + localStorage.getItem('auth_image')} className="image-edit-profile" />
+          {blockProfiles}
           <div className="block-username">
           <span className="username-text">{localStorage.getItem('auth_name')}</span>
           </div>

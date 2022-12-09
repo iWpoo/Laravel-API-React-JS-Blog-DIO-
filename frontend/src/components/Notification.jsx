@@ -82,6 +82,10 @@ const Notification = (props) => {
   let counterLikes = 0;
   let counterComments = 0;
 
+  let imageUser = '';
+  let video_user = '';
+  let blockProfiles = '';
+
   let viewFollowers = followers.map((follower, i) => {
     if(localStorage.getItem('auth_id') == follower.user_id) {
       return (
@@ -93,11 +97,24 @@ const Notification = (props) => {
 
                 if(user.image != 'default.jpg') img = 'profiles';
                 else img = 'default';  
+
+                imageUser = (<img src={'/uploads/' + img + '/' + user.image} width="36px" height="36px" className="avatarka" />);
+                video_user = (
+                <video className="avatarka" width="36px" height="36px" autoPlay loop muted>
+                  <source src={'/uploads/' + img + '/' + user.image} type="video/mp4" />
+                </video>  
+                ); 
+              
+                if(user.image.includes('.mp4') === true) {
+                  blockProfiles = video_user;
+                }else {
+                  blockProfiles = imageUser;
+                }
                 
                 return (
                   <div key={user.id}>
                     <a href={"/profile/" + user.id} className="block-notification-flex not_padding">
-                      <img className="avatarka" width="36px" height="36px" src={'/uploads/' + img + '/' + user.image}  />
+                      {blockProfiles}
                       <div className="block-username-notification">
                         <div className="username-text-post">{user.username}</div>
                         <span className="space10px">подписался(-ась) на ваши обновления.</span>
@@ -144,10 +161,23 @@ const Notification = (props) => {
                             text = 'публикация';
                           }
 
+                          imageUser = (<img src={'/uploads/' + img + '/' + user.image} width="36px" height="36px" className="avatarka" />);
+                          video_user = (
+                          <video className="avatarka" width="36px" height="36px" autoPlay loop muted>
+                            <source src={'/uploads/' + img + '/' + user.image} type="video/mp4" />
+                          </video>  
+                          ); 
+                        
+                          if(user.image.includes('.mp4') === true) {
+                            blockProfiles = video_user;
+                          }else {
+                            blockProfiles = imageUser;
+                          }
+
                           return (
                             <div key={user.id}>
                               <a href={"/profile/" + user.id} className="block-notification-flex not_padding">
-                              <img className="avatarka" width="36px" height="36px" src={'/uploads/' + img + '/' + user.image}  />
+                              {blockProfiles}
                               <div className="block-username-notification">
                                 <div className="username-text-post">{user.username}</div>
                                 <span className="space10px">нравится ваше {text}.</span>
@@ -200,10 +230,23 @@ const Notification = (props) => {
                             text = 'публикация';
                           }
 
+                          imageUser = (<img src={'/uploads/' + img + '/' + user.image} width="36px" height="36px" className="avatarka" />);
+                          video_user = (
+                          <video className="avatarka" width="36px" height="36px" autoPlay loop muted>
+                            <source src={'/uploads/' + img + '/' + user.image} type="video/mp4" />
+                          </video>  
+                          ); 
+                        
+                          if(user.image.includes('.mp4') === true) {
+                            blockProfiles = video_user;
+                          }else {
+                            blockProfiles = imageUser;
+                          }
+
                           return (
                             <div key={user.id}>
                               <a href={"/profile/" + user.id} className="block-notification-flex not_padding">
-                              <img className="avatarka" width="36px" height="36px" src={'/uploads/' + img + '/' + user.image}  />
+                              {blockProfiles}
                               <div className="block-username-notification">
                                 <div className="username-text-post">{user.username}</div>
                                 <span className="space10px">прокоментировал ваше {text}:</span>

@@ -72,7 +72,7 @@ const LikesPost = (props) => {
 
       <Profile counterPosts={counterPosts} cancelBlur={cancelBlur} handleBlurPost={handleBlurPost} />
 
-    	  <div className="block-switch-posts">
+    	  <div className={"block-switch-posts " + blurPage}>
     	      <div className="block-switch">
               <Link to={"/profile/" + id}><span className="element">POSTS</span></Link>
               <Link to={"/profile/" + id + "/likes"}><span className="element active">LIKES</span></Link>
@@ -80,7 +80,7 @@ const LikesPost = (props) => {
         </div>
 
     	  <div className="block-center">
-        <div className="block-posts-profile">
+        <div className={"block-posts-profile " + blurPage}>
         	{user.likes === 'true' && localStorage.getItem('auth_id') != id ? 
           <div>Пользователь скрыл показ пролайканных постов.</div> :
             likes.map((like, i) => {

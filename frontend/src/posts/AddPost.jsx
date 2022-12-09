@@ -76,6 +76,20 @@ const AddPost = (props) => {
     }
   })
 
+  let imageProfile = (<img src={path + localStorage.getItem('auth_image')} className={"image-edit-profile " + clsName} />);
+  let video_profile = (
+  <video className={"image-edit-profile " + clsName} autoPlay loop muted>
+    <source src={"/uploads/profiles/" + localStorage.getItem('auth_image')} type="video/mp4" />
+  </video>  
+  );  
+  let blockProfiles = '';
+
+  if(localStorage.getItem('auth_image').includes('.mp4') === true) {
+    blockProfiles = video_profile;
+  }else {
+    blockProfiles = imageProfile;
+  }
+
   
   if(localStorage.getItem('auth_token') != dtk.toString(CryptoJS.enc.Utf8)) {
     return (
@@ -102,7 +116,7 @@ const AddPost = (props) => {
 
           <div className="formAddPost">
           <div className="block-texts">
-          <img src={path + localStorage.getItem('auth_image')} className={"image-edit-profile " + clsName} />
+          {blockProfiles}
           <div className="block-username">
           <span className={"username-text " + clsName}>{localStorage.getItem('auth_name')}</span>
           </div>

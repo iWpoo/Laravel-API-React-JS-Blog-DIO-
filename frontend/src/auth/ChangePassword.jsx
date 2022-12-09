@@ -77,6 +77,21 @@ const ChangePassword = () => {
     }
   });
 
+  let block = '';
+
+  let imageProfile = (<img src={"/uploads/profiles/" + image} className="image-edit-profile" />);
+  let video = (
+    <video className="image-edit-profile" autoPlay loop muted>
+      <source src={"/uploads/profiles/" + image} type="video/mp4" />
+    </video>  
+  );
+
+  if(image.includes('.mp4') === true) {
+    block = video;
+  }else {
+    block = imageProfile;
+  }
+
 
 if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
   return (
@@ -91,7 +106,7 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
 
     <form method="post" className="form-edit-profile">
       <div className="block-texts-username">
-        {isImg == true ? <img src={'/uploads/profiles/'+image} className="image-edit-profile" /> :
+        {isImg == true ? block :
         <img src={'/uploads/default/'+image} className="image-edit-profile" />}
         <div className="block-username">
         <span className="username-text">{username}</span>
@@ -112,6 +127,8 @@ if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
     </form>
     </div>
   );
+}else {
+  console.log(404);
 }
 
 }

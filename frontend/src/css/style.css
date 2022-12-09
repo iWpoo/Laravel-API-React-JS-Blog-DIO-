@@ -3,8 +3,11 @@ body {
 }
 
 .head {
+  position: fixed;
+  left: 0;
+  top: 0;
   background: white;
-  margin-bottom: -5px;
+  width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
   border: 1px solid #DBDBDB;
@@ -17,6 +20,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.all-objects {
+  margin-top: 80px;
 }
 
 .DIO {
@@ -58,8 +65,12 @@ a {
 .imgicon {
   border: 1px solid black;
   border-radius: 100%;
+  object-fit: cover;
 }
 
+.videoicon {
+  position: absolute;
+}
 
 .borderAddPost {
   background: white;
@@ -175,7 +186,7 @@ a {
 }
 
 .main {
-  margin-top: 30px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;

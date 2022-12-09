@@ -73,6 +73,10 @@ const App = () => {
   let block = '';
   let img = '';
 
+  let imageUser = '';
+  let video_user = '';
+  let blockProfiles = '';
+
   useEffect(() => {
     axios.get(`http://localhost:8000/api/users`).then( res => {
           if(res.data.status === 200)
@@ -103,6 +107,19 @@ const App = () => {
     }
   }, [image, clsName])
 
+  let imageProfile = (<img src={"/uploads/profiles/" + image} className="icons imgicon" />);
+  let video = (
+    <video className="icons imgicon videoicon" autoPlay loop muted>
+      <source src={"/uploads/profiles/" + image} type="video/mp4" />
+    </video> 
+  );
+
+  if(image.includes('.mp4') === true) {
+    block = video;
+  }else {
+    block = imageProfile;
+  }
+
   if(!localStorage.getItem('auth_token')) {
     AuthToken = (
       <div>
@@ -117,9 +134,8 @@ const App = () => {
   } else if(localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8)){
     AuthToken = (
     <div>
-      <div className={blurPage}>
         <div className="head" onClick={() => {setSearch('')}}>
-        <header className="header"> 
+        <header className={"header " + blurPage}> 
             <Link to="/"><div className="DIO">DIO</div></Link>
             <input type="text" onChange={(e) => setSearch(e.target.value)} id="sch" placeholder="🔍 Поиск" className="schInput" />
             <div className="iconsBlock">
@@ -129,12 +145,13 @@ const App = () => {
             <Link to="/explore"><AiOutlineCompass className="icons" /></Link>
             <span onClick={() => {setNotification(''); setBlurPage('blur');}}><AiOutlineHeart className="icons" /></span>
             <Link to={"/profile/"+localStorage.getItem('auth_id')}>
-            {isImg == true ? <img src={'/uploads/profiles/'+image} className="icons imgicon" /> :
+            {isImg == true ? block :
             <img src={'/uploads/default/'+image} className="icons imgicon" />}
             </Link>
             </div>
         </header>
         </div>
+        <div className={blurPage}>
         {search.length != 0 ?
         <div className="block-search-users">
           {
@@ -159,9 +176,22 @@ const App = () => {
               if(item.image != 'default.jpg') img = 'profiles';
               else img = 'default';  
 
+              imageUser = (<img src={'/uploads/' + img + '/' + item.image} className="avatarka" width="48px" height="48px" />);
+              video_user = (
+              <video className="avatarka" width="48px" height="48px" autoPlay loop muted>
+                <source src={'/uploads/' + img + '/' + item.image} type="video/mp4" />
+              </video>  
+              ); 
+            
+              if(item.image.includes('.mp4') === true) {
+                blockProfiles = video_user;
+              }else {
+                blockProfiles = imageUser;
+              }
+
               return (
                 <div key={item.id} className="followers_block" onClick={() => {setSearch('')}}>
-                  <Link to={"/profile/"+item.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + item.image} /></Link>            
+                  <Link to={"/profile/"+item.id}>{blockProfiles}</Link>            
                   <div className="block_followers_text">
                     {block}
                   </div>

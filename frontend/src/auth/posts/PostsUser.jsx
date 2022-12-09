@@ -83,7 +83,7 @@ const PostsUser = (props) => {
         
         <Profile counterPosts={counterPosts} cancelBlur={cancelBlur} handleBlurPost={handleBlurPost} />
 
-    	  <div className="block-switch-posts">
+    	  <div className={"block-switch-posts " + blurPage}>
     	    <div className="block-switch">
             <Link to={"/profile/" + id}><span className="element active">POSTS</span></Link>
             <Link to={"/profile/" + id + "/likes"}><span className="element">LIKES</span></Link>
@@ -91,7 +91,7 @@ const PostsUser = (props) => {
         </div>
 
     	  <div className="block-center">
-        <div className="block-posts-profile">
+        <div className={"block-posts-profile " + blurPage}>
         	{localStorage.getItem('auth_id') == id ?
           posts.map((post, i) => {
               if(post.id_user == id) {

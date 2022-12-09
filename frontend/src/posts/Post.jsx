@@ -215,6 +215,24 @@ const Post = (props) => {
     })
   }
 
+  let imageProfile = (<img src={"/uploads/" + profileImg + "/" + userProfile.image} className="avatarka" width="36px" height="36px" />);
+  let video_profile = (
+  <video className="avatarka" width="36px" height="36px" autoPlay loop muted>
+    <source src={"/uploads/profiles/" + userProfile.image} type="video/mp4" />
+  </video>  
+  );
+  let blockProfiles = '';
+          
+  if(userProfile.image.includes('.mp4') === true) {
+    blockProfiles = video_profile;
+  }else {
+    blockProfiles = imageProfile;
+  }
+
+  let imageProfile2 = '';
+  let video_profile2 = '';
+  let blockProfiles2 = '';
+
   return (
     <div className="main">
 
@@ -239,7 +257,7 @@ const Post = (props) => {
         <div className={blur}>
           <div className="block-to-settings">
           <div className="block-texts-username padding10">
-            <Link to={"/profile/" + post.id_user}><img className="avatarka" width="36px" height="36px" src={'/uploads/' + profileImg + '/' + userProfile.image}  /></Link>
+            <Link to={"/profile/" + post.id_user}>{blockProfiles}</Link>
             <Link to={"/profile/" + post.id_user}><div className="username-text-post">{userProfile.username}</div></Link>
             <span className="datetime"> • {moment(post.created_at).fromNow()}</span>
           </div>
@@ -281,19 +299,15 @@ const Post = (props) => {
               });   
             }} className="postComment" disabled={textComment.length >= 1 ? disabledPost : true}>Post</button>
           </form> 
-          
-          {users.map((u, i) => {
-          if(post.id_user === u.id) {
-          return (
-          <div key={u.id} className="block-comments-profile padding10">
-            <Link to={"/profile/" + post.id_user}><img className="avatarka" width="36px" height="36px" src={'/uploads/' + profileImg + '/' + u.image}  /></Link>
+
+          <div className="block-comments-profile padding10">
+            <Link to={"/profile/" + post.id_user}>{blockProfiles}</Link>
             <div className="block-comments">
-              <Link to={"/profile/" + post.id_user}><div className="username-text-post">{u.username}</div></Link>
+              <Link to={"/profile/" + post.id_user}><div className="username-text-post">{userProfile.username}</div></Link>
               <div className="commentText">{post.description}</div>
               <span className="datetime">{moment(post.created_at).fromNow()}</span>
             </div>
           </div>
-          )}})}
 
           {comments.map((comment, index) => {
             if(id == comment.id_post) {
@@ -306,10 +320,26 @@ const Post = (props) => {
                         if(u.image != 'default.jpg') profileImg2 = 'profiles';
                         else profileImg2 = 'default';
 
+                        imageProfile2 = (<img src={"/uploads/" + profileImg2 + "/" + u.image} className="avatarka" width="36px" height="36px" />);
+                        video_profile2 = (
+                        <video className="avatarka" width="36px" height="36px" autoPlay loop muted>
+                          <source src={"/uploads/profiles/" + u.image} type="video/mp4" />
+                        </video>  
+                        );  
+
+                        if(u.image.includes('.mp4') === true) {
+                          blockProfiles2 = video_profile2;
+                        }else {
+                          blockProfiles2 = imageProfile2;
+                        }
+
+                        if(u.image != 'default.jpg') profileImg2 = 'profiles';
+                        else profileImg2 = 'default';
+
                         return (
                           <div key={i} className="block-comments-out padding10">
                             <div className="block-comments-profile block-to-settings">
-                              <Link to={"/profile/" + comment.id_user}><img className="avatarka" width="36px" height="36px" src={'/uploads/' + profileImg2 + '/' + u.image}  /></Link>
+                              <Link to={"/profile/" + comment.id_user}>{blockProfiles2}</Link>
                               <div className="block-comments">
                                 <Link to={"/profile/" + comment.id_user}><div className="username-text-post">{u.username}</div></Link>
                                 <div className="commentText">{comment.text}</div>

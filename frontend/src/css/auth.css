@@ -138,6 +138,10 @@
   margin-left: 15%;
 }
 
+.margintop70px {
+  margin-top: 70px;
+}
+
 .blockInfo {
   margin-left: 100px;
 }
@@ -203,6 +207,7 @@
 .block-edit-profile {
   display: flex;
   justify-content: center;
+  margin-top: 70px;
 }
 
 .form-edit-profile {
@@ -233,6 +238,7 @@
   border: 1px solid #DBDBDB;
   border-radius: 100%;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .input__file {
@@ -622,6 +628,7 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 5px;
+  margin-top: 75px;
 }
 
 .postsProfile {

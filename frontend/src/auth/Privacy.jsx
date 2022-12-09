@@ -114,7 +114,8 @@ const Privacy = () => {
   let CryptoJS = require("crypto-js");
   const tk = token;
   let dtk = CryptoJS.AES.decrypt(tk, 'my-secret-token');
-
+  
+  if(localStorage.getItem('auth_token') === dtk.toString(CryptoJS.enc.Utf8)) {
   return (
     <div>
       <div className="block-center">
@@ -171,6 +172,9 @@ const Privacy = () => {
       </div>
     </div>
   );
+} else {
+  console.log(404);
+}
 
 }
 

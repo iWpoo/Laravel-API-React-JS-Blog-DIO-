@@ -144,6 +144,10 @@ const Profile = (props) => {
   let block = '';
   let dtk2 = '';
 
+  let imageFollowers = '';
+  let video_followers = '';
+  let blockProfiles = '';
+
   let viewMap = followers.map((item, index) => {
     if(id == item.user_id && localStorage.getItem('auth_id') == item.follower_id) {
       idToDel = item.id;
@@ -168,6 +172,19 @@ const Profile = (props) => {
                 if(el.image != 'default.jpg') img = 'profiles';
                 else img = 'default';  
 
+                imageFollowers = (<img src={'/uploads/' + img + '/' + el.image} width="48px" height="48px" className="avatarka" />);
+                video_followers = (
+                <video className="avatarka" width="48px" height="48px" autoPlay loop muted>
+                  <source src={'/uploads/' + img + '/' + el.image} type="video/mp4" />
+                </video>  
+                ); 
+              
+                if(el.image.includes('.mp4') === true) {
+                  blockProfiles = video_followers;
+                }else {
+                  blockProfiles = imageFollowers;
+                }
+
                 dtk2 = CryptoJS.AES.decrypt(el.token, 'my-secret-token');
   
                 if(dtk2.toString(CryptoJS.enc.Utf8) == localStorage.getItem('auth_token')) boolean = true;
@@ -175,7 +192,7 @@ const Profile = (props) => {
                 if(localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8) && localStorage.getItem('auth_id') == id) {
                 return (
                   <div key={el.id} className="followers_block">
-                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>                   
+                    <a href={"/profile/"+el.id}>{blockProfiles}</a>                   
                     <div className="block_followers_text">
                       {counter != 0 ? block : 'Нету подписчиков...'}
                     </div>
@@ -185,7 +202,7 @@ const Profile = (props) => {
                 } else {
                   return (
                   <div key={el.id} className="followers_block">
-                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>                   
+                    <a href={"/profile/"+el.id}>{blockProfiles}</a>                   
                     <div className="block_followers_text">
                       {counter != 0 ? block : 'Нету подписчиков...'}
                     </div>
@@ -229,9 +246,23 @@ const Profile = (props) => {
                 if(el.image != 'default.jpg') img = 'profiles';
                 else img = 'default';
 
+
+                imageFollowers = (<img src={'/uploads/' + img + '/' + el.image} width="48px" height="48px" className="avatarka" />);
+                video_followers = (
+                <video className="avatarka" width="48px" height="48px" autoPlay loop muted>
+                  <source src={'/uploads/' + img + '/' + el.image} type="video/mp4" />
+                </video>  
+                ); 
+              
+                if(el.image.includes('.mp4') === true) {
+                  blockProfiles = video_followers;
+                }else {
+                  blockProfiles = imageFollowers;
+                }
+
                 return (
                   <div key={el.id} className="followers_block">
-                    <a href={"/profile/"+el.id}><img className="avatarka" width="48px" height="48px" src={'/uploads/' + img + '/' + el.image} /></a>
+                    <a href={"/profile/"+el.id}>{blockProfiles}</a>
                     <div className="block_followers_text">
                       {counter2 != 0 ? block2 : 'Нету подписок...'}
                     </div>
@@ -361,9 +392,22 @@ const Profile = (props) => {
     }
   }
 
+  let imageProfile = (<img src={"/uploads/profiles/" + userProfile.image} className="avatarka" width="150" height="150" />);
+  let video = (
+    <video className="avatarka" width="150" height="150" autoPlay loop muted>
+      <source src={"/uploads/profiles/" + userProfile.image} type="video/mp4" />
+    </video>  
+  );
+
+  if(userProfile.image.includes('.mp4') === true) {
+    block = video;
+  }else {
+    block = imageProfile;
+  }
+
   if(localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8) && localStorage.getItem('auth_id') == id) {
   return (
-    <div>
+    <div className="margintop70px">
       <div className="block-center">
       <div className={clsName3}>
       <div className="block-followers">
@@ -410,7 +454,7 @@ const Profile = (props) => {
     <div className={"profile " + clsName2}>
       <input type="file" onInput={handleChangeImage} className="input input__file" id="input__file" name="image" onChange={(e) => setPicture({image: e.target.files[0]})} /><br/>
       <label htmlFor="input__file">
-      {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
+      {isImg == true ? block :
       <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
       </label>
       <div className="blockInfo">
@@ -435,7 +479,7 @@ const Profile = (props) => {
   else if(localStorage.getItem('auth_token') != dtk.toString(CryptoJS.enc.Utf8)){
     if(userProfile.is_private != 'true') {
     return (
-      <div>
+      <div className="margintop70px">
       <div className="block-center">
       <div className={clsName3}>
       <div className="block-followers">
@@ -463,7 +507,7 @@ const Profile = (props) => {
       </div>
 
       <div onClick={cancel} className={"profile " + clsName2}>
-        {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
+        {isImg == true ? block :
         <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
         <div className="blockInfo">
           <div className="move_to_center">
@@ -488,7 +532,7 @@ const Profile = (props) => {
     }else {
       if(bool == true) {
       return (
-      <div>
+      <div className="margintop70px">
       <div className="block-center">
       <div className={clsName3}>
       <div className="block-followers">
@@ -517,7 +561,7 @@ const Profile = (props) => {
 
       <div onClick={cancel} className={"profile " + clsName2}>
 
-        {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
+        {isImg == true ? block :
         <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
         <div className="blockInfo">
           <div className="move_to_center">
@@ -540,9 +584,9 @@ const Profile = (props) => {
     ); 
       }else {
       return (
-        <div>
+        <div className="margintop70px">
       <div className="profile">
-        {isImg == true ? <img className="avatarka" src={'/uploads/profiles/'+userProfile.image} width="150" height="150" /> :
+        {isImg == true ? block :
         <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
         <div className="blockInfo">
           <div className="move_to_center">
