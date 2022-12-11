@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams} fr
 import axios from 'axios';
 import Profile from '../Profile';
 
+
 const LikesPost = (props) => {
   const {id} = useParams();
 	const [posts, setPosts] = useState([]);

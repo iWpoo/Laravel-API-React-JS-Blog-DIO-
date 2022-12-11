@@ -204,6 +204,14 @@ a {
   flex-direction: row;
 }
 
+.btnAccess {
+  border: none;
+  border-radius: 4px;
+  width: 70px;
+  height: 30px; 
+  margin-left: 10px;
+}
+
 .follow_posts {
   background: #FAFAFA;
   width: 50%;
@@ -441,4 +449,5 @@ a {
   left: 50%;
   transform: translate(-50%);
   overflow-y: auto;
+  margin-top: -20px;
 }

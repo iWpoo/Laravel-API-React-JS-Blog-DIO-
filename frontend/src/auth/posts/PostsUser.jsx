@@ -138,7 +138,7 @@ const PostsUser = (props) => {
                   <div key={post.id}>
                     {
                       followers.map((item, i) => {
-                      if(userProfile.is_private == 'true' && item.user_id === userProfile.id && item.follower_id == localStorage.getItem('auth_id')) {
+                      if(userProfile.is_private == 'true' && item.user_id === userProfile.id && item.follower_id == localStorage.getItem('auth_id') && item.is_private === 'false') {
                       closedProfile = '';
                       disap = "disappear";
 
@@ -148,7 +148,7 @@ const PostsUser = (props) => {
                         </div>  
                       )
                       }
-                      else if(userProfile.is_private == 'true' && item.follower_id != localStorage.getItem('auth_id')) {
+                      else if(userProfile.is_private == 'true' && item.follower_id != localStorage.getItem('auth_id') || item.is_private === 'true') {
                         closedProfile = 'Закрытый профиль';
                       }
                       })

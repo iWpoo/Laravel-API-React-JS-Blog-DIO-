@@ -136,7 +136,7 @@ const Profile = (props) => {
   })
 
   let boolean = false;
-  let bool = false;
+  let bool = 'false';
   let idToDel = 0;
   let counter = 0;
   let str = String(counter);
@@ -149,12 +149,15 @@ const Profile = (props) => {
   let blockProfiles = '';
 
   let viewMap = followers.map((item, index) => {
-    if(id == item.user_id && localStorage.getItem('auth_id') == item.follower_id) {
+    if(id == item.user_id && localStorage.getItem('auth_id') == item.follower_id && item.is_private === 'false') {
       idToDel = item.id;
       bool = true;
+    }else if(id == item.user_id && localStorage.getItem('auth_id') == item.follower_id && item.is_private === 'true') {
+      idToDel = item.id;
+      bool = 'request';
     }
 
-    if(id == item.user_id) {
+    if(id == item.user_id && item.is_private === 'false') {
       return (
         <div key={item.id}>
           {
@@ -235,7 +238,7 @@ const Profile = (props) => {
   let str2 = String(counter2);
   let block2 = '';
   let viewMap2 = followers.map((item, index) => {
-    if(id == item.follower_id) {
+    if(id == item.follower_id && item.is_private === 'false') {
       return (
         <div key={item.id}>
           {
@@ -317,10 +320,12 @@ const Profile = (props) => {
   const handleToFollow = (e) => {
     e.preventDefault();
     setDisable(true);
-
+    
+    if(userProfile.is_private === 'true') {
     const formData = new FormData();
     formData.append('follower_id', follower_id);
     formData.append('user_id', user_id);
+    formData.append('is_private', 'true');
 
     axios.post('http://localhost:8000/api/tofollow', formData).then(res => {
         if(res.data.status === 200) {
@@ -330,6 +335,21 @@ const Profile = (props) => {
           console.log(res.data.validation_errors);
         }
     });
+    }else {
+    const formData = new FormData();
+    formData.append('follower_id', follower_id);
+    formData.append('user_id', user_id);
+    formData.append('is_private', 'false');
+
+    axios.post('http://localhost:8000/api/tofollow', formData).then(res => {
+        if(res.data.status === 200) {
+          window.location.reload();
+        }
+        else {
+          console.log(res.data.validation_errors);
+        }
+    });
+    }
   }
 
   const handleUnfollow = (e) => {
@@ -582,9 +602,32 @@ const Profile = (props) => {
 
       </div>
     ); 
+      }else if(bool == 'request') {
+        return (
+        <div className="margintop90px">
+      <div className="profile">
+        {isImg == true ? block :
+        <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
+        <div className="blockInfo">
+          <div className="move_to_center">
+          <div className="profile-username">{userProfile.username}</div>
+          <button onClick={handleUnfollow} className={"subsrcibed " + followsOrNot1}>Запрос отправлен</button>
+          </div>
+          <div className="CountersBlock">
+            <div className="counter_text"><b>{props.counterPosts}</b> публикаций</div>&nbsp;&nbsp;&nbsp;
+            <div className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
+            <div className="counter_text"><b>{counter2}</b> подписок</div>
+          </div><br/>
+          <div className="profile-name">{userProfile.name}</div>
+          <div className="profile-bio">{userProfile.bio}</div>
+        </div>
+      </div>
+      <hr className="hr" />
+      </div>
+      );
       }else {
       return (
-        <div className="margintop70px">
+        <div className="margintop90px">
       <div className="profile">
         {isImg == true ? block :
         <img className="avatarka" src={'/uploads/default/'+userProfile.image} width="150" height="150" />}
@@ -597,8 +640,8 @@ const Profile = (props) => {
           </div>
           <div className="CountersBlock">
             <div className="counter_text"><b>{props.counterPosts}</b> публикаций</div>&nbsp;&nbsp;&nbsp;
-            <div onClick={openList} className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
-            <div onClick={openList2} className="counter_text"><b>{counter2}</b> подписок</div>
+            <div className="counter_text"><b>{counter}</b> подписчиков</div>&nbsp;&nbsp;&nbsp;
+            <div className="counter_text"><b>{counter2}</b> подписок</div>
           </div><br/>
           <div className="profile-name">{userProfile.name}</div>
           <div className="profile-bio">{userProfile.bio}</div>

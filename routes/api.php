@@ -33,6 +33,7 @@ Route::post('/privacy_and_security/{id}', [ProfileController::class, 'privacyAcc
 // Followers system
 Route::get('/followers', [FollowsController::class, 'followUsers']);
 Route::post('/tofollow', [FollowsController::class, 'toFollow']);
+Route::post('/request-follow/{id}', [FollowsController::class, 'requestFollow']);
 Route::delete('/unfollow/{id}', [FollowsController::class, 'unFollow']);
 
 // POSTS

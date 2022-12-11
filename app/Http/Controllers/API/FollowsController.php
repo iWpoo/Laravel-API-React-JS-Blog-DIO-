@@ -33,7 +33,21 @@ class FollowsController extends Controller
         $follow = new Follower;
         $follow->follower_id = $request->follower_id;
         $follow->user_id = $request->user_id;
+        $follow->is_private = $request->is_private;
         $follow->save();
+        
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
+
+    public function requestFollow(Request $request, $id)
+    {
+        $follow = Follower::find($id);
+        $follow->follower_id = $request->input('follower_id');
+        $follow->user_id = $request->input('user_id');
+        $follow->is_private = $request->input('is_private');
+        $follow->update();
         
         return response()->json([
             'status' => 200,

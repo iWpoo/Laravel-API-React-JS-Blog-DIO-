@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('follower_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('is_private', ['false', 'true'])->default('false');
             $table->timestamps();
         }); 
     }

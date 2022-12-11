@@ -113,14 +113,60 @@ const Notification = (props) => {
                 
                 return (
                   <div key={user.id}>
-                    <a href={"/profile/" + user.id} className="block-notification-flex not_padding">
+                    
+                      {follower.is_private === 'true' ? 
+                      <div className="block-notification-flex not_padding">
+                      <a href={"/profile/" + user.id}>
+                      {blockProfiles}
+                      </a>
+                      <div className="block-username-notification">
+                        <a href={"/profile/" + user.id}>
+                        <div className="username-text-post">{user.username}</div>
+                        <span className="space10px">хочет подписаться на вас</span>
+                        <span className="datetime">{moment(follower.created_at).fromNow()}</span>
+                        </a>
+                        <button className="btnAccess btn-primary" onClick={(e) => {
+                        e.preventDefault();
+
+                        const formData = new FormData();
+                        formData.append('follower_id', user.id);
+                        formData.append('user_id', localStorage.getItem('auth_id'));
+                        formData.append('is_private', 'false');
+                    
+                        axios.post(`http://localhost:8000/api/request-follow/${follower.id}`, formData).then(res => {
+                            if(res.data.status === 200) {
+                              window.location.reload();
+                            }
+                            else {
+                              console.log(res.data.validation_errors);
+                            }
+                        });
+                      }}>Принять</button>
+                      <button className="btnAccess btn-danger" onClick={(e) => {
+                        e.preventDefault();
+
+                        axios.delete(`http://localhost:8000/api/unfollow/${follower.id}`).then( res => {
+                          if(res.data.status === 200)
+                          {
+                            window.location.reload();
+                          }
+                        });
+                      }}>Отмена</button>
+                      </div>
+                      </div>
+                      : <div></div>
+                      }
+                      {follower.is_private === 'false' ?
+                      <a href={"/profile/" + user.id} className="block-notification-flex not_padding">
                       {blockProfiles}
                       <div className="block-username-notification">
                         <div className="username-text-post">{user.username}</div>
                         <span className="space10px">подписался(-ась) на ваши обновления.</span>
                         <span className="datetime">{moment(follower.created_at).fromNow()}</span>
                       </div>
-                    </a>
+                      </a> : <div></div>
+                      }
+                    
                   </div>
                 )
               }

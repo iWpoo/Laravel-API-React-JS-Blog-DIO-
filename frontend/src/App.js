@@ -33,6 +33,7 @@ const App = () => {
   const [token, setToken] = useState(''); 
   
   useEffect(() => {
+
     axios.get(`http://localhost:8000/api/profile/${id}`).then( res => {
       if(res.data.status === 200)
       {
@@ -94,7 +95,6 @@ const App = () => {
   let AuthToken = '';
 
   const [image, setImage] = useState(localStorage.getItem('auth_image'));
-
   const [isImg, setIsImg] = useState(true);
 
   useEffect(() => {
@@ -107,18 +107,8 @@ const App = () => {
     }
   }, [image, clsName])
 
-  let imageProfile = (<img src={"/uploads/profiles/" + image} className="icons imgicon" />);
-  let video = (
-    <video className="icons imgicon videoicon" autoPlay loop muted>
-      <source src={"/uploads/profiles/" + image} type="video/mp4" />
-    </video> 
-  );
-
-  if(image.includes('.mp4') === true) {
-    block = video;
-  }else {
-    block = imageProfile;
-  }
+  let imageProfile = '';
+  let video = '';
 
   if(!localStorage.getItem('auth_token')) {
     AuthToken = (
@@ -132,6 +122,20 @@ const App = () => {
       </div>
     )
   } else if(localStorage.getItem('auth_token') == dtk.toString(CryptoJS.enc.Utf8)){
+    
+    imageProfile = (<img src={"/uploads/profiles/" + image} className="icons imgicon" />);
+    video = (
+      <video className="icons imgicon videoicon" autoPlay loop muted>
+        <source src={"/uploads/profiles/" + image} type="video/mp4" />
+      </video> 
+    );
+  
+    if(image.includes('.mp4') === true) {
+      block = video;
+    }else {
+      block = imageProfile;
+    }
+
     AuthToken = (
     <div>
         <div className="head" onClick={() => {setSearch('')}}>

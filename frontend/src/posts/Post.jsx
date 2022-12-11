@@ -89,7 +89,6 @@ const Post = (props) => {
       }
     });
 
-
     axios.get(`http://localhost:8000/api/comments-get`).then( res => {
       if(res.data.status === 200)
       {

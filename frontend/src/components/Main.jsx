@@ -240,7 +240,7 @@ const Main = (props) => {
     <div>
       <div className="follow_users">
         <div className="marginleft25px">
-        <a href={"/profile/"+localStorage.getItem('auth_id')}>{blockProfile}</a>
+        <Link to={"/profile/"+localStorage.getItem('auth_id')}>{blockProfile}</Link>
         <div>
           <Link to={"/profile/"+localStorage.getItem('auth_id')}>
             <div className="textToTheCenter">{localStorage.getItem('auth_name')}</div>
