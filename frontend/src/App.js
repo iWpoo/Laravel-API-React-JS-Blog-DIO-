@@ -6,7 +6,6 @@ import './css/style.css';
 import ReactDOM from 'react-dom';
 import {
 AiOutlineHome, AiFillHome,
-AiOutlineMessage, AiFillMessage,
 AiOutlinePlusCircle, AiFillPlusCircle,
 AiOutlineCompass, AiFillCompass,
 AiOutlineHeart, AiFillHeart} from 'react-icons/ai';
@@ -144,7 +143,6 @@ const App = () => {
             <input type="text" onChange={(e) => setSearch(e.target.value)} id="sch" placeholder="🔍 Поиск" className="schInput" />
             <div className="iconsBlock">
             <Link to="/"><AiOutlineHome className="icons"/></Link>
-            <Link to="/direct/inbox/"><AiOutlineMessage className="icons" /></Link>
             <AiOutlinePlusCircle className="icons" onClick={() => setClsName('')} />
             <Link to="/explore"><AiOutlineCompass className="icons" /></Link>
             <span onClick={() => {setNotification(''); setBlurPage('blur');}}><AiOutlineHeart className="icons" /></span>

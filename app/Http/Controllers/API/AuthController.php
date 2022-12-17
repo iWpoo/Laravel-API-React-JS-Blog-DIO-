@@ -50,7 +50,7 @@ class AuthController extends Controller
             'username'=>'required|max:191',
             'password'=>'required',
         ]);
-
+ 
         if($validator->fails()) {
             return response()->json([
                 'validation_errors'=>$validator->messages(),

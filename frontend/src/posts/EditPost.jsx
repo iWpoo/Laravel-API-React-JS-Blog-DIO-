@@ -5,6 +5,7 @@ import '../css/auth.css';
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import {AiFillFileImage} from 'react-icons/ai';
+import swal from 'sweetalert';
 
 const EditPost = (props) => {
   const {id} = useParams();
@@ -60,7 +61,7 @@ const EditPost = (props) => {
           window.location.reload();
         }
         else {
-          console.log(res.data.validation_errors);
+          swal('Не удалось редактировать пост.', "", 'error');
         }
     });
   } 

@@ -138,7 +138,7 @@ const Notification = (props) => {
                               window.location.reload();
                             }
                             else {
-                              console.log(res.data.validation_errors);
+                              swal('Данный пользователь не найден.', "", 'error');
                             }
                         });
                       }}>Принять</button>

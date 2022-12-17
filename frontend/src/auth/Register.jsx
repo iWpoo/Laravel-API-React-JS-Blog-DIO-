@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-r
 import '../css/auth.css';
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
+import swal from 'sweetalert';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -55,11 +56,11 @@ const Register = () => {
     axios.get('http://localhost:8000/sanctum/csrf-cookie').then(response => {
     axios.post('http://localhost:8000/api/register', formData).then(res => {
         if(res.data.status === 200) {
-            navigate('/');
+          swal(res.data.message, "", 'success');
+          navigate('/');
         }
         else {
-           console.log(res.data.validation_errors);
-           setError(res.data.validation_errors);
+          setError(res.data.validation_errors);
         }
     });
     });

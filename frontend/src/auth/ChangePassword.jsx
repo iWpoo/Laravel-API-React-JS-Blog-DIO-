@@ -2,6 +2,7 @@ import react, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams} from 'react-router-dom';
 import '../css/auth.css';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 const ChangePassword = () => {
   const history = useNavigate();
@@ -57,10 +58,10 @@ const ChangePassword = () => {
     } else {
     axios.post(`/api/password/${localStorage.getItem('auth_id')}`, formData).then(res => {
         if(res.data.status === 200) {
-            window.location.reload();
+          window.location.reload();
         }
         else {
-          console.log('Не удалось изменить пароль.');
+          swal('Не удалось изменить пароль.', "", 'error');
         }
     });
     }

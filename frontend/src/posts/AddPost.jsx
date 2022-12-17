@@ -5,6 +5,7 @@ import '../css/auth.css';
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import {AiFillFileImage} from 'react-icons/ai';
+import swal from 'sweetalert';
 
 const AddPost = (props) => {
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ const AddPost = (props) => {
           window.location.reload();
         }
         else {
-          console.log(res.data.validation_errors);
+          swal('Не удалось добавить новый пост.', "", 'error');
         }
     });
   } 

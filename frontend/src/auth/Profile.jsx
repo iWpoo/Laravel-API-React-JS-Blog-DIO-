@@ -7,6 +7,7 @@ import Followers from './followers/Followers';
 import Following from './followers/Following';
 import PostsUser from './posts/PostsUser';
 import LikesPost from './posts/LikesPost';
+import swal from 'sweetalert';
 
 const Profile = (props) => {
   const history = useNavigate();
@@ -69,7 +70,7 @@ const Profile = (props) => {
               window.location.reload();
           }
           else if(res.data.status === 422) {
-              alert(res.data.validate_err);
+              swal(res.data.validation_err, "", 'error');
               setFlip(false);
           }else {
             setFlip(false);
@@ -310,7 +311,7 @@ const Profile = (props) => {
           window.location.reload();
         }
         else {
-          console.log(res.data.validation_errors);
+          swal("Пользователь не найден.", "", 'error');
         }
       });
     }
@@ -332,7 +333,7 @@ const Profile = (props) => {
           window.location.reload();
         }
         else {
-          console.log(res.data.validation_errors);
+          swal("Пользователь не найден.", "", 'error');
         }
     });
     }else {
@@ -346,7 +347,7 @@ const Profile = (props) => {
           window.location.reload();
         }
         else {
-          console.log(res.data.validation_errors);
+          swal("Пользователь не найден.", "", 'error');
         }
     });
     }
@@ -533,7 +534,6 @@ const Profile = (props) => {
           <div className="move_to_center">
           <div className="profile-username">{userProfile.username}</div>
           <button onClick={handleToFollow} disabled={disable} className={"subsrcibe " + followsOrNot1}>Подписаться</button>
-          <button className={"subsrcibed " + followsOrNot2}>Написать</button>
           <button onClick={handleUnfollow} className={"subsrcibed " + followsOrNot2}>Отписаться</button><br/><br/>
           </div>
           <div className="CountersBlock">
@@ -586,7 +586,6 @@ const Profile = (props) => {
         <div className="blockInfo">
           <div className="move_to_center">
           <div className="profile-username">{userProfile.username}</div>
-          <button className={"subsrcibed " + followsOrNot2}>Написать</button>
           <button onClick={handleUnfollow} className={"unfollowsBtn " + followsOrNot2}>Отписаться</button><br/><br/>
           </div>
           <div className="CountersBlock">
@@ -635,7 +634,6 @@ const Profile = (props) => {
           <div className="move_to_center">
           <div className="profile-username">{userProfile.username}</div>
           <button onClick={handleToFollow} disabled={disable} className={"subsrcibe " + followsOrNot1}>Подписаться</button>
-          <button className={"subsrcibed " + followsOrNot2}>Написать</button>
           <button onClick={handleUnfollow} className={"subsrcibed " + followsOrNot2}>Отписаться</button><br/><br/>
           </div>
           <div className="CountersBlock">

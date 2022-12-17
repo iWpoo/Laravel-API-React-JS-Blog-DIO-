@@ -2,6 +2,7 @@ import react, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams} from 'react-router-dom';
 import '../css/auth.css';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 const EditProfile = () => {
   const history = useNavigate();
@@ -70,10 +71,11 @@ const EditProfile = () => {
           if(res.data.status === 200) {
               localStorage.setItem('auth_name', res.data.username);
               localStorage.setItem('auth_id', res.data.id);
-              window.location.reload();
+              swal(res.data.message, "", 'success');
           }
           else if(res.data.status === 422) {
               setErrors(res.data.validate_err);
+              swal(res.data.validation_err, "", 'error');
           }
       });
   }
@@ -96,10 +98,10 @@ const EditProfile = () => {
               window.location.reload();
           }
           else if(res.data.status === 422) {
-              alert(res.data.validate_err);
+              swal(res.data.validation_err, "", 'error');
               setFlip(false);
           }else {
-            alert('Problem');
+            swal("Error image", "", 'error');
             setFlip(false);
           }
       });
@@ -120,7 +122,7 @@ const EditProfile = () => {
             window.location.reload();
         }
         else {
-          console.log('Не удалось удалить изображение.');
+          swal('Не удалось удалить изображение.', "", 'error');
         }
     });
   }
